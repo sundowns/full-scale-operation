@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvyyirhwaikl5"
-path="res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"
+uid="uid://cjkmwfjycj811"
+path="res://.godot/imported/Lead Pipe.png-72c2a9ca53a3680c0fe8f0b37c0f2800.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/axe.png"
-dest_files=["res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"]
+source_file="res://assets/items/Lead Pipe.png"
+dest_files=["res://.godot/imported/Lead Pipe.png-72c2a9ca53a3680c0fe8f0b37c0f2800.ctex"]
 
 [params]
 

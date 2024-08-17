@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvyyirhwaikl5"
-path="res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"
+uid="uid://c6kpu3vmpo82c"
+path="res://.godot/imported/Frying Pan.png-314ef29787ad9684c65137994d11212b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/axe.png"
-dest_files=["res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"]
+source_file="res://assets/items/Frying Pan.png"
+dest_files=["res://.godot/imported/Frying Pan.png-314ef29787ad9684c65137994d11212b.ctex"]
 
 [params]
 

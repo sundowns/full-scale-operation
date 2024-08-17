@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvyyirhwaikl5"
-path="res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"
+uid="uid://bbj8kgixr3nse"
+path="res://.godot/imported/Toothbrush.png-06e7bb9c61202fa8d9aa75b9aee9d8f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/axe.png"
-dest_files=["res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"]
+source_file="res://assets/items/Toothbrush.png"
+dest_files=["res://.godot/imported/Toothbrush.png-06e7bb9c61202fa8d9aa75b9aee9d8f8.ctex"]
 
 [params]
 

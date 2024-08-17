@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvyyirhwaikl5"
-path="res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"
+uid="uid://cll20wto5flfl"
+path="res://.godot/imported/Laptop.png-48e5a4bd42dae8d4a596ceb24b9d9909.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/axe.png"
-dest_files=["res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"]
+source_file="res://assets/items/Laptop.png"
+dest_files=["res://.godot/imported/Laptop.png-48e5a4bd42dae8d4a596ceb24b9d9909.ctex"]
 
 [params]
 

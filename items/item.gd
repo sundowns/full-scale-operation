@@ -29,7 +29,7 @@ func initialise() -> void:
 func _process(delta: float) -> void:
 	if is_being_held:
 		global_position = lerp(global_position, get_parent().global_position, data.follow_speed * delta)
-	look_at(DependencyHelper.retrieve("Camera").global_position)
+	#look_at(DependencyHelper.retrieve("Camera").global_position)
 
 func _on_pickup() -> void:
 	top_level = true

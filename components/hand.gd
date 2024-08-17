@@ -13,21 +13,16 @@ func _input(event: InputEvent) -> void:
 
 func try_to_grab_thing() -> void:
 	if current_grabbable_thing:
+		current_grabbable_thing._unmark_as_target_for_pickup()
 		held_thing = current_grabbable_thing
-		#var parent = held_thing.get_parent()
-		#parent.remove_child(held_thing)
 		held_thing.reparent(self, true)
-		#add_child(held_thing)
 		if held_thing is Item:
 			held_thing._on_pickup()
 
 func drop_thing() -> void:
 	assert(held_thing != null, "Look what you've fuckin' done....")
-	#remove_child(held_thing)
 	if held_thing is Item:
 		held_thing.reparent(DependencyHelper.retrieve("Items"), true)
-		#DependencyHelper.retrieve("Items").add_child(held_thing)
-		#held_thing.global_position = global_position
 		held_thing._on_drop()
 	else:
 		push_error("Tried to drop somethig that isn't item - where should we put it in the scene :[")
@@ -35,6 +30,8 @@ func drop_thing() -> void:
 
 func _on_graboss_area_entered(area: Area3D) -> void:
 	if area is GrabBox:
+		if area.get_parent() == held_thing:
+			return
 		if current_grabbable_thing and current_grabbable_thing is Item:
 			if current_grabbable_thing is Item:
 				current_grabbable_thing._unmark_as_target_for_pickup()

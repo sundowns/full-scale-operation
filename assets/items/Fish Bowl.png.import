@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvyyirhwaikl5"
-path="res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"
+uid="uid://dp6oy2wjhsvwc"
+path="res://.godot/imported/Fish Bowl.png-fbfbb635e9734e9b7b1bd299be8b6c22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/axe.png"
-dest_files=["res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"]
+source_file="res://assets/items/Fish Bowl.png"
+dest_files=["res://.godot/imported/Fish Bowl.png-fbfbb635e9734e9b7b1bd299be8b6c22.ctex"]
 
 [params]
 

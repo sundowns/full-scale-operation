@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvyyirhwaikl5"
-path="res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"
+uid="uid://dyy3aodq7r0qj"
+path="res://.godot/imported/Screw.png-49dbb42cb45890eabac87d291df6faf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/axe.png"
-dest_files=["res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"]
+source_file="res://assets/items/Screw.png"
+dest_files=["res://.godot/imported/Screw.png-49dbb42cb45890eabac87d291df6faf1.ctex"]
 
 [params]
 

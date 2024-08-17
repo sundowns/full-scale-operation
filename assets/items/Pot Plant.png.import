@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvyyirhwaikl5"
-path="res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"
+uid="uid://boj157fiqyxjw"
+path="res://.godot/imported/Pot Plant.png-163e3ac25e0930fe0a96151718e4469c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/axe.png"
-dest_files=["res://.godot/imported/axe.png-7caf0d39d10e28a54c35f3a0c6e08f16.ctex"]
+source_file="res://assets/items/Pot Plant.png"
+dest_files=["res://.godot/imported/Pot Plant.png-163e3ac25e0930fe0a96151718e4469c.ctex"]
 
 [params]
 

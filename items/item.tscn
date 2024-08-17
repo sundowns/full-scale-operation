@@ -24,6 +24,7 @@ shape = SubResource("BoxShape3D_dadgd")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 flip_h = true
+billboard = 1
 
 [node name="GrabBox" parent="." instance=ExtResource("4_qmdax")]
 

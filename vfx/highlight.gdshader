@@ -10,6 +10,16 @@ uniform float glowAngle: hint_range(0.0, 6.28) = 1.57; // The starting angle. Mo
 uniform float glowSharpness: hint_range(0.0, 5.0) = 1.0; // Effect how quickly stamps become transparent as they move out
 uniform float alphaThreshold: hint_range(0.0, 1.0) =  0.2; // Alpha level a pixel should be considered a glow
 
+void vertex() {
+	mat4 modified_model_view = VIEW_MATRIX * mat4(
+        INV_VIEW_MATRIX[0],
+        INV_VIEW_MATRIX[1],
+        INV_VIEW_MATRIX[2],
+        MODEL_MATRIX[3]
+    );
+    MODELVIEW_MATRIX = modified_model_view;
+}
+
 //Goes through every single pixle and does thing
 void fragment() {
 	vec4 col = texture(sprite_texture, UV); // Gets color at uv position of pixel
