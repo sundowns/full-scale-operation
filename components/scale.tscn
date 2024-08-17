@@ -16,7 +16,7 @@ radial_segments = 16
 rings = 1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o6lqq"]
-height = 0.227676
+height = 0.321792
 radius = 0.956565
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fbnhy"]

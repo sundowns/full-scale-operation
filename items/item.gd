@@ -22,7 +22,7 @@ func initialise() -> void:
 	_is_initialised = true
 	sprite.texture = data.sprite
 	sprite.pixel_size = data.get_pixel_size()
-	grab_box.set_shape(data.grab_box_shape)
+	grab_box.set_shape(data.get_grab_box())
 	weight_component.set_weight(data.weight)
 	highlight_material.set_shader_parameter("sprite_texture", data.sprite)
 

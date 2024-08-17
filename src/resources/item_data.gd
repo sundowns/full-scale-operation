@@ -9,10 +9,18 @@ class_name ItemData
 @export_range(0.001, 10, 0.001) var width: float = 0.5
 
 @export_category("Grabbing")
-@export var grab_box_shape: Shape3D = BoxShape3D.new()
+## Optional, otherwise calculated from width
+@export var grab_shape_override: Shape3D
 @export var follow_speed: float = 6
 
 func get_pixel_size() -> float:
 	return self.width  / self.sprite.get_width()
 
-# image_size * pixel_size = ingame_width
+func get_grab_box() -> BoxShape3D:
+	if grab_shape_override:
+		return grab_shape_override
+	## Otherwise, create one
+	var new_shape: BoxShape3D = BoxShape3D.new()
+	new_shape.size = Vector3(width, width, width)
+	grab_shape_override = new_shape
+	return new_shape
