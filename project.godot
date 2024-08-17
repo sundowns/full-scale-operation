@@ -22,6 +22,7 @@ DependencyHelper="*res://src/autoload/DependencyHelper.gd"
 [file_customization]
 
 folder_colors={
+"res://components/": "green",
 "res://items/": "yellow"
 }
 
@@ -62,6 +63,7 @@ graboss={
 3d_physics/layer_1="World"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Item"
+3d_physics/layer_4="WeightComponent"
 
 [rendering]
 

@@ -14,19 +14,20 @@ func _input(event: InputEvent) -> void:
 func try_to_grab_thing() -> void:
 	if current_grabbable_thing:
 		held_thing = current_grabbable_thing
-		var parent = held_thing.get_parent()
-		parent.remove_child(held_thing)
-		add_child(held_thing)
-		held_thing.global_position = global_position
+		#var parent = held_thing.get_parent()
+		#parent.remove_child(held_thing)
+		held_thing.reparent(self, true)
+		#add_child(held_thing)
 		if held_thing is Item:
 			held_thing._on_pickup()
 
 func drop_thing() -> void:
 	assert(held_thing != null, "Look what you've fuckin' done....")
-	remove_child(held_thing)
+	#remove_child(held_thing)
 	if held_thing is Item:
-		DependencyHelper.retrieve("Items").add_child(held_thing)
-		held_thing.global_position = global_position
+		held_thing.reparent(DependencyHelper.retrieve("Items"), true)
+		#DependencyHelper.retrieve("Items").add_child(held_thing)
+		#held_thing.global_position = global_position
 		held_thing._on_drop()
 	else:
 		push_error("Tried to drop somethig that isn't item - where should we put it in the scene :[")

@@ -5,9 +5,9 @@ class_name Item
 
 @onready var sprite: Sprite3D = $Sprite3D
 @onready var grab_box: GrabBox = $GrabBox
+@onready var weight_component: WeightComponent = $WeightComponent
 
 var _is_initialised: bool = false
-
 var is_being_held: bool =false
 
 func _ready() -> void:
@@ -20,6 +20,7 @@ func initialise() -> void:
 	sprite.texture = data.sprite
 	sprite.pixel_size = data.pixel_size
 	grab_box.set_shape(data.grab_box_shape)
+	weight_component.set_weight(data.weight)
 
 func _process(delta: float) -> void:
 	if is_being_held:

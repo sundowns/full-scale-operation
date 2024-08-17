@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3ynpa4pb482k"]
+[gd_scene load_steps=6 format=3 uid="uid://c3ynpa4pb482k"]
 
 [ext_resource type="PackedScene" uid="uid://xmjbixx5x7ey" path="res://assets/Kitchen Scale.glb" id="1_wq3ew"]
+[ext_resource type="PackedScene" uid="uid://m4pfyqtcocd" path="res://components/scale_area.tscn" id="2_0ch5c"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_b8w1q"]
 height = 0.584
@@ -9,6 +10,10 @@ radius = 2.28941
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vx5o8"]
 height = 0.231588
 radius = 2.39196
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o6lqq"]
+height = 1.1306
+radius = 2.3537
 
 [node name="Scale" type="StaticBody3D"]
 
@@ -22,3 +27,11 @@ shape = SubResource("CylinderShape3D_b8w1q")
 [node name="Top" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.719791, 0)
 shape = SubResource("CylinderShape3D_vx5o8")
+
+[node name="ScaleArea" parent="." instance=ExtResource("2_0ch5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18835, 0)
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScaleArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126021, 0)
+shape = SubResource("CylinderShape3D_o6lqq")

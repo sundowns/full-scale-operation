@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://m4pfyqtcocd"]
+
+[ext_resource type="Script" path="res://components/scale_area.gd" id="1_bgpj6"]
+
+[node name="ScaleArea" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_bgpj6")
+
+[node name="WeightAssessmentDelay" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="WeightAssessmentDelay" to="." method="_on_weight_assessment_delay_timeout"]
