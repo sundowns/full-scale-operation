@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd1uc5gf5jbj3"]
+[gd_scene load_steps=5 format=3 uid="uid://cd1uc5gf5jbj3"]
 
 [ext_resource type="Script" path="res://components/player.gd" id="1_60foy"]
 [ext_resource type="Texture2D" uid="uid://b07pmqbhegprm" path="res://assets/genericItem_color_078.png" id="2_kl2v7"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5p7xc"]
 radius = 0.25
 height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_euffu"]
+size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
@@ -17,3 +20,14 @@ shape = SubResource("CapsuleShape3D_5p7xc")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
 texture = ExtResource("2_kl2v7")
+
+[node name="Hand" type="Node3D" parent="."]
+
+[node name="Graboss" type="Area3D" parent="Hand"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="TheShapeWithWhichYouMayGraboss" type="CollisionShape3D" parent="Hand/Graboss"]
+shape = SubResource("BoxShape3D_euffu")
+
+[connection signal="area_entered" from="Hand/Graboss" to="." method="_on_graboss_area_entered"]

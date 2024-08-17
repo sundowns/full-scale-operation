@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdmo2hgrn2rgi"]
+
+[ext_resource type="Script" path="res://components/grab_box.gd" id="1_rii8s"]
+
+[node name="GrabBox" type="Area3D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_rii8s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
