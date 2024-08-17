@@ -23,6 +23,7 @@ var is_active: bool = false
 func _ready() -> void:
 	if test_item:
 		initialise()
+	update_dish_positions()
 
 func initialise() -> void:
 	scale_test_area.set_goal_weight(test_item.weight - error_margin, test_item.weight + error_margin)
@@ -40,10 +41,10 @@ func update_dish_positions() -> void:
 	#prints(current_vs_goal_ratio, left_height_ratio, right_height_ratio)
 	left_target_height = lerp(left_top.position.y, left_bottom.position.y, left_height_ratio)
 	right_target_height = lerp(right_top.position.y, right_bottom.position.y, right_height_ratio)
+	is_active = true
 
 func _on_scale_area_weight_updated() -> void:
 	update_dish_positions()
-	is_active = true
 
 func _process(delta: float) -> void:
 	if is_active:

@@ -20,7 +20,7 @@ height = 1.0
 radius = 0.956565
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fbnhy"]
-size = Vector3(2.25, 2, 2.25)
+size = Vector3(2.25, 2.5, 2.25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2ol8"]
 transparency = 1
@@ -28,7 +28,7 @@ albedo_color = Color(1, 1, 1, 0.196078)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4u4i"]
 material = SubResource("StandardMaterial3D_h2ol8")
-size = Vector3(2.25, 2, 2.25)
+size = Vector3(2.25, 2.5, 2.25)
 
 [node name="Scale" type="StaticBody3D"]
 script = ExtResource("1_cbncb")
@@ -68,13 +68,13 @@ billboard = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 2)
 
 [node name="LeftTop" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64548, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 2)
 
 [node name="RightBottom" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -2)
 
 [node name="RightTop" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64548, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
