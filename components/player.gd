@@ -50,7 +50,7 @@ func get_extrapolated_position(additional_time: float = 0) -> Vector3:
 func handle_sprite_rotation() -> void:
 	var direction := velocity.normalized()
 	if direction.x > 0:
-		sprite_3d.flip_h = false
-	elif direction.x < 0:
 		sprite_3d.flip_h = true
+	elif direction.x < 0:
+		sprite_3d.flip_h = false
 		

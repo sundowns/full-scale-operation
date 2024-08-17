@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cd1uc5gf5jbj3"]
 
 [ext_resource type="Script" path="res://components/player.gd" id="1_60foy"]
-[ext_resource type="Texture2D" uid="uid://dutlc2k3k862q" path="res://assets/purple_fish.png" id="2_j15t3"]
+[ext_resource type="Texture2D" uid="uid://bqd3mrurx0if4" path="res://assets/Scaleb Drowning.png" id="2_sim07"]
 [ext_resource type="PackedScene" uid="uid://dkusqcbq0pc6i" path="res://components/hand.tscn" id="3_l4ku6"]
 [ext_resource type="PackedScene" uid="uid://dbhvm1t8b6qyc" path="res://components/weight_component.tscn" id="4_ii7f8"]
 
@@ -19,7 +19,7 @@ shape = SubResource("CapsuleShape3D_5p7xc")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.002
 billboard = 1
-texture = ExtResource("2_j15t3")
+texture = ExtResource("2_sim07")
 
 [node name="Hand" parent="." instance=ExtResource("3_l4ku6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111496, 0.257414)
