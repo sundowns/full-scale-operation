@@ -1,4 +1,4 @@
-extends Node3D
+extends RigidBody3D
 class_name Item
 
 @export var data: ItemData
@@ -29,7 +29,9 @@ func _process(delta: float) -> void:
 func _on_pickup() -> void:
 	top_level = true
 	is_being_held = true
+	freeze = true
 
 func _on_drop() -> void:
 	top_level = false
 	is_being_held = false
+	freeze = false

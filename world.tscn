@@ -45,15 +45,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1175, 0)
 [node name="Items" type="Node" parent="."]
 
 [node name="Item" parent="Items" instance=ExtResource("3_f42o3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.285663, 1.91252)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88621, 1.91252)
 data = ExtResource("4_cesal")
 
 [node name="Item2" parent="Items" instance=ExtResource("3_f42o3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.286, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.88655, 0)
 data = ExtResource("6_5oj11")
 
 [node name="Item3" parent="Items" instance=ExtResource("3_f42o3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.286, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.88655, 0)
 data = ExtResource("4_cesal")
 
 [node name="Camera3D" type="Camera3D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn0eakvdlj2nl"]
+[gd_scene load_steps=7 format=3 uid="uid://bn0eakvdlj2nl"]
 
 [ext_resource type="Script" path="res://items/item.gd" id="1_0wl3l"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_jmgpf"]
@@ -11,9 +11,16 @@ weight = 1.0
 pixel_size = 0.01
 follow_speed = 6.0
 
-[node name="Item" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dadgd"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Item" type="RigidBody3D"]
+collision_layer = 4
 script = ExtResource("1_0wl3l")
 data = SubResource("Resource_4que5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_dadgd")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
