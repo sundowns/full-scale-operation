@@ -39,10 +39,13 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	time_since_physics_frame += delta
-	sprite_3d.global_position = global_position + velocity * time_since_physics_frame
+	sprite_3d.global_position = get_extrapolated_position()
 	hand.global_position = sprite_3d.global_position + hand_offset
 	
 	handle_sprite_rotation()
+
+func get_extrapolated_position(additional_time: float = 0) -> Vector3:
+	return global_position + velocity * (time_since_physics_frame + additional_time)
 
 func handle_sprite_rotation() -> void:
 	var direction := velocity.normalized()

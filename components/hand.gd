@@ -18,6 +18,8 @@ func try_to_grab_thing() -> void:
 		parent.remove_child(held_thing)
 		add_child(held_thing)
 		held_thing.global_position = global_position
+		if held_thing is Item:
+			held_thing._on_pickup()
 
 func drop_thing() -> void:
 	assert(held_thing != null, "Look what you've fuckin' done....")
@@ -25,6 +27,7 @@ func drop_thing() -> void:
 	if held_thing is Item:
 		DependencyHelper.retrieve("Items").add_child(held_thing)
 		held_thing.global_position = global_position
+		held_thing._on_drop()
 	else:
 		push_error("Tried to drop somethig that isn't item - where should we put it in the scene :[")
 	held_thing = null

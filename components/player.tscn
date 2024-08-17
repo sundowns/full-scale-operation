@@ -9,7 +9,6 @@ radius = 0.25
 height = 1.0
 
 [node name="Player" type="CharacterBody3D"]
-physics_interpolation_mode = 2
 collision_layer = 2
 script = ExtResource("1_60foy")
 

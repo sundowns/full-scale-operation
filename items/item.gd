@@ -8,6 +8,8 @@ class_name Item
 
 var _is_initialised: bool = false
 
+var is_being_held: bool =false
+
 func _ready() -> void:
 	if data:
 		initialise()
@@ -19,5 +21,14 @@ func initialise() -> void:
 	sprite.pixel_size = data.pixel_size
 	grab_box.set_shape(data.grab_box_shape)
 
-func _on_pickup() -> void: pass
-func _on_drop() -> void: pass
+func _process(delta: float) -> void:
+	if is_being_held:
+		global_position = lerp(global_position, get_parent().global_position, data.follow_speed * delta)
+
+func _on_pickup() -> void:
+	top_level = true
+	is_being_held = true
+
+func _on_drop() -> void:
+	top_level = false
+	is_being_held = false

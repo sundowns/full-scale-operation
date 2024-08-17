@@ -9,6 +9,7 @@
 script = ExtResource("2_jmgpf")
 weight = 1.0
 pixel_size = 0.01
+follow_speed = 1.5
 
 [node name="Item" type="Node3D"]
 script = ExtResource("1_0wl3l")

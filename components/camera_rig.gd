@@ -18,7 +18,13 @@ func set_target(new_target: Node3D) -> void:
 
 func _process(delta: float) -> void:
 	if not target: return
-	var new_camera_position = target.global_position + offset_xz
+	Callable(move_towards_target).call_deferred(delta)
+
+func move_towards_target(delta: float) -> void:
+	var target_position = target.global_position
+	if target is Player:
+		target_position = target.get_extrapolated_position(delta)
+	var new_camera_position = target_position + offset_xz
 	new_camera_position.y = fixed_height
 	
 	global_position = lerp(global_position, new_camera_position, delta * follow_speed)
