@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 DependencyHelper="*res://src/autoload/DependencyHelper.gd"
+Items="*res://src/autoload/items.gd"
 
 [file_customization]
 

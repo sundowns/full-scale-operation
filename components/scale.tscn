@@ -16,7 +16,7 @@ radial_segments = 16
 rings = 1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o6lqq"]
-height = 1.0
+height = 0.227676
 radius = 0.956565
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fbnhy"]
@@ -53,7 +53,7 @@ goal_weight_max = 2000.0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LeftDish/ScaleArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.203212, 0)
 shape = SubResource("CylinderShape3D_o6lqq")
 
 [node name="RightDish" type="MeshInstance3D" parent="."]

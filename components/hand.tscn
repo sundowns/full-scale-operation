@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://components/hand.gd" id="1_gex7r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_euffu"]
-size = Vector3(1, 0.592773, 0.717)
+size = Vector3(1, 0.278076, 0.862895)
 
 [node name="Hand" type="Node3D"]
 script = ExtResource("1_gex7r")
@@ -13,7 +13,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="TheShapeWithWhichYouMayGraboss" type="CollisionShape3D" parent="Graboss"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0463867, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.110962, -0.0729473)
 shape = SubResource("BoxShape3D_euffu")
 
 [connection signal="area_entered" from="Graboss" to="." method="_on_graboss_area_entered"]
