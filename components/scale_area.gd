@@ -16,6 +16,10 @@ var has_contents_changed: bool = false
 
 const assess_weight_after: float = 0.1
 
+func set_goal_weight(minimum: float, maximum: float) -> void:
+	goal_weight_min = minimum
+	goal_weight_max = maximum
+
 func _ready() -> void:
 	current_weight = 0
 	assert(goal_weight_max > goal_weight_min, "Goal weight max must be greater than min (idiot)")

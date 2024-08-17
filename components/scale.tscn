@@ -1,39 +1,61 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3ynpa4pb482k"]
+[gd_scene load_steps=7 format=3 uid="uid://c3ynpa4pb482k"]
 
-[ext_resource type="PackedScene" uid="uid://xmjbixx5x7ey" path="res://assets/Kitchen Scale.glb" id="1_wq3ew"]
+[ext_resource type="Script" path="res://components/scale.gd" id="1_cbncb"]
 [ext_resource type="PackedScene" uid="uid://m4pfyqtcocd" path="res://components/scale_area.tscn" id="2_0ch5c"]
+[ext_resource type="Resource" uid="uid://dt3tmmp4qj5s2" path="res://items/data/bowling_ball.tres" id="2_ivkym"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_b8w1q"]
-height = 0.584
-radius = 2.28941
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r4hvo"]
+height = 0.1
+radius = 1.0
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_vx5o8"]
-height = 0.231588
-radius = 2.39196
+[sub_resource type="CylinderMesh" id="CylinderMesh_q3lbs"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.1
+radial_segments = 16
+rings = 1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o6lqq"]
-height = 1.1306
-radius = 2.3537
+height = 0.551315
+radius = 0.956565
 
 [node name="Scale" type="StaticBody3D"]
+script = ExtResource("1_cbncb")
+test_item = ExtResource("2_ivkym")
 
-[node name="Kitchen Scale" parent="." instance=ExtResource("1_wq3ew")]
-transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 0, 0)
+[node name="LeftDishCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669072, 2)
+shape = SubResource("CylinderShape3D_r4hvo")
 
-[node name="Base" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31136, 0)
-shape = SubResource("CylinderShape3D_b8w1q")
+[node name="RightShapeCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669072, -2)
+shape = SubResource("CylinderShape3D_r4hvo")
 
-[node name="Top" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.719791, 0)
-shape = SubResource("CylinderShape3D_vx5o8")
+[node name="LeftDish" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669072, 2)
+mesh = SubResource("CylinderMesh_q3lbs")
 
-[node name="ScaleArea" parent="." instance=ExtResource("2_0ch5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18835, 0)
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="LeftDish"]
+remote_path = NodePath("../../LeftDishCollisionShape")
+
+[node name="ScaleArea" parent="LeftDish" instance=ExtResource("2_0ch5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.188, 0)
 collision_mask = 8
 goal_weight_min = 1800.0
 goal_weight_max = 2000.0
+metadata/_edit_group_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ScaleArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126021, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftDish/ScaleArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126, 0)
 shape = SubResource("CylinderShape3D_o6lqq")
+
+[node name="RightDish" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669072, -2)
+mesh = SubResource("CylinderMesh_q3lbs")
+
+[node name="TestItemSprite" type="Sprite3D" parent="RightDish"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.228392, 0)
+billboard = 1
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="RightDish"]
+remote_path = NodePath("../../RightShapeCollisionShape")

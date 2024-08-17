@@ -10,6 +10,6 @@ size = Vector3(0.25, 0.25, 0.25)
 script = ExtResource("1_n1lgt")
 sprite = ExtResource("2_cstkk")
 weight = 900.0
-pixel_size = 0.002
+pixel_size = 0.0025
 grab_box_shape = SubResource("BoxShape3D_fi2qh")
 follow_speed = 6.0

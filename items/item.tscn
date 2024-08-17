@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn0eakvdlj2nl"]
+[gd_scene load_steps=6 format=3 uid="uid://bn0eakvdlj2nl"]
 
 [ext_resource type="Script" path="res://items/item.gd" id="1_0wl3l"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_jmgpf"]
-[ext_resource type="Texture2D" uid="uid://b07pmqbhegprm" path="res://assets/items/genericItem_color_078.png" id="3_aj70g"]
 [ext_resource type="PackedScene" uid="uid://bdmo2hgrn2rgi" path="res://components/grab_box.tscn" id="4_qmdax"]
 [ext_resource type="PackedScene" uid="uid://dbhvm1t8b6qyc" path="res://components/weight_component.tscn" id="5_p3ib3"]
 
@@ -10,7 +9,7 @@
 script = ExtResource("2_jmgpf")
 weight = 1.0
 pixel_size = 0.01
-follow_speed = 1.5
+follow_speed = 6.0
 
 [node name="Item" type="Node3D"]
 script = ExtResource("1_0wl3l")
@@ -19,7 +18,6 @@ data = SubResource("Resource_4que5")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
 texture_filter = 2
-texture = ExtResource("3_aj70g")
 
 [node name="GrabBox" parent="." instance=ExtResource("4_qmdax")]
 

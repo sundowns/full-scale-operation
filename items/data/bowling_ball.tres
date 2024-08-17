@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dt3tmmp4qj5s2"]
+
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_m2job"]
+[ext_resource type="Texture2D" uid="uid://u6writ11m18l" path="res://assets/items/bowling_ball.png" id="2_6yjqc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nj77p"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[resource]
+script = ExtResource("1_m2job")
+sprite = ExtResource("2_6yjqc")
+weight = 6600.0
+pixel_size = 0.0009
+grab_box_shape = SubResource("BoxShape3D_nj77p")
+follow_speed = 6.0
