@@ -1,8 +1,12 @@
 extends CharacterBody3D
 class_name Player
 
+@onready var sprite_3d: Sprite3D = $Sprite3D
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+
+var time_since_physics_frame: float = 0.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -25,7 +29,17 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	time_since_physics_frame = 0
 
+func _process(delta: float) -> void:
+	time_since_physics_frame += delta
+	sprite_3d.global_position = global_position + velocity * time_since_physics_frame
+	handle_sprite_rotation()
 
-func _on_graboss_area_entered(area: Area3D) -> void:
-	if area is 
+func handle_sprite_rotation() -> void:
+	var direction := velocity.normalized()
+	if direction.is_equal_approx(Vector3.ZERO) or direction > Vector3.ZERO:
+		sprite_3d.flip_h = false
+	else:
+		sprite_3d.flip_h = true
+		
