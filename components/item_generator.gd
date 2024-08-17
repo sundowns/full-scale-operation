@@ -17,6 +17,5 @@ func spawn_item_at(at: Vector3, data: ItemData) -> void:
 	new_item.data = data
 	DependencyHelper.retrieve("Items").add_child(new_item)
 	new_item.global_position = at
-	#Callable(new_item.initialise).call_deferred()
 	new_item.initialise()
 	

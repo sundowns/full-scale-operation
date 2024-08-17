@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqgb5ktjaen3j"]
+
+[ext_resource type="Script" path="res://components/test_scenes/all_items.gd" id="1_lnivg"]
+[ext_resource type="PackedScene" uid="uid://d0m0ypr3txc0m" path="res://components/floor.tscn" id="1_tebqh"]
+[ext_resource type="PackedScene" uid="uid://bb2xhb5er4w6t" path="res://components/camera_rig.tscn" id="2_xyexg"]
+[ext_resource type="PackedScene" uid="uid://cd1uc5gf5jbj3" path="res://components/player.tscn" id="3_857nf"]
+
+[node name="AllItems" type="Node3D"]
+script = ExtResource("1_lnivg")
+
+[node name="Floor" parent="." instance=ExtResource("1_tebqh")]
+
+[node name="CameraRig" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_xyexg")]
+target = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("3_857nf")]
+
+[node name="Items" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866025, 0.5, 0.5, -0.433013, 0.75, 0, 0, 0)
+
+[node name="SpawnMarker" type="Marker3D" parent="."]

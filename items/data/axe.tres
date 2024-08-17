@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ddq37cy4bu02s"]
+
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_junvh"]
+[ext_resource type="Texture2D" uid="uid://bvyyirhwaikl5" path="res://assets/items/axe.png" id="2_if3ow"]
+
+[resource]
+script = ExtResource("1_junvh")
+sprite = ExtResource("2_if3ow")
+weight = 750.0
+width = 0.3
+follow_speed = 6.0

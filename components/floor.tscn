@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0m0ypr3txc0m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kglyd"]
+albedo_color = Color(0.13439, 0.172316, 0.223464, 1)
+metallic_specular = 0.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dhown"]
+material = SubResource("StandardMaterial3D_kglyd")
+size = Vector2(1000, 1000)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gvrq3"]
+
+[node name="Floor" type="StaticBody3D"]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_dhown")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("WorldBoundaryShape3D_gvrq3")
