@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjlyhgpcuhhts"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_2nsq5"]
+[ext_resource type="PackedScene" uid="uid://bb2xhb5er4w6t" path="res://components/camera_rig.tscn" id="1_bxns7"]
+[ext_resource type="Script" path="res://components/camera_target.gd" id="2_qdil5"]
+[ext_resource type="PackedScene" uid="uid://bn0eakvdlj2nl" path="res://items/item.tscn" id="3_f42o3"]
+[ext_resource type="Resource" uid="uid://sxxunfwsidgn" path="res://items/data/graphics_card.tres" id="4_cesal"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kglyd"]
+albedo_color = Color(0.00945993, 0.0147515, 0.0241439, 1)
+metallic_specular = 0.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dhown"]
+material = SubResource("StandardMaterial3D_kglyd")
+size = Vector2(1000, 1000)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gvrq3"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_2nsq5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_dhown")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_gvrq3")
+
+[node name="CameraRig" parent="." instance=ExtResource("1_bxns7")]
+
+[node name="CameraTarget" type="Marker3D" parent="."]
+script = ExtResource("2_qdil5")
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Item" parent="Items" instance=ExtResource("3_f42o3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.285663, 1.91252)
+data = ExtResource("4_cesal")
