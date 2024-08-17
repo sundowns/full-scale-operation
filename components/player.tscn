@@ -22,7 +22,7 @@ billboard = 1
 texture = ExtResource("2_j15t3")
 
 [node name="Hand" parent="." instance=ExtResource("3_l4ku6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.236597, 0.257414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111496, 0.257414)
 
 [node name="WeightComponent" parent="." instance=ExtResource("4_ii7f8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.210711, 0)

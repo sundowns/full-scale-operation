@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://world.gd" id="1_2nsq5"]
 [ext_resource type="PackedScene" uid="uid://bb2xhb5er4w6t" path="res://components/camera_rig.tscn" id="1_bxns7"]
 [ext_resource type="PackedScene" uid="uid://bn0eakvdlj2nl" path="res://items/item.tscn" id="3_f42o3"]
-[ext_resource type="Resource" uid="uid://sxxunfwsidgn" path="res://items/data/graphics_card.tres" id="4_cesal"]
+[ext_resource type="Resource" uid="uid://cv2ug7d87um8r" path="res://items/data/anvil.tres" id="5_5tfcb"]
 [ext_resource type="Resource" uid="uid://dt3tmmp4qj5s2" path="res://items/data/bowling_ball.tres" id="6_5oj11"]
 [ext_resource type="PackedScene" uid="uid://cd1uc5gf5jbj3" path="res://components/player.tscn" id="6_iwsid"]
 [ext_resource type="PackedScene" uid="uid://c3ynpa4pb482k" path="res://components/scale.tscn" id="6_vn1tt"]
@@ -49,7 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1175, 0)
 
 [node name="Item" parent="Items" instance=ExtResource("3_f42o3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88621, 1.91252)
-data = ExtResource("4_cesal")
+data = ExtResource("5_5tfcb")
 
 [node name="Item2" parent="Items" instance=ExtResource("3_f42o3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.88655, 0)
@@ -57,7 +57,7 @@ data = ExtResource("6_5oj11")
 
 [node name="Item3" parent="Items" instance=ExtResource("3_f42o3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.88655, 0)
-data = ExtResource("4_cesal")
+data = ExtResource("5_5tfcb")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.777146, 0.62932, 0, -0.62932, 0.777146, 0, 3.913, 4.777)

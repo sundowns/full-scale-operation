@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cv2ug7d87um8r"]
+
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_jk64b"]
+[ext_resource type="Texture2D" uid="uid://dgu70fj3kuiem" path="res://assets/items/Anvil.png" id="2_q11i8"]
+
+[resource]
+script = ExtResource("1_jk64b")
+sprite = ExtResource("2_q11i8")
+weight = 80000.0
+width = 1.0
+follow_speed = 4.0

@@ -28,7 +28,7 @@ func _ready() -> void:
 func initialise() -> void:
 	scale_test_area.set_goal_weight(test_item.weight - error_margin, test_item.weight + error_margin)
 	test_item_sprite.texture = test_item.sprite
-	test_item_sprite.pixel_size = test_item.pixel_size
+	test_item_sprite.pixel_size = test_item.get_pixel_size()
 
 func update_dish_positions() -> void:
 	var goal_weight: float = test_item.weight

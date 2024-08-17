@@ -23,6 +23,7 @@ Items="*res://src/autoload/items.gd"
 [file_customization]
 
 folder_colors={
+"res://assets/": "red",
 "res://components/": "green",
 "res://items/": "yellow"
 }
