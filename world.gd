@@ -6,5 +6,4 @@ class_name World
 
 func _ready() -> void:
 	DependencyHelper.store("Camera", $CameraRig)
-	#Callable(camera.set_target).call_deferred($Marker3D)
-	#camera.set_target(player)
+	DependencyHelper.store("Items", $Items)

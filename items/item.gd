@@ -1,4 +1,5 @@
 extends Node3D
+class_name Item
 
 @export var data: ItemData
 
@@ -15,4 +16,8 @@ func _ready() -> void:
 func initialise() -> void:
 	_is_initialised = true
 	sprite.texture = data.sprite
+	sprite.pixel_size = data.pixel_size
 	grab_box.set_shape(data.grab_box_shape)
+
+func _on_pickup() -> void: pass
+func _on_drop() -> void: pass

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkusqcbq0pc6i"]
+
+[ext_resource type="Script" path="res://components/hand.gd" id="1_gex7r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_euffu"]
+size = Vector3(1, 0.5, 0.717)
+
+[node name="Hand" type="Node3D"]
+script = ExtResource("1_gex7r")
+
+[node name="Graboss" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="TheShapeWithWhichYouMayGraboss" type="CollisionShape3D" parent="Graboss"]
+shape = SubResource("BoxShape3D_euffu")
+
+[connection signal="area_entered" from="Graboss" to="." method="_on_graboss_area_entered"]
+[connection signal="area_exited" from="Graboss" to="." method="_on_graboss_area_exited"]
