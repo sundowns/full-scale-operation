@@ -35,9 +35,16 @@ func drop_thing() -> void:
 
 func _on_graboss_area_entered(area: Area3D) -> void:
 	if area is GrabBox:
+		if current_grabbable_thing and current_grabbable_thing is Item:
+			if current_grabbable_thing is Item:
+				current_grabbable_thing._unmark_as_target_for_pickup()
 		current_grabbable_thing = area.get_parent()
+		if current_grabbable_thing is Item:
+			current_grabbable_thing._mark_as_target_for_pickup()
 
 func _on_graboss_area_exited(area: Area3D) -> void:
 	if area is GrabBox:
 		if area.get_parent() == current_grabbable_thing:
+			if current_grabbable_thing is Item:
+				current_grabbable_thing._unmark_as_target_for_pickup()
 			current_grabbable_thing = null

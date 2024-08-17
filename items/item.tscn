@@ -23,8 +23,7 @@ data = SubResource("Resource_4que5")
 shape = SubResource("BoxShape3D_dadgd")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-billboard = 1
-texture_filter = 2
+flip_h = true
 
 [node name="GrabBox" parent="." instance=ExtResource("4_qmdax")]
 
