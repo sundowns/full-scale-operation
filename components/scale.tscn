@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3ynpa4pb482k"]
+[gd_scene load_steps=10 format=3 uid="uid://c3ynpa4pb482k"]
 
 [ext_resource type="Script" path="res://components/scale.gd" id="1_cbncb"]
 [ext_resource type="PackedScene" uid="uid://m4pfyqtcocd" path="res://components/scale_area.tscn" id="2_0ch5c"]
@@ -16,8 +16,19 @@ radial_segments = 16
 rings = 1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o6lqq"]
-height = 0.551315
+height = 1.0
 radius = 0.956565
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fbnhy"]
+size = Vector3(2.25, 2, 2.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2ol8"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.196078)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4u4i"]
+material = SubResource("StandardMaterial3D_h2ol8")
+size = Vector3(2.25, 2, 2.25)
 
 [node name="Scale" type="StaticBody3D"]
 script = ExtResource("1_cbncb")
@@ -25,10 +36,6 @@ test_item = ExtResource("2_ivkym")
 
 [node name="LeftDishCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669072, 2)
-shape = SubResource("CylinderShape3D_r4hvo")
-
-[node name="RightShapeCollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669072, -2)
 shape = SubResource("CylinderShape3D_r4hvo")
 
 [node name="LeftDish" type="MeshInstance3D" parent="."]
@@ -39,7 +46,7 @@ mesh = SubResource("CylinderMesh_q3lbs")
 remote_path = NodePath("../../LeftDishCollisionShape")
 
 [node name="ScaleArea" parent="LeftDish" instance=ExtResource("2_0ch5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.188, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370546, 0)
 collision_mask = 8
 goal_weight_min = 1800.0
 goal_weight_max = 2000.0
@@ -57,5 +64,24 @@ mesh = SubResource("CylinderMesh_q3lbs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.228392, 0)
 billboard = 1
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="RightDish"]
-remote_path = NodePath("../../RightShapeCollisionShape")
+[node name="LeftBottom" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 2)
+
+[node name="LeftTop" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64548, 2)
+
+[node name="RightBottom" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -2)
+
+[node name="RightTop" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64548, -2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+shape = SubResource("BoxShape3D_fbnhy")
+
+[node name="GlassContainer" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_g4u4i")
+skeleton = NodePath("../..")
+
+[connection signal="weight_updated" from="LeftDish/ScaleArea" to="." method="_on_scale_area_weight_updated"]

@@ -1,6 +1,7 @@
 extends Area3D
 class_name ScaleArea
 
+signal weight_updated
 signal weight_goal_activated
 signal weight_goal_deactivated
 
@@ -51,6 +52,7 @@ func update_current_weight(new_weight: float) -> void:
 		print('GOALLLLL 🥅⚽')
 		is_within_goal_range = true
 	print("weight: ", current_weight)
+	weight_updated.emit()
 
 func test_weight(sample_weight: float) -> bool:
 	return sample_weight >= goal_weight_min and sample_weight <= goal_weight_max

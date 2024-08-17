@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://components/weight_component.gd" id="1_y8xhh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0pgj6"]
-size = Vector3(0.1, 0.1, 0.1)
+size = Vector3(0.25, 0.25, 0.25)
 
 [node name="WeightComponent" type="Area3D"]
 collision_layer = 8

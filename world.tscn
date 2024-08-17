@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjlyhgpcuhhts"]
+[gd_scene load_steps=12 format=3 uid="uid://bjlyhgpcuhhts"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_2nsq5"]
 [ext_resource type="PackedScene" uid="uid://bb2xhb5er4w6t" path="res://components/camera_rig.tscn" id="1_bxns7"]
@@ -17,6 +17,8 @@ material = SubResource("StandardMaterial3D_kglyd")
 size = Vector2(1000, 1000)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gvrq3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d541d"]
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_2nsq5")
@@ -59,3 +61,10 @@ transform = Transform3D(1, 0, 0, 0, 0.777146, 0.62932, 0, -0.62932, 0.777146, 0,
 
 [node name="Scale" parent="." instance=ExtResource("6_vn1tt")]
 transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 5, 0, -6)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.310077, 0.56818, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.798269, -0.130447, 0)
+shape = SubResource("BoxShape3D_d541d")
