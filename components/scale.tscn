@@ -31,6 +31,8 @@ shape = SubResource("CylinderShape3D_vx5o8")
 [node name="ScaleArea" parent="." instance=ExtResource("2_0ch5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18835, 0)
 collision_mask = 8
+goal_weight_min = 1800.0
+goal_weight_max = 2000.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ScaleArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126021, 0)

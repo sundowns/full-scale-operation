@@ -34,14 +34,17 @@ func sum_contents_weight() -> void:
 	update_current_weight(weight_sum)
 
 func update_current_weight(new_weight: float) -> void:
-	var was_within_range := is_within_goal_range
+	var was_within_range := test_weight(current_weight)
 	current_weight = new_weight
 	var is_within_range := test_weight(current_weight)
 	
-	if was_within_range and not is_within_goal_range:
+	if was_within_range and not is_within_range:
 		weight_goal_deactivated.emit()
+		print('no more goal :c')
+		is_within_goal_range = false
 	elif not was_within_range and is_within_range:
 		weight_goal_activated.emit()
+		print('GOALLLLL 🥅⚽')
 		is_within_goal_range = true
 	print("weight: ", current_weight)
 
