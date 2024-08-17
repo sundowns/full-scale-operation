@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb2xhb5er4w6t"]
+[gd_scene load_steps=3 format=3 uid="uid://bb2xhb5er4w6t"]
 
 [ext_resource type="Script" path="res://components/camera_rig.gd" id="1_e7j7w"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_4dvqc"]
+
 [node name="CameraRig" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 0, 0)
 current = true
 script = ExtResource("1_e7j7w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4dvqc")
