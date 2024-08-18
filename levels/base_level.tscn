@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://d0m0ypr3txc0m" path="res://components/floor.tscn" id="2_ujtvw"]
 [ext_resource type="PackedScene" uid="uid://bb2xhb5er4w6t" path="res://components/camera_rig.tscn" id="3_2h6u8"]
 [ext_resource type="PackedScene" uid="uid://becswxbdrd0vr" path="res://components/load_next_level_zone.tscn" id="4_bhsda"]
-[ext_resource type="MeshLibrary" uid="uid://l8iov4qitby" path="res://assets/mesh_library/arcade_library.tres" id="5_ghw3g"]
-[ext_resource type="MeshLibrary" uid="uid://be70tshjipimj" path="res://assets/mesh_library/arcade_library_floor.tres" id="6_1hgh4"]
+[ext_resource type="MeshLibrary" uid="uid://l8iov4qitby" path="res://assets/mesh_library/resources/arcade_library.tres" id="5_ghw3g"]
+[ext_resource type="MeshLibrary" uid="uid://be70tshjipimj" path="res://assets/mesh_library/resources/arcade_library_floor.tres" id="6_1hgh4"]
 
 [sub_resource type="Gradient" id="Gradient_qrjjd"]
 

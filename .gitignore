@@ -3,4 +3,4 @@
 /android/
 build/
 
-assets/mesh_library/resources/*
+assets/mesh_library/resources
