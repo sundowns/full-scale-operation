@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://b73ib2rnsqbtq"]
+
+[ext_resource type="PackedScene" uid="uid://b51llonijx672" path="res://assets/mesh_library/column_collider.tscn" id="1_xf5d0"]
+[ext_resource type="PackedScene" uid="uid://c0k7c618cmbol" path="res://assets/mesh_library/wall-corner_collider.tscn" id="2_6qkx6"]
+[ext_resource type="PackedScene" uid="uid://b4rhipv6suc3c" path="res://assets/mesh_library/wall-window_collision.tscn" id="4_g8nh8"]
+[ext_resource type="PackedScene" uid="uid://bfp74428hmcrb" path="res://assets/mesh_library/wall_collision.tscn" id="5_0ap8l"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="column" parent="." instance=ExtResource("1_xf5d0")]
+
+[node name="wall-corner" parent="." instance=ExtResource("2_6qkx6")]
+
+[node name="wall-window2" parent="." instance=ExtResource("4_g8nh8")]
+
+[node name="wall" parent="." instance=ExtResource("5_0ap8l")]

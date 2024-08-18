@@ -49,6 +49,7 @@ metadata/_edit_lock_ = true
 [node name="WallsGridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("5_ghw3g")
 cell_size = Vector3(1, 0.5, 1)
+cell_center_y = false
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="FloorGridMap" type="GridMap" parent="."]
