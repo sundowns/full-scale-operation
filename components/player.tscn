@@ -27,3 +27,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111496, 0.257414)
 [node name="WeightComponent" parent="." instance=ExtResource("4_ii7f8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.210711, 0)
 weight = 2000.0
+
+[connection signal="dropped_thing" from="Hand" to="." method="_on_hand_dropped_thing"]
+[connection signal="grabbed_thing" from="Hand" to="." method="_on_hand_grabbed_thing"]

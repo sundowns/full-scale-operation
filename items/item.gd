@@ -8,6 +8,10 @@ class_name Item
 @onready var weight_component: WeightComponent = $WeightComponent
 
 @export var highlight_material: ShaderMaterial = preload("res://vfx/item_highlight_material.tres")
+@export var follow_speed = 15
+@export var follow_speed_max = 20
+@export var follow_speed_min = 2
+@export var weight_weight = 80000
 
 var _is_initialised: bool = false
 var is_being_held: bool =false
@@ -28,7 +32,11 @@ func initialise() -> void:
 
 func _process(delta: float) -> void:
 	if is_being_held:
-		global_position = lerp(global_position, get_parent().global_position, data.follow_speed * delta)
+		global_position = lerp(global_position, get_parent().global_position, get_follow_speed() * delta)
+
+func get_follow_speed() -> float:
+	var speed = remap(data.weight, 0, weight_weight,  follow_speed_max, follow_speed_min)
+	return clamp(speed, follow_speed_min, follow_speed_max)
 
 func _on_pickup() -> void:
 	top_level = true

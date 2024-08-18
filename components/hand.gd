@@ -4,10 +4,14 @@ class_name Hand
 var current_grabbable_thing: Node3D
 var held_thing: Node3D
 
+signal dropped_thing
+signal grabbed_thing(weight)
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("graboss"):
 		if held_thing:
 			drop_thing()
+			dropped_thing.emit()
 		else:
 			try_to_grab_thing()
 
@@ -19,6 +23,7 @@ func try_to_grab_thing() -> void:
 		held_thing.reparent(self, true)
 		if held_thing is Item:
 			held_thing._on_pickup()
+			grabbed_thing.emit(held_thing.data.weight)
 
 func drop_thing() -> void:
 	assert(held_thing != null, "Look what you've fuckin' done....")
