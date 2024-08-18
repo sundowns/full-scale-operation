@@ -4,14 +4,14 @@ class_name ItemData
 @export var sprite: Texture2D
 @export_category("Scales")
 ## Grams
-@export var weight: float = 1.0
+@export_range(100, 10000000, 0.25) var weight: float = 1.0
 ## Metres
 @export_range(0.001, 10, 0.001) var width: float = 0.5
 
 @export_category("Grabbing")
 ## Optional, otherwise calculated from width
 @export var grab_shape_override: Shape3D
-@export var follow_speed: float = 6
+@export var follow_speed: float = 10
 
 @export_category("Audio FX")
 @export var grab_sfx: SoundEffect = preload("res://audio/sfx/menu_select_pickup.tres")

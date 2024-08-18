@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dokux4ebtr2rk"]
+
+[ext_resource type="Script" path="res://components/all_item_spawner.gd" id="1_053sh"]
+
+[node name="AllItemSpawner" type="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -3)
+script = ExtResource("1_053sh")

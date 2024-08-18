@@ -5,7 +5,7 @@ signal scale_valid
 signal scale_invalid
 
 @export var test_item: ItemData
-@export_range(0, 1, 10000) var error_margin: float = 10 
+@export_range(0, 1, 10000) var error_margin: float = 100
 @export_range(0.1, 100, 0.1) var dish_move_speed: float = 1.0
 
 @onready var scale_test_area: ScaleArea = $LeftDish/ScaleArea
