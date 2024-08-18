@@ -38,7 +38,7 @@ mesh = SubResource("BoxMesh_4fstl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.52685, 0, -1)
 
 [node name="LoadNextLevelZone" parent="." index="9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.79156, 0.330687, -5.11649)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.84722, 0.330687, -5.11649)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoadNextLevelZone" index="0"]
 shape = SubResource("BoxShape3D_q1chq")
