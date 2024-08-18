@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="gmtkjam-2024"
-run/main_scene="res://world.tscn"
+run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
@@ -31,7 +31,8 @@ folder_colors={
 "res://assets/": "red",
 "res://audio/": "purple",
 "res://components/": "green",
-"res://items/": "yellow"
+"res://items/": "yellow",
+"res://levels/": "orange"
 }
 
 [input]
