@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c2dpy3dwl8bof"]
+
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_tium5"]
+[ext_resource type="Texture2D" uid="uid://c8hi6jldso0db" path="res://assets/items/coffee-pot.png" id="2_pkflw"]
+
+[resource]
+script = ExtResource("1_tium5")
+sprite = ExtResource("2_pkflw")
+weight = 1000.0
+width = 0.35
+follow_speed = 20.0
+grab_sfx_db = 0.0
+drop_sfx_db = 0.0

@@ -5,7 +5,7 @@ extends Node3D
 @onready var item_scene = preload("res://items/item.tscn")
 
 const offset: float = 1.5
-const items_per_row: int = 3
+const items_per_row: int = 6
 
 func _ready() -> void:
 	DependencyHelper.store("Items", $Items)
