@@ -4,7 +4,7 @@ class_name ItemData
 @export var sprite: Texture2D
 @export_category("Scales")
 ## Grams
-@export_range(100, 10000000, 0.25) var weight: float = 1.0
+@export_range(0.25, 10000000, 0.25) var weight: float = 100.0
 ## Metres
 @export_range(0.001, 10, 0.001) var width: float = 0.5
 

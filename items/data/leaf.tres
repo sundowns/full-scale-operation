@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dqkrp1x7ghsly"]
+
+[ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="1_0kfs4"]
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_r2nyg"]
+[ext_resource type="Texture2D" uid="uid://chjw6bwqqb861" path="res://assets/items/Leaf.png" id="3_cc6yq"]
+
+[resource]
+script = ExtResource("2_r2nyg")
+sprite = ExtResource("3_cc6yq")
+weight = 2.0
+width = 0.275
+follow_speed = 20.0
+grab_sfx = ExtResource("1_0kfs4")

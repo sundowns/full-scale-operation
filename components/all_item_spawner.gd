@@ -8,7 +8,6 @@ const items_per_row: int = 6
 func _ready() -> void:
 	Callable(spawn_all_items).call_deferred()
 
-
 func spawn_all_items() -> void:
 	var count: int = 0
 	for item in Items.all_items:

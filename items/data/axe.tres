@@ -9,5 +9,5 @@ script = ExtResource("1_junvh")
 sprite = ExtResource("3_q5gnw")
 weight = 1200.0
 width = 0.45
-follow_speed = 7.5
+follow_speed = 8.0
 grab_sfx = ExtResource("1_63a03")

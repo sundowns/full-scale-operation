@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://wkosd3xfip3l"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://wkosd3xfip3l"]
 
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_4edww"]
+[ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="1_xx6d7"]
 [ext_resource type="Texture2D" uid="uid://xwmt7bnqita8" path="res://assets/items/battery.png" id="2_ci3q5"]
 
 [resource]
 script = ExtResource("1_4edww")
 sprite = ExtResource("2_ci3q5")
 weight = 40.0
-width = 0.3
+width = 0.2
 follow_speed = 20.0
-grab_sfx_db = 0.0
-drop_sfx_db = 0.0
+grab_sfx = ExtResource("1_xx6d7")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://crkxm5fakvqm7"]
+
+[ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="1_qkstb"]
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_w7xu5"]
+[ext_resource type="Texture2D" uid="uid://b6vwuh3555u1w" path="res://assets/items/Mug.png" id="3_78agu"]
+
+[resource]
+script = ExtResource("2_w7xu5")
+sprite = ExtResource("3_78agu")
+weight = 250.0
+width = 0.25
+follow_speed = 17.0
+grab_sfx = ExtResource("1_qkstb")
