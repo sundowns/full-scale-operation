@@ -15,6 +15,7 @@ func try_to_grab_thing() -> void:
 	if current_grabbable_thing:
 		current_grabbable_thing._unmark_as_target_for_pickup()
 		held_thing = current_grabbable_thing
+		DependencyHelper.retrieve("UI").show_drop_prompt()
 		held_thing.reparent(self, true)
 		if held_thing is Item:
 			held_thing._on_pickup()
@@ -24,6 +25,7 @@ func drop_thing() -> void:
 	if held_thing is Item:
 		held_thing.reparent(DependencyHelper.retrieve("Items"), true)
 		held_thing._on_drop()
+		DependencyHelper.retrieve("UI").hide_grab_drop_prompt()
 	else:
 		push_error("Tried to drop somethig that isn't item - where should we put it in the scene :[")
 	held_thing = null
@@ -36,6 +38,8 @@ func _on_graboss_area_entered(area: Area3D) -> void:
 			if current_grabbable_thing is Item:
 				current_grabbable_thing._unmark_as_target_for_pickup()
 		current_grabbable_thing = area.get_parent()
+		if held_thing == null:
+			DependencyHelper.retrieve("UI").show_grab_prompt()
 		if current_grabbable_thing is Item:
 			current_grabbable_thing._mark_as_target_for_pickup()
 
@@ -45,3 +49,5 @@ func _on_graboss_area_exited(area: Area3D) -> void:
 			if current_grabbable_thing is Item:
 				current_grabbable_thing._unmark_as_target_for_pickup()
 			current_grabbable_thing = null
+			if held_thing == null:
+				DependencyHelper.retrieve("UI").hide_grab_drop_prompt()

@@ -10,6 +10,7 @@ var current_world: Level
 func _ready() -> void:
 	if OS.has_feature("release") or play_bg_music:
 		AudioPlayer.play_background_music()
+	DependencyHelper.store("UI", $ui_overlay)
 	LevelManager.next_level_requested.connect(self.load_next_level, CONNECT_DEFERRED)
 	LevelManager.start_game()
 
