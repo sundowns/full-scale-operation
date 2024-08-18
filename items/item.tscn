@@ -10,6 +10,8 @@ script = ExtResource("2_jmgpf")
 weight = 1.0
 width = 0.5
 follow_speed = 6.0
+grab_sfx_db = 0.0
+drop_sfx_db = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dadgd"]
 size = Vector3(0.5, 0.5, 0.5)

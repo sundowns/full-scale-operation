@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 
 DependencyHelper="*res://src/autoload/DependencyHelper.gd"
 Items="*res://src/autoload/items.gd"
+AudioPlayer="*res://audio/AudioPlayer.tscn"
 
 [display]
 
@@ -28,6 +29,7 @@ window/size/viewport_height=1080
 
 folder_colors={
 "res://assets/": "red",
+"res://audio/": "purple",
 "res://components/": "green",
 "res://items/": "yellow"
 }

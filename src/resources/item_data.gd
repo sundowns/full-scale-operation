@@ -13,6 +13,12 @@ class_name ItemData
 @export var grab_shape_override: Shape3D
 @export var follow_speed: float = 6
 
+@export_category("Audio FX")
+@export var grab_sfx: AudioStream
+@export var grab_sfx_db: float = 0.0
+@export var drop_sfx: AudioStream
+@export var drop_sfx_db: float = 0.0
+
 func get_pixel_size() -> float:
 	return self.width  / self.sprite.get_width()
 
