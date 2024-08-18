@@ -1,6 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-build/
+build/*
+!build/.gdignore
 
 assets/mesh_library/resources/
