@@ -35,12 +35,6 @@ func initialise() -> void:
 func _process(delta: float) -> void:
 	if is_being_held:
 		global_position = lerp(global_position, get_parent().global_position, get_follow_speed() * delta)
-	else:
-		if floor_detection.is_colliding():
-			freeze = true
-		else:
-			freeze = false
-		
 
 func _physics_process(delta: float) -> void:
 	if not is_being_held and not is_on_floor:

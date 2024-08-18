@@ -24,8 +24,8 @@ data = SubResource("Resource_4que5")
 shape = SubResource("BoxShape3D_dadgd")
 
 [node name="RayCast3D" type="RayCast3D" parent="CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.211731, 0)
-target_position = Vector3(0, -0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22, 0)
+target_position = Vector3(0, -0.22, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
