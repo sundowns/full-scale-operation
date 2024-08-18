@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgop28hpcbm50"]
+
+[sub_resource type="Gradient" id="Gradient_cy0b4"]
+offsets = PackedFloat32Array(0, 0.172619, 0.619048, 1)
+colors = PackedColorArray(1, 0.366667, 0.24, 1, 1, 0.368627, 0.239216, 1, 1, 0.75, 0, 0.352941, 1, 0.569333, 0.24, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d8d65"]
+gradient = SubResource("Gradient_cy0b4")
+
+[sub_resource type="Curve" id="Curve_5ywio"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gc3os"]
+curve = SubResource("Curve_5ywio")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lpncn"]
+emission_shape = 1
+emission_sphere_radius = 0.07
+gravity = Vector3(0, -3, 0)
+scale_curve = SubResource("CurveTexture_gc3os")
+color_ramp = SubResource("GradientTexture1D_d8d65")
+turbulence_noise_speed = Vector3(0, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xw165"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+metallic_specular = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_is2e4"]
+material = SubResource("StandardMaterial3D_xw165")
+size = Vector2(0.05, 0.1)
+
+[node name="ThrusterParticles" type="GPUParticles3D"]
+amount = 20
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_lpncn")
+draw_pass_1 = SubResource("QuadMesh_is2e4")
