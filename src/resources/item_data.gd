@@ -11,7 +11,6 @@ class_name ItemData
 @export_category("Grabbing")
 ## Optional, otherwise calculated from width
 @export var grab_shape_override: Shape3D
-@export var follow_speed: float = 10
 
 @export_category("Audio FX")
 @export var grab_sfx: SoundEffect = preload("res://audio/sfx/menu_select_pickup.tres")
