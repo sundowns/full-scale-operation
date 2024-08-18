@@ -19,6 +19,8 @@ signal scale_invalid
 @onready var right_bottom: Marker3D = $RightBottom
 @onready var right_top: Marker3D = $RightTop
 
+@onready var balance_scales: BalanceScales = $BalanceScales
+
 var left_target_height: float = 0.0
 var right_target_height: float = 0.0
 var is_active: bool = false
@@ -26,28 +28,28 @@ var is_active: bool = false
 func _ready() -> void:
 	if test_item:
 		initialise()
-	update_dish_positions()
+	update_scales()
 
 func initialise() -> void:
 	scale_test_area.set_goal_weight(test_item.weight - error_margin, test_item.weight + error_margin)
 	test_item_sprite.texture = test_item.sprite
 	test_item_sprite.pixel_size = test_item.get_pixel_size()
 
-func update_dish_positions() -> void:
-	var goal_weight: float = test_item.weight
-	var current_weight = scale_test_area.current_weight
-	
-	var current_vs_goal_ratio: float = clampf(current_weight / goal_weight, 0.0, 2.0)
-	
+func update_scales() -> void:
+	var current_vs_goal_ratio: float = clampf(scale_test_area.current_weight / test_item.weight, 0.0, 2.0)
+	update_dish_positions(current_vs_goal_ratio)
+	var left_to_right_ratio: float = remap(current_vs_goal_ratio, 0.0, 2.0, -1.0, 1.0)
+	balance_scales.move_to_new_rotation_ratio(left_to_right_ratio)
+
+func update_dish_positions(current_vs_goal_ratio: float) -> void:
 	var left_height_ratio: = current_vs_goal_ratio / 2.0
 	var right_height_ratio: = (1.0 - current_vs_goal_ratio/2)
-	#prints(current_vs_goal_ratio, left_height_ratio, right_height_ratio)
 	left_target_height = lerp(left_top.position.y, left_bottom.position.y, left_height_ratio)
 	right_target_height = lerp(right_top.position.y, right_bottom.position.y, right_height_ratio)
 	is_active = true
 
 func _on_scale_area_weight_updated() -> void:
-	update_dish_positions()
+	update_scales()
 
 func _process(delta: float) -> void:
 	if is_active:

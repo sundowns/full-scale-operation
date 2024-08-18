@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://components/scale.gd" id="1_cbncb"]
 [ext_resource type="PackedScene" uid="uid://m4pfyqtcocd" path="res://components/scale_area.tscn" id="2_0ch5c"]
 [ext_resource type="Resource" uid="uid://dt3tmmp4qj5s2" path="res://items/data/bowling_ball.tres" id="2_ivkym"]
-[ext_resource type="PackedScene" uid="uid://cnysveoq1pjrj" path="res://components/balance_scales.tscn" id="4_bmddv"]
+[ext_resource type="PackedScene" uid="uid://racmmrfkassp" path="res://components/balance_scales.tscn" id="4_bmddv"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r4hvo"]
 height = 0.1
@@ -87,8 +87,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12612)
 mesh = SubResource("BoxMesh_g4u4i")
 skeleton = NodePath("../..")
 
-[node name="scales" parent="." instance=ExtResource("4_bmddv")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+[node name="BalanceScales" parent="." instance=ExtResource("4_bmddv")]
 
 [connection signal="weight_goal_activated" from="LeftDish/ScaleArea" to="." method="_on_scale_area_weight_goal_activated"]
 [connection signal="weight_goal_deactivated" from="LeftDish/ScaleArea" to="." method="_on_scale_area_weight_goal_deactivated"]
