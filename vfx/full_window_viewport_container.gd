@@ -14,15 +14,15 @@ func _ready() -> void:
 		toggle_effects()
 	else:
 		set_process_input(false)
-	resize()
+	Callable(resize).call_deferred()
 
 func _on_window_size_changed():
 	resize()
 
 func resize() -> void:
 	var new_window_size = get_viewport().get_visible_rect().size
-	self.size = new_window_size
-	viewport.size = new_window_size
+	set_deferred("size", new_window_size)
+	viewport.set_deferred("size", new_window_size)
 
 func toggle_effects() -> void:
 	if shaders_active:

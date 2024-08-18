@@ -11,10 +11,10 @@ shader = ExtResource("3_ounu3")
 shader_parameter/dither_enabled = true
 shader_parameter/greyscale = false
 shader_parameter/greyscale_blend_amount = 0.0
-shader_parameter/dither_amount = 2.0
+shader_parameter/dither_amount = 1.25
 shader_parameter/colours = 32
-shader_parameter/pixel_width = 0.08
-shader_parameter/pixel_height = 0.045
+shader_parameter/pixel_width = 0.04
+shader_parameter/pixel_height = 0.023
 shader_parameter/dither_pattern = ExtResource("4_snvap")
 
 [node name="Game" type="Node"]
