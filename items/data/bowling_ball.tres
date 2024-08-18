@@ -10,3 +10,4 @@ sprite = ExtResource("3_2mk4r")
 weight = 6600.0
 width = 0.375
 grab_sfx = ExtResource("1_fqn31")
+minimum_speed_for_landing_effects = 3.5
