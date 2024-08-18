@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://doofx112qejp1"]
+
+[ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="1_m0aey"]
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_winpd"]
+[ext_resource type="Texture2D" uid="uid://1j8nu8p53jrk" path="res://assets/items/Rock.png" id="3_4xp3h"]
+
+[resource]
+script = ExtResource("2_winpd")
+sprite = ExtResource("3_4xp3h")
+weight = 5000.0
+width = 0.4
+follow_speed = 12.0
+grab_sfx = ExtResource("1_m0aey")

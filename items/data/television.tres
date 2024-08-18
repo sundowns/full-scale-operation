@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bc1mnhcyanthg"]
+
+[ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="1_ndl22"]
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_rnv4s"]
+[ext_resource type="Texture2D" uid="uid://ckfqvi2wh2g8w" path="res://assets/items/TV.png" id="3_hu4bf"]
+
+[resource]
+script = ExtResource("2_rnv4s")
+sprite = ExtResource("3_hu4bf")
+weight = 12000.0
+width = 1.25
+follow_speed = 8.0
+grab_sfx = ExtResource("1_ndl22")
