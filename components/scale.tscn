@@ -84,4 +84,6 @@ shape = SubResource("BoxShape3D_fbnhy")
 mesh = SubResource("BoxMesh_g4u4i")
 skeleton = NodePath("../..")
 
+[connection signal="weight_goal_activated" from="LeftDish/ScaleArea" to="." method="_on_scale_area_weight_goal_activated"]
+[connection signal="weight_goal_deactivated" from="LeftDish/ScaleArea" to="." method="_on_scale_area_weight_goal_deactivated"]
 [connection signal="weight_updated" from="LeftDish/ScaleArea" to="." method="_on_scale_area_weight_updated"]

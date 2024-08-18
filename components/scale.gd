@@ -1,6 +1,9 @@
 extends StaticBody3D
 class_name Scale
 
+signal scale_valid
+signal scale_invalid
+
 @export var test_item: ItemData
 @export_range(0, 1, 10000) var error_margin: float = 10 
 @export_range(0.1, 100, 0.1) var dish_move_speed: float = 1.0
@@ -52,3 +55,9 @@ func _process(delta: float) -> void:
 		left_dish.position.y = clampf(left_height, left_bottom.position.y, left_top.position.y)
 		var right_height: float = lerp(right_dish.position.y, right_target_height, delta * dish_move_speed)
 		right_dish.position.y = clampf(right_height, right_bottom.position.y, right_top.position.y)
+
+func _on_scale_area_weight_goal_activated() -> void:
+	scale_valid.emit()
+
+func _on_scale_area_weight_goal_deactivated() -> void:
+	scale_invalid.emit()
