@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b42pgqd77k37g"]
+[gd_scene load_steps=11 format=3 uid="uid://b42pgqd77k37g"]
 
 [ext_resource type="PackedScene" uid="uid://dogbp26pm05oa" path="res://levels/base_level.tscn" id="1_c35gt"]
 [ext_resource type="PackedScene" uid="uid://c3ynpa4pb482k" path="res://components/scale.tscn" id="2_iqe5f"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dme1qovut5fue" path="res://components/item_generator.tscn" id="4_5njpv"]
 [ext_resource type="PackedScene" uid="uid://dokux4ebtr2rk" path="res://components/all_item_spawner.tscn" id="5_wihjg"]
 [ext_resource type="PackedScene" uid="uid://cuy5bn2r2h4ac" path="res://components/toggleable_door.tscn" id="6_uuwdu"]
+[ext_resource type="PackedScene" uid="uid://523c22o0f8cc" path="res://components/lamp.tscn" id="7_j2a64"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xfds"]
 
@@ -52,5 +53,10 @@ data = {
 [node name="ToggleableDoor" parent="." index="13" instance=ExtResource("6_uuwdu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -10.5)
 
+[node name="Lamp" parent="." index="14" instance=ExtResource("7_j2a64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46364, 1.21679, -10.1341)
+
 [connection signal="scale_invalid" from="Scale" to="ToggleableDoor" method="close"]
+[connection signal="scale_invalid" from="Scale" to="Lamp" method="turn_off"]
 [connection signal="scale_valid" from="Scale" to="ToggleableDoor" method="open"]
+[connection signal="scale_valid" from="Scale" to="Lamp" method="turn_on"]

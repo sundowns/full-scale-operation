@@ -42,9 +42,10 @@ float dither(float raw, float dither, int depth) {
 }
 
 void fragment() {
-	float Pixels = 512.0;
-	float dx = pixel_width * (1.0 / Pixels);
-	float dy = pixel_height * (1.0 / Pixels);
+	float Pixels_x = 1920.0;
+	float Pixels_y = 1080.0;
+	float dx = pixel_width * (1.0 / Pixels_x);
+	float dy = pixel_height * (1.0 / Pixels_y);
 	vec2 Coord = vec2(dx * floor(SCREEN_UV.x / dx),
                         dy * floor(SCREEN_UV.y / dy));
 	vec4 raw = texture(TEXTURE, Coord);
