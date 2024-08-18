@@ -1,0 +1,1 @@
+git update-index --assume-unchanged assets/mesh_library/resources/*
