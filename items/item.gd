@@ -18,6 +18,8 @@ var _is_initialised: bool = false
 var is_being_held: bool =false
 var is_on_floor: bool = false
 
+const base_glow_size: float = 25.0
+
 func _ready() -> void:
 	if data:
 		initialise()
@@ -31,6 +33,7 @@ func initialise() -> void:
 	grab_box.set_shape(data.get_grab_box())
 	weight_component.set_weight(data.weight)
 	highlight_material.set_shader_parameter("sprite_texture", data.sprite)
+	highlight_material.set_shader_parameter("glowSize", base_glow_size * 1.0/data.width)
 
 func _process(delta: float) -> void:
 	if is_being_held:

@@ -5,7 +5,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_xg71c")
-shader_parameter/line_color = Color(1, 1, 0.458824, 1)
+shader_parameter/line_color = Color(0.04, 1, 0.504, 1)
 shader_parameter/glowSize = 15.0
 shader_parameter/glowDensity = 3
 shader_parameter/glowRadialCoverage = 4

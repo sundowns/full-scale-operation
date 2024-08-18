@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dogbp26pm05oa"]
+[gd_scene load_steps=8 format=3 uid="uid://dogbp26pm05oa"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_jkjyu"]
 [ext_resource type="PackedScene" uid="uid://d0m0ypr3txc0m" path="res://components/floor.tscn" id="2_ujtvw"]
@@ -7,24 +7,18 @@
 [ext_resource type="MeshLibrary" uid="uid://l8iov4qitby" path="res://assets/mesh_library/resources/arcade_library.tres" id="5_ghw3g"]
 [ext_resource type="MeshLibrary" uid="uid://be70tshjipimj" path="res://assets/mesh_library/resources/arcade_library_floor.tres" id="6_1hgh4"]
 
-[sub_resource type="Gradient" id="Gradient_qrjjd"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ilye2"]
-gradient = SubResource("Gradient_qrjjd")
-fill_to = Vector2(0.935897, 0.92735)
-
 [sub_resource type="Environment" id="Environment_tuxfy"]
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.7
+ambient_light_energy = 0.8
 tonemap_mode = 2
-tonemap_exposure = 0.85
-tonemap_white = 8.0
+tonemap_white = 6.0
 fog_enabled = true
-fog_light_color = Color(0.51, 0.51, 0.51, 1)
-fog_light_energy = 0.13
+fog_light_color = Color(0.446777, 0.446777, 0.446777, 1)
+fog_light_energy = 0.1
 fog_density = 0.1575
-adjustment_color_correction = SubResource("GradientTexture2D_ilye2")
+adjustment_enabled = true
+adjustment_contrast = 1.05
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_jkjyu")
