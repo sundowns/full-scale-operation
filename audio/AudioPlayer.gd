@@ -22,5 +22,4 @@ func play_sfx(sfx: AudioStream, volume = 0.0):
 	fx_player.queue_free()
 	
 func play_background_music():
-	print("playing bgm")
 	_play_music(bgm, -25)
