@@ -1,18 +1,17 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cv2ug7d87um8r"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cv2ug7d87um8r"]
 
 [ext_resource type="AudioStream" uid="uid://bf6ycmj45erob" path="res://audio/EnemyDie.wav" id="1_8x1e7"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_jk64b"]
-
-[sub_resource type="Resource" id="Resource_6a2ai"]
-metadata/__load_path__ = "res://assets/items/Anvil.png"
+[ext_resource type="AudioStream" uid="uid://d2pax2r1cyjxt" path="res://audio/Menu Select.wav" id="2_aw18x"]
+[ext_resource type="Texture2D" uid="uid://dgu70fj3kuiem" path="res://assets/items/Anvil.png" id="3_0dkdu"]
 
 [resource]
 script = ExtResource("1_jk64b")
-sprite = SubResource("Resource_6a2ai")
+sprite = ExtResource("3_0dkdu")
 weight = 80000.0
 width = 1.0
 follow_speed = 4.0
-grab_sfx = ExtResource("1_8x1e7")
-grab_sfx_db = 0.0
+grab_sfx = ExtResource("2_aw18x")
+grab_sfx_db = -20.0
 drop_sfx = ExtResource("1_8x1e7")
-drop_sfx_db = 0.0
+drop_sfx_db = -20.0

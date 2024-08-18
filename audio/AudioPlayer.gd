@@ -10,9 +10,9 @@ func _play_music(music: AudioStream, volume = 0.0):
 	volume_db = volume
 	play()
 	
-func play_sfx(stream: AudioStream, volume = 0.0):
+func play_sfx(sfx: AudioStream, volume = 0.0):
 	var fx_player = AudioStreamPlayer.new()
-	fx_player.stream = stream
+	fx_player.stream = sfx
 	fx_player.name = "FX_PLAYER"
 	fx_player.volume_db = volume
 	add_child(fx_player)
