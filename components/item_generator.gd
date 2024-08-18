@@ -2,10 +2,11 @@ extends Node3D
 class_name ItemGenerator
 
 @onready var item_scene: PackedScene = preload("res://items/item.tscn")
-@onready var spawn_item_sfx: AudioStream = preload("res://audio/Pause.wav")
 
 @onready var spawn_location: Marker3D = $SpawnLocation
 @onready var player_detection_area: PlayerDetectionArea = $PlayerDetectionArea
+
+@export var spawn_item_sfx: AudioStream
 
 func _ready() -> void:
 	player_detection_area.player_entered.connect(self._on_player_detected, CONNECT_DEFERRED)
