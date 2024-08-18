@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://wkosd3xfip3l"]
+
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_4edww"]
+[ext_resource type="Texture2D" uid="uid://xwmt7bnqita8" path="res://assets/items/battery.png" id="2_ci3q5"]
+
+[resource]
+script = ExtResource("1_4edww")
+sprite = ExtResource("2_ci3q5")
+weight = 30.0
+width = 0.2
+follow_speed = 8.0
+grab_sfx_db = 0.0
+drop_sfx_db = 0.0

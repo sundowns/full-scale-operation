@@ -9,6 +9,7 @@ const items_per_row: int = 3
 
 func _ready() -> void:
 	DependencyHelper.store("Items", $Items)
+	DependencyHelper.store("UI", $ui_overlay)
 	Callable(spawn_all_items).call_deferred()
 
 func spawn_all_items() -> void:

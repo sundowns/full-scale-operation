@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqgb5ktjaen3j"]
+[gd_scene load_steps=9 format=3 uid="uid://bqgb5ktjaen3j"]
 
 [ext_resource type="Script" path="res://levels/test_scenes/all_items.gd" id="1_lnivg"]
 [ext_resource type="PackedScene" uid="uid://d0m0ypr3txc0m" path="res://components/floor.tscn" id="1_tebqh"]
 [ext_resource type="PackedScene" uid="uid://bb2xhb5er4w6t" path="res://components/camera_rig.tscn" id="2_xyexg"]
 [ext_resource type="PackedScene" uid="uid://cd1uc5gf5jbj3" path="res://components/player.tscn" id="3_857nf"]
+[ext_resource type="PackedScene" uid="uid://dww2kahq85uu2" path="res://ui/ui_overlay.tscn" id="5_ryhqd"]
+[ext_resource type="PackedScene" uid="uid://c3ynpa4pb482k" path="res://components/scale.tscn" id="6_vh16w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ab0i3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j6vj7"]
 
 [node name="AllItems" type="Node3D"]
 script = ExtResource("1_lnivg")
@@ -14,6 +20,7 @@ script = ExtResource("1_lnivg")
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_857nf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85702, 0.330653, 0)
 
 [node name="Items" type="Node" parent="."]
 
@@ -21,3 +28,18 @@ target = NodePath("../Player")
 transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866025, 0.5, 0.5, -0.433013, 0.75, 0, 0, 0)
 
 [node name="SpawnMarker" type="Marker3D" parent="."]
+
+[node name="ui_overlay" parent="." instance=ExtResource("5_ryhqd")]
+
+[node name="Scale" parent="." instance=ExtResource("6_vh16w")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.96755, 0.424917, -7)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_ab0i3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_j6vj7")
