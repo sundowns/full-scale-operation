@@ -14,10 +14,8 @@ class_name ItemData
 @export var follow_speed: float = 6
 
 @export_category("Audio FX")
-@export var grab_sfx: AudioStream
-@export var grab_sfx_db: float = 0.0
-@export var drop_sfx: AudioStream
-@export var drop_sfx_db: float = 0.0
+@export var grab_sfx: SoundEffect = preload("res://audio/sfx/menu_select_pickup.tres")
+@export var drop_sfx: SoundEffect
 
 func get_pixel_size() -> float:
 	return self.width  / self.sprite.get_width()

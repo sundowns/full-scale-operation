@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://components/item_generator.gd" id="1_4ocaa"]
 [ext_resource type="PackedScene" uid="uid://dgqyioiw36j8c" path="res://components/player_detection_area.tscn" id="1_cgnjw"]
-[ext_resource type="AudioStream" uid="uid://ch40b8ps40ub4" path="res://audio/Pause.wav" id="2_gqsj3"]
+[ext_resource type="Resource" uid="uid://2d3jdtqksb7d" path="res://audio/sfx/spawn_item.tres" id="2_qhxrx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5752u"]
 albedo_color = Color(0.54, 0.1998, 0.1998, 1)
@@ -17,7 +17,7 @@ size = Vector3(1, 0.05, 1)
 
 [node name="ItemGenerator" type="Node3D"]
 script = ExtResource("1_4ocaa")
-spawn_item_sfx = ExtResource("2_gqsj3")
+spawn_item_sfx = ExtResource("2_qhxrx")
 
 [node name="ButtonMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://2d3jdtqksb7d"]
+
+[ext_resource type="Script" path="res://src/resources/sound_effect.gd" id="1_qwebi"]
+[ext_resource type="AudioStream" uid="uid://ch40b8ps40ub4" path="res://audio/Pause.wav" id="2_4hvqn"]
+
+[resource]
+script = ExtResource("1_qwebi")
+sfx = ExtResource("2_4hvqn")
+decibels = -20.0

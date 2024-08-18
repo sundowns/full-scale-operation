@@ -1,20 +1,22 @@
 extends AudioStreamPlayer
 
-const bgm = preload("res://audio/Battle-TheOath_loop.ogg")
+const bgm = preload("res://audio/sfx/background_music_epic.tres")
 
-func _play_music(music: AudioStream, volume = 0.0):
-	if stream == music:
+func _play_music(effect: SoundEffect):
+	if stream == effect.sfx:
 		return
 		
-	stream = music
-	volume_db = volume
+	stream = effect.sfx
+	volume_db = effect.decibels
 	play()
 	
-func play_sfx(sfx: AudioStream, volume = 0.0):
+func play_sfx(effect: SoundEffect):
+	if not effect: return
+	assert(effect.sfx)
 	var fx_player = AudioStreamPlayer.new()
-	fx_player.stream = sfx
+	fx_player.stream = effect.sfx
 	fx_player.name = "FX_PLAYER"
-	fx_player.volume_db = volume
+	fx_player.volume_db = effect.decibels
 	add_child(fx_player)
 	fx_player.play()
 	
@@ -22,4 +24,4 @@ func play_sfx(sfx: AudioStream, volume = 0.0):
 	fx_player.queue_free()
 	
 func play_background_music():
-	_play_music(bgm, -25)
+	_play_music(bgm)

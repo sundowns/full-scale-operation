@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn0eakvdlj2nl"]
+[gd_scene load_steps=8 format=3 uid="uid://bn0eakvdlj2nl"]
 
 [ext_resource type="Script" path="res://items/item.gd" id="1_0wl3l"]
+[ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="2_fseri"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_jmgpf"]
 [ext_resource type="PackedScene" uid="uid://bdmo2hgrn2rgi" path="res://components/grab_box.tscn" id="4_qmdax"]
 [ext_resource type="PackedScene" uid="uid://dbhvm1t8b6qyc" path="res://components/weight_component.tscn" id="5_p3ib3"]
@@ -10,8 +11,7 @@ script = ExtResource("2_jmgpf")
 weight = 1.0
 width = 0.5
 follow_speed = 6.0
-grab_sfx_db = 0.0
-drop_sfx_db = 0.0
+grab_sfx = ExtResource("2_fseri")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dadgd"]
 size = Vector3(0.5, 0.5, 0.5)
