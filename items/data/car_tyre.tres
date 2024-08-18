@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dgyx6ylai7kaa"]
+
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_qiyvx"]
+[ext_resource type="Texture2D" uid="uid://rjv36vpin8yp" path="res://assets/items/Car Tire.png" id="2_14xfo"]
+
+[resource]
+script = ExtResource("1_qiyvx")
+sprite = ExtResource("2_14xfo")
+weight = 10000.0
+width = 0.75
+follow_speed = 6.0
+grab_sfx_db = 0.0
+drop_sfx_db = 0.0

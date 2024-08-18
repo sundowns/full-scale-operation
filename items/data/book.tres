@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://desbf6hvx41b1"]
+
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_ksni5"]
+[ext_resource type="Texture2D" uid="uid://b25t4h8h5j8li" path="res://assets/items/book.png" id="2_ymif2"]
+
+[resource]
+script = ExtResource("1_ksni5")
+sprite = ExtResource("2_ymif2")
+weight = 550.0
+width = 0.35
+follow_speed = 6.0
+grab_sfx_db = 0.0
+drop_sfx_db = 0.0

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://hedi73713tom"]
+
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_pu6ng"]
+[ext_resource type="Texture2D" uid="uid://mp2vtfda0o0g" path="res://assets/items/Canned Food.png" id="2_5odxa"]
+
+[resource]
+script = ExtResource("1_pu6ng")
+sprite = ExtResource("2_5odxa")
+weight = 500.0
+width = 0.3
+follow_speed = 6.0
+grab_sfx_db = 0.0
+drop_sfx_db = 0.0
