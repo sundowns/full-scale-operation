@@ -11,8 +11,8 @@ signal scale_invalid
 @onready var scale_test_area: ScaleArea = $LeftDish/ScaleArea
 @onready var test_item_sprite: Sprite3D = $RightDish/TestItemSprite
 
-@onready var left_dish: MeshInstance3D = $LeftDish
-@onready var right_dish: MeshInstance3D = $RightDish
+@onready var left_dish: Node3D = $LeftDish
+@onready var right_dish: Node3D = $RightDish
 
 @onready var left_bottom: Marker3D = $LeftBottom
 @onready var left_top: Marker3D = $LeftTop

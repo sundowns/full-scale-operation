@@ -4,17 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://m4pfyqtcocd" path="res://components/scale_area.tscn" id="2_0ch5c"]
 [ext_resource type="Resource" uid="uid://dt3tmmp4qj5s2" path="res://items/data/bowling_ball.tres" id="2_ivkym"]
 [ext_resource type="PackedScene" uid="uid://racmmrfkassp" path="res://components/balance_scales.tscn" id="4_bmddv"]
+[ext_resource type="PackedScene" uid="uid://cgm1pv3idq7wv" path="res://components/dish.tscn" id="4_s4l5g"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r4hvo"]
-height = 0.1
+height = 0.139584
 radius = 1.0
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_q3lbs"]
-top_radius = 1.0
-bottom_radius = 1.0
-height = 0.1
-radial_segments = 16
-rings = 1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o6lqq"]
 height = 0.321792
@@ -36,14 +30,14 @@ script = ExtResource("1_cbncb")
 test_item = ExtResource("2_ivkym")
 
 [node name="LeftDishCollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669072, 1.84235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.646562, 1.84235)
 shape = SubResource("CylinderShape3D_r4hvo")
 
-[node name="LeftDish" type="MeshInstance3D" parent="."]
+[node name="LeftDish" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669072, 1.84235)
-mesh = SubResource("CylinderMesh_q3lbs")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="LeftDish"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0225103, 0)
 remote_path = NodePath("../../LeftDishCollisionShape")
 
 [node name="ScaleArea" parent="LeftDish" instance=ExtResource("2_0ch5c")]
@@ -57,13 +51,18 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.203212, 0)
 shape = SubResource("CylinderShape3D_o6lqq")
 
-[node name="RightDish" type="MeshInstance3D" parent="."]
+[node name="dish" parent="LeftDish" instance=ExtResource("4_s4l5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.317557, 0)
+
+[node name="RightDish" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669, -1.842)
-mesh = SubResource("CylinderMesh_q3lbs")
 
 [node name="TestItemSprite" type="Sprite3D" parent="RightDish"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.228392, 0)
 billboard = 1
+
+[node name="dish" parent="RightDish" instance=ExtResource("4_s4l5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.318, 0)
 
 [node name="LeftBottom" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 1.84235)
