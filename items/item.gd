@@ -18,7 +18,6 @@ var _is_initialised: bool = false
 var is_being_held: bool =false
 var is_on_floor: bool = false
 
-
 func _ready() -> void:
 	if data:
 		initialise()

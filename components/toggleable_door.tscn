@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuy5bn2r2h4ac"]
+
+[ext_resource type="Script" path="res://components/toggleable_door.gd" id="1_fm0j5"]
+[ext_resource type="PackedScene" uid="uid://cu573x4a8lsgf" path="res://assets/mesh_library/wall-door_rotate_collision.tscn" id="1_oxdp7"]
+
+[node name="ToggleableDoor" type="Node3D"]
+script = ExtResource("1_fm0j5")
+
+[node name="wall-door-rotate" parent="." instance=ExtResource("1_oxdp7")]
+
+[node name="door-right" parent="wall-door-rotate/wall-door-rotate" index="1"]
+transform = Transform3D(1, 0, 3.48787e-16, 0, 1, 0, -3.48787e-16, 0, 1, 0.4, 7.64979e-10, 0.1)
+
+[node name="door-left" parent="wall-door-rotate/wall-door-rotate" index="2"]
+transform = Transform3D(1, 0, -3.48787e-16, 0, 1, 0, 3.48787e-16, 0, 1, -0.4, 7.64979e-10, 0.1)
+
+[editable path="wall-door-rotate"]

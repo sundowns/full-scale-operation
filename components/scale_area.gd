@@ -15,7 +15,7 @@ var current_weight: float = 0.0
 var is_within_goal_range: bool = false
 var has_contents_changed: bool = false
 
-const assess_weight_after: float = 0.1
+const assess_weight_after: float = 0.25
 
 func set_goal_weight(minimum: float, maximum: float) -> void:
 	goal_weight_min = minimum
