@@ -17,10 +17,11 @@ offset_top = -285.5
 offset_bottom = 285.5
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/margin_right = 250
+theme_override_constants/margin_right = 760
 
 [node name="GrabbDropContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = -2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/GrabbDropContainer"]
 texture_filter = 1
@@ -29,8 +30,9 @@ texture = ExtResource("2_beku0")
 stretch_mode = 5
 
 [node name="GrabDrop" type="Label" parent="MarginContainer/GrabbDropContainer"]
+custom_minimum_size = Vector2(70, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "GRAB"
-horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
