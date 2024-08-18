@@ -3,7 +3,7 @@ class_name Game
 
 @export var play_bg_music: bool = false
 
-@onready var world_anchor: Node3D = $WorldAnchor
+@onready var world_anchor: Node3D = $SubViewportContainer/SubViewport/WorldAnchor
 
 var current_world: Level
 

@@ -1,11 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0tdjgkul3t8s"]
+[gd_scene load_steps=7 format=3 uid="uid://c0tdjgkul3t8s"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_tdkcq"]
 [ext_resource type="PackedScene" uid="uid://dww2kahq85uu2" path="res://ui/ui_overlay.tscn" id="2_ie5lo"]
+[ext_resource type="Script" path="res://vfx/full_window_viewport_container.gd" id="2_xs1id"]
+[ext_resource type="Shader" path="res://vfx/fullscreen_dither.gdshader" id="3_ounu3"]
+[ext_resource type="Texture2D" uid="uid://bdrg07g6j1fx" path="res://assets/dither map 8x8.png" id="4_snvap"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a1uu"]
+shader = ExtResource("3_ounu3")
+shader_parameter/dither_enabled = true
+shader_parameter/greyscale = false
+shader_parameter/greyscale_blend_amount = 0.0
+shader_parameter/dither_amount = 2.0
+shader_parameter/colours = 32
+shader_parameter/pixel_width = 0.08
+shader_parameter/pixel_height = 0.045
+shader_parameter/dither_pattern = ExtResource("4_snvap")
 
 [node name="Game" type="Node"]
 script = ExtResource("1_tdkcq")
 
-[node name="WorldAnchor" type="Node3D" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_xs1id")
+shader_material = SubResource("ShaderMaterial_6a1uu")
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="WorldAnchor" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
 [node name="ui_overlay" parent="." instance=ExtResource("2_ie5lo")]
