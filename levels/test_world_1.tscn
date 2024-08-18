@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b42pgqd77k37g"]
+[gd_scene load_steps=8 format=3 uid="uid://b42pgqd77k37g"]
 
 [ext_resource type="PackedScene" uid="uid://dogbp26pm05oa" path="res://levels/base_level.tscn" id="1_c35gt"]
 [ext_resource type="PackedScene" uid="uid://c3ynpa4pb482k" path="res://components/scale.tscn" id="2_iqe5f"]
@@ -9,6 +9,8 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_4fstl"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_q1chq"]
+
 [node name="World" instance=ExtResource("1_c35gt")]
 
 [node name="Scale" parent="." index="5" instance=ExtResource("2_iqe5f")]
@@ -17,6 +19,7 @@ test_item = ExtResource("3_1nvu8")
 
 [node name="Box(os)" type="StaticBody3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, -6)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box(os)" index="0"]
 shape = SubResource("BoxShape3D_0xfds")
@@ -26,3 +29,10 @@ mesh = SubResource("BoxMesh_4fstl")
 
 [node name="ItemGenerator" parent="." index="7" instance=ExtResource("4_5njpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+
+[node name="LoadNextLevelZone" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.330687, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoadNextLevelZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61689, 0.202676, -1.55168)
+shape = SubResource("BoxShape3D_q1chq")

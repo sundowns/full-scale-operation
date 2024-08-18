@@ -5,15 +5,10 @@ class_name Game
 
 var current_world: Level
 
-var current_level_index: int = -1
-
-var levels: Array[PackedScene] = [
-	preload("res://levels/test_world_1.tscn")
-]
-
 func _ready() -> void:
 	AudioPlayer.play_background_music()
-	load_next_level()
+	LevelManager.next_level_requested.connect(self.load_next_level, CONNECT_DEFERRED)
+	LevelManager.start_game()
 
 func clear_world() -> void:
 	for child in world_anchor.get_children():
@@ -21,7 +16,6 @@ func clear_world() -> void:
 
 func load_next_level() -> void:
 	clear_world()
-	current_level_index += 1
-	var new_world: Level = levels[current_level_index].instantiate() as Level
+	var new_world: Level = LevelManager.get_level_scene(LevelManager.current_level_index) .instantiate() as Level
 	world_anchor.add_child(new_world)
 	new_world.initialise()

@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 DependencyHelper="*res://src/autoload/DependencyHelper.gd"
 Items="*res://src/autoload/items.gd"
 AudioPlayer="*res://audio/AudioPlayer.tscn"
+LevelManager="*res://src/autoload/level_manager.gd"
 
 [display]
 
