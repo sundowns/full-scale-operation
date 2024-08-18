@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dp1d3dtjjjb8m"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dp1d3dtjjjb8m"]
 
+[ext_resource type="AudioStream" uid="uid://d2pax2r1cyjxt" path="res://audio/Menu Select.wav" id="1_g70mj"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_i5oy3"]
-[ext_resource type="Texture2D" uid="uid://d0mdduhnocnl3" path="res://assets/items/baseball_bat.png" id="2_trpnq"]
+[ext_resource type="Texture2D" uid="uid://d0mdduhnocnl3" path="res://assets/items/baseball_bat.png" id="3_wdmfd"]
 
 [resource]
 script = ExtResource("1_i5oy3")
-sprite = ExtResource("2_trpnq")
+sprite = ExtResource("3_wdmfd")
 weight = 1000.0
 width = 0.3
 follow_speed = 6.0
+grab_sfx = ExtResource("1_g70mj")
+grab_sfx_db = -20.0
+drop_sfx_db = 0.0

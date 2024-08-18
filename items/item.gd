@@ -34,11 +34,13 @@ func _on_pickup() -> void:
 	top_level = true
 	is_being_held = true
 	freeze = true
+	AudioPlayer.play_sfx(data.grab_sfx, data.grab_sfx_db)
 
 func _on_drop() -> void:
 	top_level = false
 	is_being_held = false
 	freeze = false
+	AudioPlayer.play_sfx(data.drop_sfx, data.drop_sfx_db)
 
 func _mark_as_target_for_pickup() -> void:
 	sprite.material_override = highlight_material

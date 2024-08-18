@@ -6,6 +6,8 @@ class_name ItemGenerator
 @onready var spawn_location: Marker3D = $SpawnLocation
 @onready var player_detection_area: PlayerDetectionArea = $PlayerDetectionArea
 
+@export var spawn_item_sfx: AudioStream
+
 func _ready() -> void:
 	player_detection_area.player_entered.connect(self._on_player_detected, CONNECT_DEFERRED)
 
@@ -18,4 +20,5 @@ func spawn_item_at(at: Vector3, data: ItemData) -> void:
 	DependencyHelper.retrieve("Items").add_child(new_item)
 	new_item.global_position = at
 	new_item.initialise()
+	AudioPlayer.play_sfx(spawn_item_sfx, -20)
 	

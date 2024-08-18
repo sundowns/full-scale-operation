@@ -5,3 +5,4 @@ class_name World
 
 func _ready() -> void:
 	DependencyHelper.store("Items", $Items)
+	AudioPlayer.play_background_music()
