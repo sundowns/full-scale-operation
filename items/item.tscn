@@ -11,6 +11,7 @@ script = ExtResource("2_jmgpf")
 weight = 1.0
 width = 0.5
 grab_sfx = ExtResource("2_fseri")
+minimum_speed_for_landing_effects = 3.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dadgd"]
 size = Vector3(0.5, 0.5, 0.5)

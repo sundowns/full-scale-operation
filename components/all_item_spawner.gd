@@ -2,7 +2,7 @@ extends Marker3D
 
 @onready var item_scene = preload("res://items/item.tscn")
 
-const offset: float = 1.5
+const offset: float = 1.8
 const items_per_row: int = 6
 
 func _ready() -> void:

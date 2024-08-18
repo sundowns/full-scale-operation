@@ -18,6 +18,7 @@ var _is_initialised: bool = false
 var is_being_held: bool =false
 var is_on_floor: bool = false
 
+
 func _ready() -> void:
 	if data:
 		initialise()
@@ -37,9 +38,12 @@ func _process(delta: float) -> void:
 		global_position = lerp(global_position, get_parent().global_position, get_follow_speed() * delta)
 
 func _physics_process(_delta: float) -> void:
-	if not is_being_held and not is_on_floor:
-		if floor_detection.is_colliding():
-			_on_landing()
+	if not is_being_held:
+		if not is_on_floor and not freeze:
+			if floor_detection.is_colliding():
+				_on_landing()
+		elif not floor_detection.is_colliding():
+			freeze = false # we need to check if we have started falling by other means (notably, the scale lowering)
 
 func get_follow_speed() -> float:
 	var speed = remap(data.weight, 0, weight_weight,  follow_speed_max, follow_speed_min)
@@ -50,18 +54,19 @@ func _on_pickup() -> void:
 	is_being_held = true
 	freeze = true
 	is_on_floor = false
-	floor_detection.enabled = false
 	AudioPlayer.play_sfx(data.grab_sfx)
 
 func _on_drop() -> void:
 	top_level = false
 	is_being_held = false
 	freeze = false
-	floor_detection.enabled = true
 	
 func _on_landing() -> void:
 	freeze = true
-	floor_detection.enabled = false
+	if linear_velocity.length() > data.minimum_speed_for_landing_effects:
+		play_landing_effect()
+
+func play_landing_effect() -> void:
 	AudioPlayer.play_sfx(data.drop_sfx)
 
 func _mark_as_target_for_pickup() -> void:

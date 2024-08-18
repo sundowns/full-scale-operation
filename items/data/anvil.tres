@@ -12,3 +12,4 @@ weight = 80000.0
 width = 1.2
 grab_sfx = ExtResource("2_82j8w")
 drop_sfx = ExtResource("1_pw523")
+minimum_speed_for_landing_effects = 1.0
