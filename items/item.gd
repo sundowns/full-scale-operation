@@ -36,11 +36,10 @@ func _process(delta: float) -> void:
 	if is_being_held:
 		global_position = lerp(global_position, get_parent().global_position, get_follow_speed() * delta)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not is_being_held and not is_on_floor:
 		if floor_detection.is_colliding():
 			_on_landing()
-	
 
 func get_follow_speed() -> float:
 	var speed = remap(data.weight, 0, weight_weight,  follow_speed_max, follow_speed_min)
