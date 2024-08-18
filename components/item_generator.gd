@@ -2,6 +2,7 @@ extends Node3D
 class_name ItemGenerator
 
 @onready var item_scene: PackedScene = preload("res://items/item.tscn")
+@onready var spawn_item_sfx: AudioStream = preload("res://audio/Pause.wav")
 
 @onready var spawn_location: Marker3D = $SpawnLocation
 @onready var player_detection_area: PlayerDetectionArea = $PlayerDetectionArea
@@ -18,4 +19,5 @@ func spawn_item_at(at: Vector3, data: ItemData) -> void:
 	DependencyHelper.retrieve("Items").add_child(new_item)
 	new_item.global_position = at
 	new_item.initialise()
+	AudioPlayer.play_sfx(spawn_item_sfx, -20)
 	
