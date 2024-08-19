@@ -41,3 +41,4 @@ render_target_update_mode = 4
 [node name="WorldAnchor" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
 [node name="ui_overlay" parent="." instance=ExtResource("2_ie5lo")]
+visible = false

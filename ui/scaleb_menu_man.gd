@@ -27,9 +27,6 @@ func seek_next_point() -> void:
 	while new_index == -1 or new_index == current_point_index:
 		new_index = randi_range(0, points.size()-1)
 	current_point_index = new_index
-	#if current_point_index >= points.size() - 1:
-		#current_point_index = -1
-	#current_point_index += 1
 	tween_towards(points[current_point_index].global_position)
 
 func tween_towards(location: Vector2) -> void:
@@ -45,7 +42,3 @@ func tween_towards(location: Vector2) -> void:
 
 func _on_random_delay_timeout() -> void:
 	seek_next_point()
-#
-#func _process(delta: float) -> void:
-	#flip_h = last_location.x < global_position.x
-	#last_location = global_position
