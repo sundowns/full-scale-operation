@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b42pgqd77k37g"]
+[gd_scene load_steps=15 format=3 uid="uid://b42pgqd77k37g"]
 
 [ext_resource type="PackedScene" uid="uid://dogbp26pm05oa" path="res://levels/base_level.tscn" id="1_c35gt"]
 [ext_resource type="Script" path="res://src/resources/level_dialogue.gd" id="2_5hmwf"]
+[ext_resource type="Script" path="res://levels/test_world_1.gd" id="2_d3bww"]
 [ext_resource type="PackedScene" uid="uid://c3ynpa4pb482k" path="res://components/scale.tscn" id="2_iqe5f"]
 [ext_resource type="Resource" uid="uid://ddq37cy4bu02s" path="res://items/data/axe.tres" id="3_1nvu8"]
 [ext_resource type="Resource" path="res://dialogue/timelines/test.dtl" id="3_pd8g5"]
@@ -23,6 +24,7 @@ one_shot = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_q1chq"]
 
 [node name="World" instance=ExtResource("1_c35gt")]
+script = ExtResource("2_d3bww")
 
 [node name="PlayerSpawnPoint" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.51057, 0, 1.52476)

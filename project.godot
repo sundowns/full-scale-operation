@@ -28,12 +28,13 @@ directories/dch_directory={
 "scaleb": "res://dialogue/characters/scaleb.dch"
 }
 directories/dtl_directory={
+"blank": "res://dialogue/timelines/blank.dtl",
 "test": "res://dialogue/timelines/test.dtl",
 "test2": "res://dialogue/timelines/test2.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://dialogue/styles/yep.tres"]
-layout/default_style="res://dialogue/styles/yep.tres"
+layout/style_list=["res://dialogue/styles/default.tres"]
+layout/default_style="res://dialogue/styles/default.tres"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
@@ -57,6 +58,10 @@ variables={}
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[editor]
+
+script/templates_search_path="res://src/script_templates"
 
 [editor_plugins]
 
