@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxt4t185ebhi7"]
+
+[ext_resource type="FontFile" uid="uid://d4gjw32wu0txq" path="res://assets/fonts/Kenney Rocket.ttf" id="1_58ctn"]
+
+[node name="LoadingLabel" type="Label"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -11.5
+offset_right = 58.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_58ctn")
+text = "LOADING..."

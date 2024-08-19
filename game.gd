@@ -32,6 +32,7 @@ func load_next_level() -> void:
 		Callable(fade_world_in).call_deferred()
 	else:
 		ScreenFade.fill_immediately()
+		ScreenFade.show_label()
 
 func fade_world_in() -> void:
 	ScreenFade.fade_in()
