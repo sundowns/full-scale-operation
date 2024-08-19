@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://sk5wnhk31bgo"]
+
+[ext_resource type="Texture2D" uid="uid://di08rggly8ynw" path="res://assets/Scaleb.png" id="1_g4vmu"]
+[ext_resource type="Script" path="res://ui/scaleb_menu_man.gd" id="2_ilt57"]
+
+[node name="ScalebMenuMan" type="TextureRect"]
+offset_right = 600.0
+offset_bottom = 600.0
+scale = Vector2(0.3, 0.3)
+mouse_filter = 2
+texture = ExtResource("1_g4vmu")
+flip_h = true
+script = ExtResource("2_ilt57")
+minimum_delay = 0.025
+maximum_delay = 1.0
+minimum_movement_duration = 0.35
+maximum_movement_duration = 1.5
+
+[node name="RandomDelay" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="RandomDelay" to="." method="_on_random_delay_timeout"]
