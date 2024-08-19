@@ -7,6 +7,7 @@ signal scale_invalid
 @export var test_item: ItemData
 @export_range(0, 1, 10000) var error_margin: float = 100
 @export_range(0.1, 100, 0.1) var dish_move_speed: float = 1.0
+@export var cable_colour: Color = Color.BISQUE
 
 @onready var scale_test_area: ScaleArea = $LeftDish/ScaleArea
 @onready var test_item_sprite: Sprite3D = $RightDish/TestItemSprite
@@ -18,6 +19,14 @@ signal scale_invalid
 @onready var left_top: Marker3D = $LeftTop
 @onready var right_bottom: Marker3D = $RightBottom
 @onready var right_top: Marker3D = $RightTop
+
+@onready var cables: Node = $Cables
+@onready var left_anchor = $"BalanceScales/scales_arm/Scale Arm/Left"
+@onready var left_dish_anchor1: Marker3D = $LeftDish/dish/Anchor1
+@onready var left_dish_anchor2: Marker3D = $LeftDish/dish/Anchor2
+@onready var right_anchor = $"BalanceScales/scales_arm/Scale Arm/Right"
+@onready var right_dish_anchor1: Marker3D = $RightDish/dish/Anchor1
+@onready var right_dish_anchor2: Marker3D = $RightDish/dish/Anchor2
 
 @onready var balance_scales: BalanceScales = $BalanceScales
 
@@ -63,6 +72,19 @@ func _process(delta: float) -> void:
 		left_dish.position.y = clampf(left_height, left_bottom.position.y, left_top.position.y)
 		var right_height: float = lerp(right_dish.position.y, right_target_height, delta * dish_move_speed)
 		right_dish.position.y = clampf(right_height, right_bottom.position.y, right_top.position.y)
+		update_cables()
+
+func update_cables() -> void:
+	for line in cables.get_children():
+		line.queue_free()
+	create_cable(left_anchor, left_dish_anchor1)
+	create_cable(left_anchor, left_dish_anchor2)
+	create_cable(right_anchor, right_dish_anchor1)
+	create_cable(right_anchor, right_dish_anchor2)
+
+func create_cable(top: Marker3D, bottom: Marker3D):
+	var line1 = PrimitiveRenderer.create_line(top.global_position, bottom.global_position, cable_colour)
+	cables.add_child(line1)
 
 func _on_scale_area_weight_goal_activated() -> void:
 	scale_valid.emit()

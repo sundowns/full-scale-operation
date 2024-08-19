@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuy5bn2r2h4ac"]
+[gd_scene load_steps=4 format=3 uid="uid://cuy5bn2r2h4ac"]
 
 [ext_resource type="Script" path="res://components/toggleable_door.gd" id="1_fm0j5"]
 [ext_resource type="PackedScene" uid="uid://cu573x4a8lsgf" path="res://assets/mesh_library/wall-door_rotate_collision.tscn" id="1_oxdp7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_83rr6"]
+size = Vector3(1.06543, 0.445313, 0.736725)
 
 [node name="ToggleableDoor" type="Node3D"]
 script = ExtResource("1_fm0j5")
@@ -13,5 +16,9 @@ transform = Transform3D(1, 0, 3.48787e-16, 0, 1, 0, -3.48787e-16, 0, 1, 0.4, 7.6
 
 [node name="door-left" parent="wall-door-rotate/wall-door-rotate" index="2"]
 transform = Transform3D(1, 0, -3.48787e-16, 0, 1, 0, 3.48787e-16, 0, 1, -0.4, 7.64979e-10, 0.1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="wall-door-rotate/wall-door-rotate/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.149, 0)
+shape = SubResource("BoxShape3D_83rr6")
 
 [editable path="wall-door-rotate"]
