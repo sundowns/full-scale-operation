@@ -71,6 +71,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 folder_colors={
 "res://assets/": "red",
+"res://audio/": "purple",
 "res://components/": "green",
 "res://dialogue/": "blue",
 "res://items/": "yellow",
