@@ -24,14 +24,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"scaleb": "res://dialogue/characters/scaleb.dch"
-}
-directories/dtl_directory={
-"blank": "res://dialogue/timelines/blank.dtl",
-"test": "res://dialogue/timelines/test.dtl",
-"test2": "res://dialogue/timelines/test2.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 glossary/default_case_sensitive=true
 layout/style_list=["res://dialogue/styles/default.tres"]
 layout/default_style="res://dialogue/styles/default.tres"
