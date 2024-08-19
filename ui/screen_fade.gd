@@ -1,4 +1,6 @@
-extends ColorRect
+extends CanvasLayer
+
+var color_rect: ColorRect
 
 signal finished
 
@@ -10,32 +12,46 @@ var tween: Tween
 var transparent: Color = Color(0,0,0,0)
 
 func _ready() -> void:
-	color = black_colour
-	z_index = 3000
 	visible = false
-	size = get_viewport().size
+	Callable(initialise).call_deferred()
+
+func initialise() -> void:
+	color_rect = ColorRect.new()
+	add_child(color_rect)
+	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	color_rect.color = black_colour
+	color_rect.z_index = 4096
+	color_rect.set_deferred("size", get_viewport().size)
 
 func fade_in() -> void:
-	color = black_colour
+	color_rect.color = black_colour
 	visible = true
 	
 	if tween and tween.is_running():
 		tween.kill()
 	
 	tween = create_tween().set_ease(Tween.EASE_IN)
-	tween.tween_property(self, "color", transparent, fade_time)
+	tween.tween_property(color_rect, "color", transparent, fade_time)
 	await tween.finished
 	finished.emit()
 	visible = false
 
 func fade_out() -> void:
 	visible = true
-	color = transparent
+	color_rect.color = transparent
 	
 	if tween and tween.is_running():
 		tween.kill()
 	
 	tween = create_tween().set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "color", black_colour, fade_time)
+	tween.tween_property(color_rect, "color", black_colour, fade_time)
 	await tween.finished
 	finished.emit()
+
+func fill_immediately() -> void:
+	visible = true
+	color_rect.color = black_colour
+
+func empty_immediately() -> void:
+	visible = true
+	color_rect.color = transparent

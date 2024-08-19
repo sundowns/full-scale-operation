@@ -14,9 +14,10 @@ func start_game() -> void:
 	self.current_level_index = 0
 	self.next_level_requested.emit()
 
-func level_complete() -> void:
-	ScreenFade.fade_out()
-	await ScreenFade.finished
+func level_complete(fade_out: bool = true) -> void:
+	if fade_out:
+		ScreenFade.fade_out()
+		await ScreenFade.finished
 	
 	self.current_level_index += 1
 	if self.current_level_index >= levels.size():

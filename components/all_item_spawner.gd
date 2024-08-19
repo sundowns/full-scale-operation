@@ -1,12 +1,16 @@
 extends Marker3D
+class_name AllItemSpawner
 
 @onready var item_scene = preload("res://items/item.tscn")
 
 const offset: float = 1.8
 const items_per_row: int = 6
 
+@export var auto_run: bool = true
+
 func _ready() -> void:
-	Callable(spawn_all_items).call_deferred()
+	if auto_run:
+		Callable(spawn_all_items).call_deferred()
 
 func spawn_all_items() -> void:
 	var count: int = 0

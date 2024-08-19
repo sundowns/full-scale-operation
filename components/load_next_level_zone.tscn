@@ -7,7 +7,6 @@
 albedo_color = Color(0, 0.427451, 0, 1)
 
 [node name="LoadNextLevelZone" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 0
 collision_mask = 2
 monitorable = false

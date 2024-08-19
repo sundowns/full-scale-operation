@@ -40,9 +40,9 @@ var all_items: Array[ItemData] = [
 const item_data_directory: String = "res://items/data/"
 const load_resources_from_filesystem: bool = false
 
-func _ready() -> void:
-	if not OS.has_feature("release") or load_resources_from_filesystem:
-		populate_all_items()
+#func _ready() -> void:
+	#if not OS.has_feature("release") or load_resources_from_filesystem:
+		#populate_all_items()
 
 func get_random_item(exclusions: Array[ItemData] = []) -> ItemData:
 	var selection: ItemData = null

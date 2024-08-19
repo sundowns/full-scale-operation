@@ -2,7 +2,10 @@ extends AudioStreamPlayer
 
 const bgm = preload("res://audio/sfx/background_music_epic.tres")
 
+var muted: bool = false
+
 func _play_music(effect: SoundEffect):
+	if muted: return
 	if stream == effect.sfx:
 		return
 		
@@ -11,6 +14,7 @@ func _play_music(effect: SoundEffect):
 	play()
 
 func play_sfx(effect: SoundEffect):
+	if muted: return
 	if not effect: return
 	assert(effect.sfx)
 	var fx_player = AudioStreamPlayer.new()
@@ -25,6 +29,7 @@ func play_sfx(effect: SoundEffect):
 	fx_player.queue_free()
 
 func play_sfx_at(effect: SoundEffect, location: Vector3) -> void:
+	if muted: return
 	if not effect: return
 	assert(effect.sfx)
 	var fx_player = AudioStreamPlayer3D.new()

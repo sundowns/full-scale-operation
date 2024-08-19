@@ -15,7 +15,7 @@ class_name ItemData
 @export_category("Audio FX")
 @export var grab_sfx: SoundEffect = preload("res://audio/sfx/menu_select_pickup.tres")
 @export var drop_sfx: SoundEffect
-@export var minimum_speed_for_landing_effects: float = 3.5
+@export var minimum_speed_for_landing_effects: float = 2.5
 
 func get_pixel_size() -> float:
 	return self.width  / self.sprite.get_width()

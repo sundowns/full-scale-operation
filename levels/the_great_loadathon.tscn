@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs1gmic376t4i"]
+[gd_scene load_steps=5 format=3 uid="uid://cs1gmic376t4i"]
 
 [ext_resource type="PackedScene" uid="uid://dogbp26pm05oa" path="res://levels/base_level.tscn" id="1_q2xe3"]
 [ext_resource type="Script" path="res://levels/the_great_loadathon.gd" id="2_pat8u"]
+[ext_resource type="PackedScene" uid="uid://dokux4ebtr2rk" path="res://components/all_item_spawner.tscn" id="3_ouy5u"]
+[ext_resource type="PackedScene" uid="uid://523c22o0f8cc" path="res://components/lamp.tscn" id="4_2drut"]
 
 [node name="World" instance=ExtResource("1_q2xe3")]
 script = ExtResource("2_pat8u")
 
+[node name="LoadNextLevelZone" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.87481)
+
 [node name="DelayTimer" type="Timer" parent="." index="10"]
+
+[node name="AllItemSpawner" parent="." index="11" instance=ExtResource("3_ouy5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
+auto_run = false
+
+[node name="Lamp" parent="." index="12" instance=ExtResource("4_2drut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -3)

@@ -6,3 +6,6 @@
 transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 0, 0)
 current = true
 script = ExtResource("1_e7j7w")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true

@@ -8,8 +8,6 @@ class_name Game
 
 var current_world: Level
 
-#var is_first_level: bool = true
-
 func _ready() -> void:
 	if OS.has_feature("release") or play_bg_music:
 		AudioPlayer.play_background_music()
@@ -28,10 +26,12 @@ func load_next_level() -> void:
 	var new_world: Level = LevelManager.get_level_scene(LevelManager.current_level_index) .instantiate() as Level
 	world_anchor.add_child(new_world)
 	current_world = new_world
-	new_world.initialise()
-	#if not is_first_level:
-	Callable(fade_world_in).call_deferred()
-	#is_first_level = false
+	var fade_in := new_world.initialise()
+	if fade_in:
+		ScreenFade.fill_immediately()
+		Callable(fade_world_in).call_deferred()
+	else:
+		ScreenFade.fill_immediately()
 
 func fade_world_in() -> void:
 	ScreenFade.fade_in()

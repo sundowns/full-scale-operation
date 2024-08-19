@@ -17,13 +17,15 @@ func _exit_tree() -> void:
 	if _is_initialised:
 		Dialogic.signal_event.disconnect(self._on_dialogic_signal_event)
 
-func initialise() -> void:
+## Return a bool indicating if we should fade or not
+func initialise() -> bool:
 	DependencyHelper.store("Items", $Items)
 	DependencyHelper.store("DialogueManager", $LevelDialogueManager)
 	DependencyHelper.store("World", self)
 	Dialogic.signal_event.connect(self._on_dialogic_signal_event, CONNECT_DEFERRED)
 	spawn_player()
 	_is_initialised = true
+	return true
 
 func spawn_player() -> void:
 	player = player_scene.instantiate() as Player
