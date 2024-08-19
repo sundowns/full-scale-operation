@@ -1,4 +1,5 @@
 extends Node3D
+class_name Lamp
 
 @export var start_on: bool = false
 @export var on_material: StandardMaterial3D = preload("res://vfx/lamp_on_material.tres")

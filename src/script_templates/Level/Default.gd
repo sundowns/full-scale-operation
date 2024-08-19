@@ -7,3 +7,5 @@ extends Level
 func initialise() -> void:
 	## code goes here
 	super()
+
+func _on_dialogic_signal_event(argument) -> void: pass
