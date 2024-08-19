@@ -20,8 +20,8 @@ DependencyHelper="*res://src/autoload/DependencyHelper.gd"
 Items="*res://src/autoload/items.gd"
 AudioPlayer="*res://audio/AudioPlayer.tscn"
 LevelManager="*res://src/autoload/level_manager.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 PrimitiveRenderer="*res://src/autoload/primitive_renderer.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
