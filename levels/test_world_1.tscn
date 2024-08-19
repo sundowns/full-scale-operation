@@ -1,12 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://b42pgqd77k37g"]
+[gd_scene load_steps=14 format=3 uid="uid://b42pgqd77k37g"]
 
 [ext_resource type="PackedScene" uid="uid://dogbp26pm05oa" path="res://levels/base_level.tscn" id="1_c35gt"]
+[ext_resource type="Script" path="res://src/resources/level_dialogue.gd" id="2_5hmwf"]
 [ext_resource type="PackedScene" uid="uid://c3ynpa4pb482k" path="res://components/scale.tscn" id="2_iqe5f"]
 [ext_resource type="Resource" uid="uid://ddq37cy4bu02s" path="res://items/data/axe.tres" id="3_1nvu8"]
+[ext_resource type="Resource" path="res://dialogue/timelines/test.dtl" id="3_pd8g5"]
 [ext_resource type="PackedScene" uid="uid://dme1qovut5fue" path="res://components/item_generator.tscn" id="4_5njpv"]
 [ext_resource type="PackedScene" uid="uid://dokux4ebtr2rk" path="res://components/all_item_spawner.tscn" id="5_wihjg"]
 [ext_resource type="PackedScene" uid="uid://cuy5bn2r2h4ac" path="res://components/toggleable_door.tscn" id="6_uuwdu"]
 [ext_resource type="PackedScene" uid="uid://523c22o0f8cc" path="res://components/lamp.tscn" id="7_j2a64"]
+
+[sub_resource type="Resource" id="Resource_s27oq"]
+script = ExtResource("2_5hmwf")
+label = "blahblah"
+timeline = ExtResource("3_pd8g5")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xfds"]
 
@@ -18,6 +25,9 @@
 
 [node name="PlayerSpawnPoint" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.51057, 0, 1.52476)
+
+[node name="LevelDialogueManager" parent="." index="4"]
+dialogue = Array[ExtResource("2_5hmwf")]([SubResource("Resource_s27oq")])
 
 [node name="Scale" parent="." index="5" instance=ExtResource("2_iqe5f")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -6)
@@ -36,16 +46,16 @@ mesh = SubResource("BoxMesh_4fstl")
 [node name="ItemGenerator" parent="." index="7" instance=ExtResource("4_5njpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52147, 0, -1)
 
-[node name="LoadNextLevelZone" parent="." index="9"]
+[node name="AllItemSpawner" parent="." index="10" instance=ExtResource("5_wihjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56466, 0, -3.05551)
+
+[node name="LoadNextLevelZone" parent="." index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.84722, 0.330687, -5.11649)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LoadNextLevelZone" index="0"]
 shape = SubResource("BoxShape3D_q1chq")
 
-[node name="AllItemSpawner" parent="." index="10" instance=ExtResource("5_wihjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.56466, 0, -3.05551)
-
-[node name="WallsGridMap" parent="." index="11"]
+[node name="WallsGridMap" parent="." index="12"]
 data = {
 "cells": PackedInt32Array(65528, 65525, 3, 65529, 65525, 3, 65530, 65525, 3, 65535, 65525, 3, 0, 65525, 3, 1, 65525, 3, 2, 65525, 3, 3, 65525, 3, 4, 65525, 3, 5, 65525, 3, 6, 65525, 3, 7, 65525, 1, 65526, 65525, 1048577, 65527, 65525, 3, 65526, 65526, 1048579, 65526, 65527, 1048579, 65526, 65528, 1048579, 65526, 65529, 1048579, 65526, 65530, 1048579, 65526, 65531, 1048579, 65526, 65532, 1048579, 65526, 65533, 1048579, 65526, 65534, 1048580, 65526, 65535, 1048580, 65526, 0, 1048580, 7, 65526, 1441795, 7, 65527, 1441795, 7, 65528, 1441795, 7, 65529, 1441795, 7, 65530, 1441795, 7, 65531, 1441795, 7, 65532, 1441795, 7, 65533, 1441795, 7, 65534, 1441795, 7, 65535, 1441796, 7, 0, 1441796, 65531, 65525, 2, 65532, 65525, 3, 327670, 65533, 1310723, 327670, 65532, 1310723, 327670, 65531, 1310723, 327670, 65530, 1310723, 327670, 65529, 1310723, 327670, 65528, 1310723, 327670, 65527, 1310723, 327671, 65525, 131075, 327670, 65526, 1310723, 327672, 65525, 131075, 327673, 65525, 131075, 327674, 65525, 131075, 327675, 65525, 131075, 327676, 65525, 131075, 327677, 65525, 131075, 327678, 65525, 131075, 327679, 65525, 131075, 262144, 65525, 131075, 262145, 65525, 131075, 262146, 65525, 131075, 262147, 65525, 131075, 262148, 65525, 131075, 262149, 65525, 131075, 262150, 65525, 131075, 262151, 65526, 1179651, 262151, 65527, 1179651, 262151, 65528, 1179651, 262151, 65529, 1179651, 262151, 65530, 1179651, 262151, 65531, 1179651, 262151, 65532, 1179651, 262151, 65533, 1179651, 262151, 65534, 1179651, 262151, 65525, 1179649, 327670, 65525, 131073, 4, 65528, 2, 5, 65529, 0, 65528, 65527, 1048577, 65534, 65525, 3)
 }
@@ -60,3 +70,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46364, 1.21679, -10.1341)
 [connection signal="scale_invalid" from="Scale" to="Lamp" method="turn_off"]
 [connection signal="scale_valid" from="Scale" to="ToggleableDoor" method="open"]
 [connection signal="scale_valid" from="Scale" to="Lamp" method="turn_on"]
+[connection signal="scale_valid" from="Scale" to="LevelDialogueManager" method="play" binds= ["blahblah"]]

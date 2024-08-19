@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dogbp26pm05oa"]
+[gd_scene load_steps=9 format=3 uid="uid://dogbp26pm05oa"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_jkjyu"]
 [ext_resource type="PackedScene" uid="uid://d0m0ypr3txc0m" path="res://components/floor.tscn" id="2_ujtvw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://becswxbdrd0vr" path="res://components/load_next_level_zone.tscn" id="4_bhsda"]
 [ext_resource type="MeshLibrary" uid="uid://l8iov4qitby" path="res://assets/mesh_library/resources/arcade_library.tres" id="5_ghw3g"]
 [ext_resource type="MeshLibrary" uid="uid://be70tshjipimj" path="res://assets/mesh_library/resources/arcade_library_floor.tres" id="6_1hgh4"]
+[ext_resource type="Script" path="res://components/level_dialogue_manager.gd" id="7_ll4qb"]
 
 [sub_resource type="Environment" id="Environment_tuxfy"]
 ambient_light_source = 2
@@ -36,6 +37,9 @@ environment = SubResource("Environment_tuxfy")
 [node name="CameraRig" parent="." instance=ExtResource("3_2h6u8")]
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="."]
+
+[node name="LevelDialogueManager" type="Node" parent="."]
+script = ExtResource("7_ll4qb")
 
 [node name="Items" type="Node" parent="."]
 

@@ -10,6 +10,7 @@ var player: Player
 
 func initialise() -> void:
 	DependencyHelper.store("Items", $Items)
+	DependencyHelper.store("DialogueManager", $LevelDialogueManager)
 	spawn_player()
 
 func spawn_player() -> void:

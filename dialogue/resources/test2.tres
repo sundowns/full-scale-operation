@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LevelDialogue" load_steps=3 format=3 uid="uid://bumb4xe1rmcg1"]
+
+[ext_resource type="Script" path="res://src/resources/level_dialogue.gd" id="1_nxkuc"]
+[ext_resource type="Resource" path="res://dialogue/timelines/test.dtl" id="2_t1yyt"]
+
+[resource]
+script = ExtResource("1_nxkuc")
+label = "Test2"
+timeline = ExtResource("2_t1yyt")
