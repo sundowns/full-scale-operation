@@ -5,6 +5,7 @@ signal next_level_requested
 var current_level_index: int = -1
 
 var levels: Array[PackedScene] = [
+	preload("res://levels/the_great_loadathon.tscn"),
 	preload("res://levels/test_world_1.tscn"),
 	preload("res://levels/test_world_2.tscn"),
 ]

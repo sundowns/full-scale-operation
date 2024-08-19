@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs1gmic376t4i"]
+
+[ext_resource type="PackedScene" uid="uid://dogbp26pm05oa" path="res://levels/base_level.tscn" id="1_q2xe3"]
+[ext_resource type="Script" path="res://levels/the_great_loadathon.gd" id="2_pat8u"]
+
+[node name="World" instance=ExtResource("1_q2xe3")]
+script = ExtResource("2_pat8u")
+
+[node name="DelayTimer" type="Timer" parent="." index="10"]

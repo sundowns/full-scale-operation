@@ -18,6 +18,10 @@ func _ready() -> void:
 func fade_in() -> void:
 	color = black_colour
 	visible = true
+	
+	if tween and tween.is_running():
+		tween.kill()
+	
 	tween = create_tween().set_ease(Tween.EASE_IN)
 	tween.tween_property(self, "color", transparent, fade_time)
 	await tween.finished
@@ -27,6 +31,10 @@ func fade_in() -> void:
 func fade_out() -> void:
 	visible = true
 	color = transparent
+	
+	if tween and tween.is_running():
+		tween.kill()
+	
 	tween = create_tween().set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "color", black_colour, fade_time)
 	await tween.finished
