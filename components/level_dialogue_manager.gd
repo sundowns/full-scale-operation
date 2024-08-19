@@ -9,21 +9,18 @@ class_name LevelDialogueManager
 var _dictionary: Dictionary = {}
 
 ## Fetches a timeline by its label and plays it
-func play(timeline_label: String) -> void:
-	print('?')
-	Dialogic.start("test")
-	var timeline := _get_timeline(timeline_label)
-	if timeline:
-		#print(timeline)
-		Dialogic.start_timeline(timeline)
+func play(dialogue_label: String) -> void:
+	var dialogue_item: LevelDialogue = _get_timeline(dialogue_label)
+	if dialogue_item:
+		dialogue_item.play()
 
 func _ready() -> void:
 	for resource in dialogue:
 		assert(resource.label and resource.label != "", "Unlabeled dialogue is no bueno :c")
 		assert(resource.timeline, "Missing timeline from LevelDialogue")
-		_dictionary[resource.label] = resource.timeline
+		_dictionary[resource.label] = resource
 
-func _get_timeline(label: String) -> DialogicTimeline:
+func _get_timeline(label: String) -> LevelDialogue:
 	if _dictionary.has(label):
 		return _dictionary.get(label)
 	push_error("Attempted to reference non-existent dialogue with label: %s" % label)
