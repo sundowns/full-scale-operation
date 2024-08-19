@@ -31,7 +31,6 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "blank": "res://dialogue/timelines/blank.dtl",
-"loading": "res://dialogue/timelines/loading.dtl",
 "test": "res://dialogue/timelines/test.dtl",
 "test2": "res://dialogue/timelines/test2.dtl"
 }
