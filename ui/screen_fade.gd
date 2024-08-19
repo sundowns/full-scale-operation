@@ -12,16 +12,17 @@ var tween: Tween
 var transparent: Color = Color(0,0,0,0)
 
 func _ready() -> void:
+	get_tree().root.size_changed.connect(self._on_window_size_changed)
 	visible = false
 	Callable(initialise).call_deferred()
 
 func initialise() -> void:
 	color_rect = ColorRect.new()
 	add_child(color_rect)
-	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT, true)
 	color_rect.color = black_colour
 	color_rect.z_index = 4096
-	color_rect.set_deferred("size", get_viewport().size)
+	resize()
 
 func fade_in() -> void:
 	color_rect.color = black_colour
@@ -55,3 +56,9 @@ func fill_immediately() -> void:
 func empty_immediately() -> void:
 	visible = true
 	color_rect.color = transparent
+
+func _on_window_size_changed():
+	resize()
+
+func resize() -> void:
+	color_rect.set_deferred("size", get_viewport().size)

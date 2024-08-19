@@ -20,9 +20,10 @@ func _on_window_size_changed():
 	resize()
 
 func resize() -> void:
-	var new_window_size = get_viewport().get_visible_rect().size
+	var new_window_size = get_tree().root.get_viewport().get_visible_rect().size
 	set_deferred("size", new_window_size)
 	viewport.set_deferred("size", new_window_size)
+	set_position(Vector2i.ZERO)
 
 func toggle_effects() -> void:
 	if shaders_active:
