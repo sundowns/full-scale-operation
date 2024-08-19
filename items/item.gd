@@ -7,6 +7,7 @@ class_name Item
 @onready var grab_box: GrabBox = $GrabBox
 @onready var weight_component: WeightComponent = $WeightComponent
 @onready var floor_detection: RayCast3D = $CollisionShape3D/RayCast3D
+@onready var dust_particles: GPUParticles3D = $Dust
 
 @export var highlight_material: ShaderMaterial = preload("res://vfx/item_highlight_material.tres")
 @export var follow_speed = 15
@@ -70,6 +71,7 @@ func _on_landing() -> void:
 
 func play_landing_effect() -> void:
 	AudioPlayer.play_sfx_at(data.drop_sfx, global_position)
+	dust_particles.emitting = true
 
 func _mark_as_target_for_pickup() -> void:
 	sprite.material_override = highlight_material

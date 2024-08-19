@@ -40,7 +40,7 @@ remote_path = NodePath("../ThrusterParticles")
 update_scale = false
 
 [node name="ThrusterParticles" parent="." instance=ExtResource("5_4q00f")]
-transform = Transform3D(0.679441, 0.73373, 0, -0.73373, 0.679441, 0, 0, 0, 1, -0.127, -0.227, -0.082)
+transform = Transform3D(0.679031, -0.734109, 0, 0.734109, 0.679031, 0, 0, 0, 1, 0.126824, -0.226679, -0.082)
 
 [connection signal="dropped_thing" from="Hand" to="." method="_on_hand_dropped_thing"]
 [connection signal="grabbed_thing" from="Hand" to="." method="_on_hand_grabbed_thing"]

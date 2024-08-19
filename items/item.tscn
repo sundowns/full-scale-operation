@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bn0eakvdlj2nl"]
+[gd_scene load_steps=9 format=3 uid="uid://bn0eakvdlj2nl"]
 
 [ext_resource type="Script" path="res://items/item.gd" id="1_0wl3l"]
 [ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="2_fseri"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_jmgpf"]
 [ext_resource type="PackedScene" uid="uid://bdmo2hgrn2rgi" path="res://components/grab_box.tscn" id="4_qmdax"]
 [ext_resource type="PackedScene" uid="uid://dbhvm1t8b6qyc" path="res://components/weight_component.tscn" id="5_p3ib3"]
+[ext_resource type="PackedScene" uid="uid://dba1ccpxchg04" path="res://vfx/dust_particles.tscn" id="6_bqq04"]
 
 [sub_resource type="Resource" id="Resource_4que5"]
 script = ExtResource("2_jmgpf")
@@ -35,3 +36,6 @@ billboard = 1
 
 [node name="WeightComponent" parent="." instance=ExtResource("5_p3ib3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.118558, 0)
+
+[node name="Dust" parent="." instance=ExtResource("6_bqq04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.229498, 0)

@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://dba1ccpxchg04"]
+
+[ext_resource type="Texture2D" uid="uid://d1ro1xxvph341" path="res://assets/whitePuff02.png" id="1_7ptxp"]
+
+[sub_resource type="Gradient" id="Gradient_c6map"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.709091)
+colors = PackedColorArray(0.635294, 0.635294, 0.635294, 0.439216, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3la51"]
+gradient = SubResource("Gradient_c6map")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t6ivk"]
+lifetime_randomness = 0.68
+emission_shape_scale = Vector3(1, 0.1, 0.3)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.5
+emission_ring_inner_radius = 0.3
+direction = Vector3(0.1, 0.3, 0.1)
+flatness = 0.133
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0.3, 0, -1)
+linear_accel_min = -11.49
+linear_accel_max = -2.23517e-06
+radial_accel_min = 0.999998
+radial_accel_max = 0.999998
+damping_min = 2.0
+damping_max = 5.0
+color_ramp = SubResource("GradientTexture1D_3la51")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ei0us"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_7ptxp")
+
+[sub_resource type="QuadMesh" id="QuadMesh_d8gx4"]
+material = SubResource("StandardMaterial3D_ei0us")
+
+[node name="Dust" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0431863, 0)
+emitting = false
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.3
+explosiveness = 0.95
+process_material = SubResource("ParticleProcessMaterial_t6ivk")
+draw_pass_1 = SubResource("QuadMesh_d8gx4")
