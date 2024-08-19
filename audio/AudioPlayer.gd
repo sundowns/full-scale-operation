@@ -17,6 +17,7 @@ func play_sfx(effect: SoundEffect):
 	fx_player.stream = effect.sfx
 	fx_player.name = "FX_PLAYER"
 	fx_player.volume_db = effect.decibels
+	fx_player.pitch_scale = effect.pitch_scale
 	add_child(fx_player)
 	fx_player.play()
 	
@@ -29,7 +30,7 @@ func play_sfx_at(effect: SoundEffect, location: Vector3) -> void:
 	var fx_player = AudioStreamPlayer3D.new()
 	fx_player.stream = effect.sfx
 	fx_player.volume_db = effect.decibels
-	fx_player.max_db = 100
+	fx_player.pitch_scale = effect.pitch_scale
 	add_child(fx_player)
 	fx_player.global_position = location
 	fx_player.play()

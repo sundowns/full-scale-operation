@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://oivx0esiys8k"]
 
-[ext_resource type="Resource" uid="uid://s4vbxjno143j" path="res://audio/sfx/heavy_drop.tres" id="1_0r4un"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_2ed33"]
+[ext_resource type="Resource" uid="uid://domnss7ur1gdi" path="res://audio/sfx/ultra_heavy_drop.tres" id="1_5ikkf"]
 [ext_resource type="Texture2D" uid="uid://3viq6cs0gndc" path="res://assets/items/Coffee Table.png" id="2_neg74"]
 [ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="2_s33fl"]
 
@@ -11,5 +11,5 @@ sprite = ExtResource("2_neg74")
 weight = 30000.0
 width = 1.2
 grab_sfx = ExtResource("2_s33fl")
-drop_sfx = ExtResource("1_0r4un")
+drop_sfx = ExtResource("1_5ikkf")
 minimum_speed_for_landing_effects = 1.5

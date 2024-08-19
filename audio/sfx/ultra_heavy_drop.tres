@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://domnss7ur1gdi"]
+
+[ext_resource type="Script" path="res://src/resources/sound_effect.gd" id="1_e7opv"]
+[ext_resource type="AudioStream" uid="uid://bf6ycmj45erob" path="res://audio/EnemyDie.wav" id="2_bm1dg"]
+
+[resource]
+script = ExtResource("1_e7opv")
+sfx = ExtResource("2_bm1dg")
+decibels = -20.0
+pitch_scale = 1.0

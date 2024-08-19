@@ -88,5 +88,7 @@ func unpause() -> void:
 	set_process_internal(true)
 	set_process_unhandled_input(true)
 	set_process_unhandled_key_input(true)
+	print(scale_test_area.current_weight)
 	balance_scales.unpause()
 	_is_paused = false
+	update_scales()

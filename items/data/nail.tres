@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cur4j25g15gky"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cur4j25g15gky"]
 
 [ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="1_77ulk"]
+[ext_resource type="Resource" uid="uid://taxv2sa47lhs" path="res://audio/sfx/ultra_light_drop.tres" id="1_tdmqi"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_ld12u"]
 [ext_resource type="Texture2D" uid="uid://bxu4t5wlymtg5" path="res://assets/items/Nail.png" id="3_dbv5s"]
 
@@ -10,4 +11,5 @@ sprite = ExtResource("3_dbv5s")
 weight = 25.0
 width = 0.2
 grab_sfx = ExtResource("1_77ulk")
+drop_sfx = ExtResource("1_tdmqi")
 minimum_speed_for_landing_effects = 3.5

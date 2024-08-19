@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://desbf6hvx41b1"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://desbf6hvx41b1"]
 
+[ext_resource type="Resource" uid="uid://ci8csr370plcu" path="res://audio/sfx/light_drop.tres" id="1_53gnu"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_ksni5"]
+[ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="2_g86rp"]
 [ext_resource type="Texture2D" uid="uid://b25t4h8h5j8li" path="res://assets/items/book.png" id="2_ymif2"]
 
 [resource]
@@ -8,6 +10,6 @@ script = ExtResource("1_ksni5")
 sprite = ExtResource("2_ymif2")
 weight = 550.0
 width = 0.35
-follow_speed = 12.0
-grab_sfx_db = 0.0
-drop_sfx_db = 0.0
+grab_sfx = ExtResource("2_g86rp")
+drop_sfx = ExtResource("1_53gnu")
+minimum_speed_for_landing_effects = 3.5

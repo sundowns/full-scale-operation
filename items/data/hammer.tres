@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c0iq473qmvdnm"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://c0iq473qmvdnm"]
 
+[ext_resource type="Resource" uid="uid://s4vbxjno143j" path="res://audio/sfx/heavy_drop.tres" id="1_hj0jc"]
 [ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="1_lkl3q"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_np35k"]
 [ext_resource type="Texture2D" uid="uid://dnjclqt53ro0e" path="res://assets/items/Hammer.png" id="3_44lor"]
@@ -7,7 +8,8 @@
 [resource]
 script = ExtResource("2_np35k")
 sprite = ExtResource("3_44lor")
-weight = 3000.0
+weight = 3500.0
 width = 0.75
-follow_speed = 7.0
 grab_sfx = ExtResource("1_lkl3q")
+drop_sfx = ExtResource("1_hj0jc")
+minimum_speed_for_landing_effects = 3.5

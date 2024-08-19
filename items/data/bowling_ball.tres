@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dt3tmmp4qj5s2"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dt3tmmp4qj5s2"]
 
+[ext_resource type="Resource" uid="uid://s4vbxjno143j" path="res://audio/sfx/heavy_drop.tres" id="1_31svt"]
 [ext_resource type="AudioStream" uid="uid://d2pax2r1cyjxt" path="res://audio/Menu Select.wav" id="1_fqn31"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_m2job"]
 [ext_resource type="Texture2D" uid="uid://u6writ11m18l" path="res://assets/items/bowling_ball.png" id="3_2mk4r"]
@@ -10,4 +11,5 @@ sprite = ExtResource("3_2mk4r")
 weight = 6600.0
 width = 0.375
 grab_sfx = ExtResource("1_fqn31")
+drop_sfx = ExtResource("1_31svt")
 minimum_speed_for_landing_effects = 3.5

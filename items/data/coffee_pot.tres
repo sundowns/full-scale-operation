@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c2dpy3dwl8bof"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://c2dpy3dwl8bof"]
 
 [ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="1_aoapy"]
+[ext_resource type="Resource" uid="uid://duv1m4in7a1pu" path="res://audio/sfx/medium_drop.tres" id="1_mbhci"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_tium5"]
 [ext_resource type="Texture2D" uid="uid://c8hi6jldso0db" path="res://assets/items/coffee-pot.png" id="2_pkflw"]
 
@@ -9,5 +10,6 @@ script = ExtResource("1_tium5")
 sprite = ExtResource("2_pkflw")
 weight = 1500.0
 width = 0.35
-follow_speed = 18.0
 grab_sfx = ExtResource("1_aoapy")
+drop_sfx = ExtResource("1_mbhci")
+minimum_speed_for_landing_effects = 3.5

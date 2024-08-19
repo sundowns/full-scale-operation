@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dp1d3dtjjjb8m"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dp1d3dtjjjb8m"]
 
 [ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="1_47g1u"]
+[ext_resource type="Resource" uid="uid://duv1m4in7a1pu" path="res://audio/sfx/medium_drop.tres" id="1_em6ro"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_i5oy3"]
 [ext_resource type="Texture2D" uid="uid://d0mdduhnocnl3" path="res://assets/items/baseball_bat.png" id="3_wdmfd"]
 
@@ -9,5 +10,6 @@ script = ExtResource("1_i5oy3")
 sprite = ExtResource("3_wdmfd")
 weight = 1200.0
 width = 0.6
-follow_speed = 8.0
 grab_sfx = ExtResource("1_47g1u")
+drop_sfx = ExtResource("1_em6ro")
+minimum_speed_for_landing_effects = 3.5

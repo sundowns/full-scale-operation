@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://hedi73713tom"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://hedi73713tom"]
 
+[ext_resource type="Resource" uid="uid://ci8csr370plcu" path="res://audio/sfx/light_drop.tres" id="1_ffkp1"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="1_pu6ng"]
 [ext_resource type="Texture2D" uid="uid://mp2vtfda0o0g" path="res://assets/items/Canned Food.png" id="2_5odxa"]
+[ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="2_ccnh4"]
 
 [resource]
 script = ExtResource("1_pu6ng")
 sprite = ExtResource("2_5odxa")
 weight = 500.0
 width = 0.3
-follow_speed = 15.0
-grab_sfx_db = 0.0
-drop_sfx_db = 0.0
+grab_sfx = ExtResource("2_ccnh4")
+drop_sfx = ExtResource("1_ffkp1")
+minimum_speed_for_landing_effects = 3.5

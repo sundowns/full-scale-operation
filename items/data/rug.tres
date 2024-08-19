@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dmo5juj0kn7ru"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dmo5juj0kn7ru"]
 
+[ext_resource type="Resource" uid="uid://s4vbxjno143j" path="res://audio/sfx/heavy_drop.tres" id="1_pkvqo"]
 [ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="1_wf7nn"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_1ia6l"]
 [ext_resource type="Texture2D" uid="uid://cf3bnw0ns2qk5" path="res://assets/items/Rolled Rug.png" id="3_7sqsg"]
@@ -9,5 +10,6 @@ script = ExtResource("2_1ia6l")
 sprite = ExtResource("3_7sqsg")
 weight = 13000.0
 width = 1.0
-follow_speed = 7.0
 grab_sfx = ExtResource("1_wf7nn")
+drop_sfx = ExtResource("1_pkvqo")
+minimum_speed_for_landing_effects = 3.5
