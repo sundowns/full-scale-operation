@@ -28,6 +28,7 @@ func initialise() -> void:
 	var label: Label = loading_label_scene.instantiate()
 	color_rect.add_child(label)
 	loading_label = label
+	loading_label.set_anchors_preset(Control.PRESET_CENTER, true)
 	loading_label.visible = false
 	
 	resize()
@@ -64,7 +65,7 @@ func fill_immediately() -> void:
 	color_rect.color = black_colour
 
 func empty_immediately() -> void:
-	color_rect.visible = true
+	color_rect.visible = false
 	color_rect.color = transparent
 
 func _on_window_size_changed():
