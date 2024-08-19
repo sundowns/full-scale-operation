@@ -20,5 +20,5 @@ func spawn_item_at(at: Vector3, data: ItemData) -> void:
 	DependencyHelper.retrieve("Items").add_child(new_item)
 	new_item.global_position = at
 	new_item.initialise()
-	AudioPlayer.play_sfx(spawn_item_sfx)
+	AudioPlayer.play_sfx_at(spawn_item_sfx, at)
 	

@@ -62,14 +62,14 @@ func _on_drop() -> void:
 	top_level = false
 	is_being_held = false
 	freeze = false
-	
+
 func _on_landing() -> void:
 	freeze = true
 	if linear_velocity.length() > data.minimum_speed_for_landing_effects:
 		play_landing_effect()
 
 func play_landing_effect() -> void:
-	AudioPlayer.play_sfx(data.drop_sfx)
+	AudioPlayer.play_sfx_at(data.drop_sfx, global_position)
 
 func _mark_as_target_for_pickup() -> void:
 	sprite.material_override = highlight_material
