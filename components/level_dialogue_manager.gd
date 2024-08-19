@@ -5,6 +5,8 @@ class_name LevelDialogueManager
 
 @export var dialogue: Array[LevelDialogue] = []
 
+@export var dialogue_style_path: String = "res://dialogue/styles/yep.tres"
+
 ## { label: LevelDialogue }
 var _dictionary: Dictionary = {}
 
@@ -15,10 +17,13 @@ func play(dialogue_label: String) -> void:
 		dialogue_item.play()
 
 func _ready() -> void:
+	if dialogue_style_path:
+		Dialogic.Styles.load_style(dialogue_style_path)
 	for resource in dialogue:
 		assert(resource.label and resource.label != "", "Unlabeled dialogue is no bueno :c")
 		assert(resource.timeline, "Missing timeline from LevelDialogue")
 		_dictionary[resource.label] = resource
+		Dialogic.preload_timeline(resource.timeline)
 
 func _get_timeline(label: String) -> LevelDialogue:
 	if _dictionary.has(label):
