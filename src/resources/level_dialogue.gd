@@ -15,3 +15,8 @@ func play() -> void:
 		return
 	has_run = true
 	Dialogic.start(timeline)
+	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+	DependencyHelper.retrieve("World").pause_game()
+	await Dialogic.timeline_ended
+	DependencyHelper.retrieve("World").unpause_game()
+	print('its joever')

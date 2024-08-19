@@ -79,3 +79,22 @@ func _on_hand_dropped_thing() -> void:
 
 func _on_hand_grabbed_thing(weight: Variant) -> void:
 	additional_speed = remap(weight, 0, 100000,  0, -5)
+
+var _is_paused: bool = false
+func pause() -> void:
+	_is_paused = true
+	set_process(false)
+	set_physics_process(false)
+	set_process_input(false)
+	set_process_internal(false)
+	set_process_unhandled_input(false)
+	set_process_unhandled_key_input(false)
+
+func unpause() -> void:
+	set_process(true)
+	set_physics_process(true)
+	set_process_input(true)
+	set_process_internal(true)
+	set_process_unhandled_input(true)
+	set_process_unhandled_key_input(true)
+	_is_paused = false

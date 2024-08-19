@@ -17,6 +17,7 @@ func play(dialogue_label: String) -> void:
 		dialogue_item.play()
 
 func _ready() -> void:
+	#Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 	if dialogue_style_path:
 		Dialogic.Styles.load_style(dialogue_style_path)
 		Dialogic.start("blank")

@@ -27,15 +27,21 @@ var is_active: bool = false
 
 func _ready() -> void:
 	if test_item:
-		initialise()
-	update_scales()
+		Callable(initialise).call_deferred()
+
+func set_item(new_item: ItemData) -> void:
+	test_item = new_item
+	initialise()
 
 func initialise() -> void:
 	scale_test_area.set_goal_weight(test_item.weight - error_margin, test_item.weight + error_margin)
 	test_item_sprite.texture = test_item.sprite
 	test_item_sprite.pixel_size = test_item.get_pixel_size()
+	DependencyHelper.retrieve("World").connect_node_to_pause_signals(self)
+	update_scales()
 
 func update_scales() -> void:
+	if _is_paused: return
 	var current_vs_goal_ratio: float = clampf(scale_test_area.current_weight / test_item.weight, 0.0, 2.0)
 	update_dish_positions(current_vs_goal_ratio)
 	var left_to_right_ratio: float = remap(current_vs_goal_ratio, 0.0, 2.0, -1.0, 1.0)
@@ -63,3 +69,24 @@ func _on_scale_area_weight_goal_activated() -> void:
 
 func _on_scale_area_weight_goal_deactivated() -> void:
 	scale_invalid.emit()
+
+var _is_paused: bool = false
+func pause() -> void:
+	_is_paused = true
+	balance_scales.pause()
+	set_process(false)
+	set_physics_process(false)
+	set_process_input(false)
+	set_process_internal(false)
+	set_process_unhandled_input(false)
+	set_process_unhandled_key_input(false)
+
+func unpause() -> void:
+	set_process(true)
+	set_physics_process(true)
+	set_process_input(true)
+	set_process_internal(true)
+	set_process_unhandled_input(true)
+	set_process_unhandled_key_input(true)
+	balance_scales.unpause()
+	_is_paused = false

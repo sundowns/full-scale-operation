@@ -26,14 +26,18 @@ func _ready() -> void:
 
 ## Read the data collection and set values
 func initialise() -> void:
+	if _is_initialised:
+		return
 	highlight_material = highlight_material.duplicate()
-	_is_initialised = true
 	sprite.texture = data.sprite
 	sprite.pixel_size = data.get_pixel_size()
 	grab_box.set_shape(data.get_grab_box())
 	weight_component.set_weight(data.weight)
 	highlight_material.set_shader_parameter("sprite_texture", data.sprite)
 	highlight_material.set_shader_parameter("glowSize", base_glow_size * 1.0/data.width)
+	
+	DependencyHelper.retrieve("World").connect_node_to_pause_signals(self)
+	_is_initialised = true
 
 func _process(delta: float) -> void:
 	if is_being_held:
@@ -76,3 +80,22 @@ func _mark_as_target_for_pickup() -> void:
 
 func _unmark_as_target_for_pickup() -> void:
 	sprite.material_override = null
+
+var _is_paused: bool = false
+func pause() -> void:
+	_is_paused = true
+	set_process(false)
+	set_physics_process(false)
+	set_process_input(false)
+	set_process_internal(false)
+	set_process_unhandled_input(false)
+	set_process_unhandled_key_input(false)
+
+func unpause() -> void:
+	set_process(true)
+	set_physics_process(true)
+	set_process_input(true)
+	set_process_internal(true)
+	set_process_unhandled_input(true)
+	set_process_unhandled_key_input(true)
+	_is_paused = false
