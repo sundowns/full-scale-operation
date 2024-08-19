@@ -54,6 +54,12 @@ shape = SubResource("CylinderShape3D_o6lqq")
 [node name="dish" parent="LeftDish" instance=ExtResource("4_s4l5g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.317557, 0)
 
+[node name="Anchor1" type="Marker3D" parent="LeftDish/dish"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.280057, 0.932939)
+
+[node name="Anchor2" type="Marker3D" parent="LeftDish/dish"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.280417, -0.933)
+
 [node name="RightDish" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.669, -1.842)
 
@@ -88,6 +94,24 @@ skeleton = NodePath("../..")
 
 [node name="BalanceScales" parent="." instance=ExtResource("4_bmddv")]
 
+[node name="Left" type="RemoteTransform3D" parent="BalanceScales/scales_arm/Scale Arm" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.332, 2.301)
+remote_path = NodePath("../../../../LeftScaleArmTopAnchor")
+
+[node name="Right" type="RemoteTransform3D" parent="BalanceScales/scales_arm/Scale Arm" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.332105, -2.30106)
+remote_path = NodePath("../../../../RightScaleArmTopAnchor")
+
+[node name="LeftScaleArmTopAnchor" type="Marker3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 2.75442, 1.8408)
+
+[node name="RightScaleArmTopAnchor" type="Marker3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 2.75434, -1.84085)
+
 [connection signal="weight_goal_activated" from="LeftDish/ScaleArea" to="." method="_on_scale_area_weight_goal_activated"]
 [connection signal="weight_goal_deactivated" from="LeftDish/ScaleArea" to="." method="_on_scale_area_weight_goal_deactivated"]
 [connection signal="weight_updated" from="LeftDish/ScaleArea" to="." method="_on_scale_area_weight_updated"]
+
+[editable path="BalanceScales"]
+[editable path="BalanceScales/scales_arm"]
+[editable path="BalanceScales/scales_base"]

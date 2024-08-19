@@ -19,6 +19,11 @@ signal scale_invalid
 @onready var right_bottom: Marker3D = $RightBottom
 @onready var right_top: Marker3D = $RightTop
 
+@onready var left_anchor = $LeftScaleArmTopAnchor
+@onready var left_dish_anchor1: Marker3D = $LeftDish/dish/Anchor1
+@onready var left_dish_anchor2: Marker3D = $LeftDish/dish/Anchor2
+@onready var right_anchor = $RightScaleArmTopAnchor
+
 @onready var balance_scales: BalanceScales = $BalanceScales
 
 var left_target_height: float = 0.0
@@ -63,6 +68,11 @@ func _process(delta: float) -> void:
 		left_dish.position.y = clampf(left_height, left_bottom.position.y, left_top.position.y)
 		var right_height: float = lerp(right_dish.position.y, right_target_height, delta * dish_move_speed)
 		right_dish.position.y = clampf(right_height, right_bottom.position.y, right_top.position.y)
+		update_cables()
+
+func update_cables() -> void:
+	# stretch a cylinder between top anchor and each anchor point
+	pass
 
 func _on_scale_area_weight_goal_activated() -> void:
 	scale_valid.emit()
