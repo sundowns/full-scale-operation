@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce2iwq503dflt"
-path="res://.godot/imported/keyboard_shift_outline.png-e3b15984fa9806541140bdb42df0cd5d.ctex"
+uid="uid://1xcvdoqruboq"
+path="res://.godot/imported/keyboard_space_outline.png-5d8fee51a27d7925511f61a9b7de3985.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/keyboard_shift_outline.png"
-dest_files=["res://.godot/imported/keyboard_shift_outline.png-e3b15984fa9806541140bdb42df0cd5d.ctex"]
+source_file="res://assets/ui/keyboard_space_outline.png"
+dest_files=["res://.godot/imported/keyboard_space_outline.png-5d8fee51a27d7925511f61a9b7de3985.ctex"]
 
 [params]
 
