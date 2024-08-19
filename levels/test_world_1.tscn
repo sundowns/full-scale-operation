@@ -71,7 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -10.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46364, 1.21679, -10.1341)
 
 [node name="Lamp2" parent="." index="15" instance=ExtResource("7_j2a64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19177, 1.21679, -10.1341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57096, 1.21679, -10.1341)
 
 [connection signal="scale_invalid" from="Scale" to="ToggleableDoor" method="close"]
 [connection signal="scale_invalid" from="Scale" to="Lamp" method="turn_off"]

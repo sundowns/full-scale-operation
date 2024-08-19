@@ -34,6 +34,10 @@ var left_target_height: float = 0.0
 var right_target_height: float = 0.0
 var is_active: bool = false
 
+var is_waiting_to_emit_success: bool = false
+
+const difference_between_scales_for_great_success_borat_voice: float = 0.11
+
 func _ready() -> void:
 	if test_item:
 		Callable(initialise).call_deferred()
@@ -73,6 +77,8 @@ func _process(delta: float) -> void:
 		var right_height: float = lerp(right_dish.position.y, right_target_height, delta * dish_move_speed)
 		right_dish.position.y = clampf(right_height, right_bottom.position.y, right_top.position.y)
 		update_cables()
+	if is_waiting_to_emit_success:
+		wait_for_scales_to_balance()
 
 func update_cables() -> void:
 	for line in cables.get_children():
@@ -86,8 +92,14 @@ func create_cable(top: Marker3D, bottom: Marker3D):
 	var line1 = PrimitiveRenderer.create_line(top.global_position, bottom.global_position, cable_colour)
 	cables.add_child(line1)
 
+func wait_for_scales_to_balance() -> void:
+	var difference := left_dish.position.y - right_dish.position.y
+	if difference <= difference_between_scales_for_great_success_borat_voice:
+		scale_valid.emit()
+		is_waiting_to_emit_success = false
+
 func _on_scale_area_weight_goal_activated() -> void:
-	scale_valid.emit()
+	is_waiting_to_emit_success = true
 
 func _on_scale_area_weight_goal_deactivated() -> void:
 	scale_invalid.emit()
@@ -110,7 +122,6 @@ func unpause() -> void:
 	set_process_internal(true)
 	set_process_unhandled_input(true)
 	set_process_unhandled_key_input(true)
-	print(scale_test_area.current_weight)
 	balance_scales.unpause()
 	_is_paused = false
 	update_scales()
