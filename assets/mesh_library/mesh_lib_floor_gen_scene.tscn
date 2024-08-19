@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0v417l48ncw4"]
+
+[ext_resource type="PackedScene" uid="uid://bsr3rdedmfwjq" path="res://assets/mesh_library/floor_coloured.tscn" id="1_bci7b"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="floor2" parent="." instance=ExtResource("1_bci7b")]

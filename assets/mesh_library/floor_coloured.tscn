@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsr3rdedmfwjq"]
+
+[ext_resource type="PackedScene" uid="uid://bocv4ann6p3a8" path="res://assets/mesh_library/floor.glb" id="1_e1t4q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvj1q"]
+albedo_color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mpvh3"]
+albedo_color = Color(0.78243, 0.396455, 0.474018, 1)
+
+[node name="floor2" instance=ExtResource("1_e1t4q")]
+
+[node name="floor" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_tvj1q")
+surface_material_override/1 = SubResource("StandardMaterial3D_mpvh3")
