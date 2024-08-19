@@ -76,10 +76,11 @@ func _process(delta: float) -> void:
 		left_dish.position.y = clampf(left_height, left_bottom.position.y, left_top.position.y)
 		var right_height: float = lerp(right_dish.position.y, right_target_height, delta * dish_move_speed)
 		right_dish.position.y = clampf(right_height, right_bottom.position.y, right_top.position.y)
-		update_cables()
+		#update_cables()
 	if is_waiting_to_emit_success:
 		wait_for_scales_to_balance()
 
+## Note: these absolutely KILL the frame rate on web export - not worth
 func update_cables() -> void:
 	for line in cables.get_children():
 		line.queue_free()
