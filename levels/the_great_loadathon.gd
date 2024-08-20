@@ -5,12 +5,16 @@ extends Level
 @onready var lamp: Lamp = $Lamp
 @onready var item_anchor: Node = $Items
 @onready var crate: ItemCrate = $Crate
+@onready var itemspawn_point: Marker3D = $ItemspawnPoint
+
+var bowling_ball_data = preload("res://items/data/bowling_ball.tres")
 
 var movement_complete: bool = false
 var dialogue_complete: bool = false
 var lamp_effect_complete: bool = false
 var items_complete: bool = false
 var crate_effect_complete: bool = false
+var scale_complete: bool = false
 
 func initialise() -> bool:
 	## code goes here
@@ -26,6 +30,7 @@ func commence_loadathon() -> void:
 	Callable(spawn_items).call_deferred()
 	Callable(lampma).call_deferred()
 	Callable(cratema).call_deferred()
+	Callable(scalema).call_deferred()
 
 func fade_to_black() -> void:
 	ScreenFade.fade_out()
@@ -73,10 +78,17 @@ func lampma() -> void:
 	await get_tree().process_frame
 	lamp_effect_complete = true
 
-func cratema () -> void:
+func cratema() -> void:
 	crate.smash()
 	await get_tree().create_timer(0.8).timeout
 	crate_effect_complete = true
+
+func scalema() -> void:
+	var new_item = preload("res://items/item.tscn").instantiate() as Item
+	new_item.data = bowling_ball_data as ItemData
+	DependencyHelper.retrieve("Items").add_child(new_item)
+	new_item.global_position = itemspawn_point.global_position
+	new_item.initialise()
 
 func _process(_delta: float) -> void:
 	if is_finished_all():
@@ -85,10 +97,13 @@ func _process(_delta: float) -> void:
 		LevelManager.level_complete(false)
 
 func is_finished_all() -> bool:
-	return movement_complete and dialogue_complete and lamp_effect_complete and items_complete and crate_effect_complete
+	return movement_complete and dialogue_complete and lamp_effect_complete and items_complete and crate_effect_complete and scale_complete
 
 func create_input(action_name: String, pressed: bool = true) -> InputEventAction:
 	var action := InputEventAction.new()
 	action.action = action_name
 	action.pressed = pressed
 	return action
+
+func _on_scale_scale_valid() -> void:
+	scale_complete = true

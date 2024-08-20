@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs1gmic376t4i"]
+[gd_scene load_steps=7 format=3 uid="uid://cs1gmic376t4i"]
 
 [ext_resource type="PackedScene" uid="uid://dogbp26pm05oa" path="res://levels/base_level.tscn" id="1_q2xe3"]
 [ext_resource type="Script" path="res://levels/the_great_loadathon.gd" id="2_pat8u"]
 [ext_resource type="PackedScene" uid="uid://dokux4ebtr2rk" path="res://components/all_item_spawner.tscn" id="3_ouy5u"]
 [ext_resource type="PackedScene" uid="uid://523c22o0f8cc" path="res://components/lamp.tscn" id="4_2drut"]
 [ext_resource type="PackedScene" uid="uid://cvb8jv251urkd" path="res://components/crate.tscn" id="5_xxtoe"]
+[ext_resource type="PackedScene" uid="uid://c3ynpa4pb482k" path="res://components/scale.tscn" id="6_8bybv"]
 
 [node name="World" instance=ExtResource("1_q2xe3")]
 script = ExtResource("2_pat8u")
@@ -22,3 +23,11 @@ auto_run = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -3)
 
 [node name="Crate" parent="." index="13" instance=ExtResource("5_xxtoe")]
+
+[node name="Scale" parent="." index="14" instance=ExtResource("6_8bybv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="ItemspawnPoint" type="Marker3D" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 2)
+
+[connection signal="scale_valid" from="Scale" to="." method="_on_scale_scale_valid"]
