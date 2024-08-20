@@ -7,13 +7,13 @@
 "sound_mood_default": "Mood 1",
 "sound_moods": {
 "Mood 1": {
-"mode": 2,
+"mode": 0,
 "name": "Mood 1",
 "pitch_base": 0.8,
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
 "sound_path": "res://audio/voices/administrator",
-"volume_base": -2.0,
+"volume_base": -2.5,
 "volume_variance": 0.0
 }
 },

@@ -9,11 +9,11 @@
 "Default": {
 "mode": 0,
 "name": "Default",
-"pitch_base": 1.0,
+"pitch_base": 1.2,
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
 "sound_path": "res://audio/voices/scaleb",
-"volume_base": -10.0,
+"volume_base": 1.0,
 "volume_variance": 0.0
 }
 },
