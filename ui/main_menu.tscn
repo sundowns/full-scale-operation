@@ -169,7 +169,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1npy6")
 theme_override_font_sizes/font_size = 30
 text = "GITHUB REPO"
-uri = "https://github.com/sundowns/gmtkjam-2024"
+uri = "https://github.com/sundowns/full-scale-operation"
 
 [node name="MiddleLeft" type="MarginContainer" parent="."]
 layout_mode = 1
