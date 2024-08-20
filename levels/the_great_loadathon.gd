@@ -58,6 +58,13 @@ func move_player_around() -> void:
 	await get_tree().physics_frame
 	Input.parse_input_event(create_input("move_right", false))
 	await get_tree().physics_frame
+	Input.parse_input_event(create_input("jump"))
+	await get_tree().physics_frame
+	Input.parse_input_event(create_input("jump", false))
+	Input.parse_input_event(create_input("punch"))
+	await get_tree().physics_frame
+	Input.parse_input_event(create_input("punch", false))
+	await get_tree().create_timer(0.3).timeout
 	movement_complete = true
 
 func spawn_items() -> void:
