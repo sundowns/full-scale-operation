@@ -2,6 +2,7 @@ extends Control
 
 @onready var game_scene: PackedScene = preload("res://game.tscn")
 @onready var fullscreen_toggle: CheckButton = $BottomMiddle/VBoxContainer/FullscreenToggle
+@onready var menu_toggle_sfx: SoundEffect = preload("res://audio/sfx/menu_toggle.tres")
 
 var is_fullscreen: bool = false
 
@@ -16,6 +17,7 @@ func start_game() -> void:
 	get_tree().change_scene_to_packed(game_scene)
 
 func _on_play_pressed():
+	AudioPlayer.play_sfx(menu_toggle_sfx)
 	start_game()
 
 func _on_window_size_changed() -> void:
@@ -30,5 +32,6 @@ func set_fullscreen(val: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_fullscreen_toggle_pressed():
+	AudioPlayer.play_sfx(menu_toggle_sfx)
 	is_fullscreen = not is_fullscreen
 	set_fullscreen(is_fullscreen)
