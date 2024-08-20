@@ -1,29 +1,76 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3ewx7aqiuhrn"]
+[gd_scene load_steps=25 format=3 uid="uid://b3ewx7aqiuhrn"]
 
 [ext_resource type="PackedScene" uid="uid://dogbp26pm05oa" path="res://levels/base_level.tscn" id="1_qts54"]
+[ext_resource type="Script" path="res://levels/intro.gd" id="2_0e4gj"]
 [ext_resource type="PackedScene" uid="uid://cuy5bn2r2h4ac" path="res://components/toggleable_door.tscn" id="2_5vowa"]
 [ext_resource type="Script" path="res://src/resources/level_dialogue.gd" id="2_g4pfo"]
+[ext_resource type="Resource" path="res://dialogue/timelines/intro_1.dtl" id="3_15wx4"]
 [ext_resource type="PackedScene" uid="uid://c3ynpa4pb482k" path="res://components/scale.tscn" id="3_pyg4q"]
 [ext_resource type="PackedScene" uid="uid://cvb8jv251urkd" path="res://components/crate.tscn" id="4_js50p"]
+[ext_resource type="Resource" path="res://dialogue/timelines/intro_2.dtl" id="5_hugfb"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="5_ycqe8"]
 [ext_resource type="Resource" uid="uid://dt3tmmp4qj5s2" path="res://items/data/bowling_ball.tres" id="6_bvgbs"]
+[ext_resource type="Resource" path="res://dialogue/timelines/intro_3.dtl" id="6_u4j6i"]
+[ext_resource type="Resource" path="res://dialogue/timelines/intro_4.dtl" id="7_ffa3o"]
+[ext_resource type="Resource" path="res://dialogue/timelines/intro_5.dtl" id="8_75rdv"]
+[ext_resource type="PackedScene" uid="uid://dgqyioiw36j8c" path="res://components/player_detection_area.tscn" id="10_kogo2"]
+[ext_resource type="PackedScene" uid="uid://523c22o0f8cc" path="res://components/lamp.tscn" id="15_jkntb"]
 
 [sub_resource type="Resource" id="Resource_x1rpc"]
 script = ExtResource("2_g4pfo")
-label = ""
+label = "start"
+timeline = ExtResource("3_15wx4")
+one_shot = true
+pause_game = true
+
+[sub_resource type="Resource" id="Resource_sgewq"]
+script = ExtResource("2_g4pfo")
+label = "scales_spotted"
+timeline = ExtResource("5_hugfb")
+one_shot = true
+pause_game = true
+
+[sub_resource type="Resource" id="Resource_0f87u"]
+script = ExtResource("2_g4pfo")
+label = "crate_spotted"
+timeline = ExtResource("6_u4j6i")
+one_shot = true
+pause_game = true
+
+[sub_resource type="Resource" id="Resource_xnkgg"]
+script = ExtResource("2_g4pfo")
+label = "crate_broken"
+timeline = ExtResource("7_ffa3o")
+one_shot = true
+pause_game = true
+
+[sub_resource type="Resource" id="Resource_8h0lu"]
+script = ExtResource("2_g4pfo")
+label = "end"
+timeline = ExtResource("8_75rdv")
 one_shot = true
 pause_game = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t80y6"]
 size = Vector3(1.54199, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkiqw"]
+size = Vector3(10, 5, 5.88694)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dyls6"]
+size = Vector3(3, 2, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mcpsl"]
+size = Vector3(1.7644, 1, 1.22839)
+
 [node name="World" instance=ExtResource("1_qts54")]
+script = ExtResource("2_0e4gj")
 
 [node name="PlayerSpawnPoint" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01293, 0.37234, -2.50539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37058, 0.37234, -3.00318)
 
 [node name="LevelDialogueManager" parent="." index="4"]
-dialogue = Array[ExtResource("2_g4pfo")]([SubResource("Resource_x1rpc")])
+dialogue = Array[ExtResource("2_g4pfo")]([SubResource("Resource_x1rpc"), SubResource("Resource_sgewq"), SubResource("Resource_0f87u"), SubResource("Resource_xnkgg"), SubResource("Resource_8h0lu")])
 
 [node name="LoadNextLevelZone" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51168, 0, -5.42004)
@@ -34,7 +81,7 @@ shape = SubResource("BoxShape3D_t80y6")
 
 [node name="WallsGridMap" parent="." index="8"]
 data = {
-"cells": PackedInt32Array(65530, 65531, 1048577, 65531, 65531, 3, 65534, 65531, 2, 65535, 65531, 3, 0, 65531, 3, 1, 65531, 3, 4, 65531, 3, 65530, 65532, 1048579, 65530, 65533, 1048579, 65530, 65534, 1048579, 65530, 65535, 1048579, 65530, 0, 1048579, 65530, 1, 1048579, 65530, 2, 1048579, 3, 65531, 3, 196603, 65531, 3, 196604, 65531, 3, 196605, 65531, 3, 196606, 65531, 3, 196607, 65531, 3, 131072, 65531, 3, 131073, 65531, 3, 131074, 65531, 3, 131075, 65531, 3, 131076, 65531, 3, 458747, 65531, 131075, 458748, 65531, 131075, 458749, 65531, 131075, 458750, 65531, 131075, 458751, 65531, 131075, 393216, 65531, 131075, 393217, 65531, 131075, 393218, 65531, 131075, 393219, 65531, 131075, 393220, 65531, 131075, 458746, 65532, 1310723, 458746, 65533, 1310723, 458746, 65534, 1310723, 458746, 65535, 1310723, 458746, 0, 1310723, 458746, 1, 1310723, 458746, 2, 1310723, 196602, 65535, 1048579, 196602, 65534, 1048579, 196602, 65533, 1048579, 196602, 65532, 1048579, 196602, 0, 1048579, 196602, 1, 1048579, 196602, 2, 1048579, 196602, 65531, 1048577, 458746, 65531, 131073, 393221, 65531, 131075, 393222, 65531, 131075, 393223, 65531, 131075, 393224, 65531, 131075, 393225, 65531, 131075, 393226, 65531, 131075, 131077, 65531, 3, 131078, 65531, 3, 131079, 65531, 3, 131080, 65531, 3, 131081, 65531, 3, 131082, 65531, 3, 5, 65531, 3, 6, 65531, 3, 7, 65531, 3, 8, 65531, 3, 9, 65531, 3, 10, 65531, 3, 10, 65530, 3, 11, 65531, 1, 131083, 65531, 1, 393227, 65531, 1179649, 2, 65531, 3, 65532, 65531, 2, 65530, 3, 1048579, 65530, 4, 1048579, 65530, 5, 1048579, 65530, 6, 1048579, 65530, 7, 1048579, 11, 65532, 1441795, 11, 65533, 1441795, 11, 65534, 1441795, 11, 65535, 1441795, 11, 0, 1441795, 11, 1, 1441795, 11, 2, 1441795, 11, 3, 1441795, 11, 4, 1441795, 11, 5, 1441795, 11, 6, 1441795, 11, 7, 1441795, 11, 8, 1441795, 65530, 8, 1048579, 65530, 9, 1048579, 65531, 10, 655363, 65532, 10, 655363, 65533, 10, 655363, 65534, 10, 655363, 65535, 10, 655363, 0, 10, 655363, 1, 10, 655363, 2, 10, 655363, 3, 10, 655363, 4, 10, 655363, 5, 10, 655363, 6, 10, 655363, 7, 10, 655363, 8, 10, 655363, 11, 9, 1441795, 11, 10, 1441793, 10, 10, 655363, 9, 10, 655363, 65530, 10, 655361, 196602, 10, 655361, 131083, 10, 1441793, 131083, 3, 1441795, 131083, 4, 1441795, 131083, 5, 1441795, 131083, 6, 1441795, 131083, 7, 1441795, 131083, 8, 1441795, 131083, 9, 1441795, 131083, 2, 1441795, 131083, 1, 1441795, 131083, 0, 1441795, 131083, 65535, 1441795, 131083, 65534, 1441795, 131083, 65533, 1441795, 131083, 65532, 1441795, 196602, 3, 1048579, 196602, 4, 1048579, 196602, 5, 1048579, 196602, 6, 1048579, 196602, 7, 1048579, 196602, 8, 1048579, 196602, 9, 1048579, 458746, 3, 1310723, 458746, 4, 1310723, 458746, 5, 1310723, 458746, 6, 1310723, 458746, 7, 1310723, 458746, 8, 1310723, 458746, 9, 1310723, 458746, 10, 1310721, 393227, 10, 524289, 393227, 9, 1179651, 393227, 8, 1179651, 393227, 7, 1179651, 393227, 6, 1179651, 393227, 5, 1179651, 393227, 4, 1179651, 393227, 3, 1179651, 393227, 2, 1179651, 393227, 1, 1179651, 393227, 0, 1179651, 393227, 65535, 1179651, 393227, 65534, 1179651, 393227, 65533, 1179651, 393227, 65532, 1179651, 131082, 10, 655363, 131081, 10, 655363, 131080, 10, 655363, 131079, 10, 655363, 131078, 10, 655363, 131077, 10, 655363, 131076, 10, 655363, 131075, 10, 655363, 131074, 10, 655363, 131073, 10, 655363, 131072, 10, 655363, 196607, 10, 655363, 196606, 10, 655363, 196605, 10, 655363, 196604, 10, 655363, 196603, 10, 655363, 65535, 1, 1048576, -1, 2, 1048576)
+"cells": PackedInt32Array(65530, 65531, 1048577, 65531, 65531, 3, 65534, 65531, 2, 65535, 65531, 3, 0, 65531, 3, 1, 65531, 3, 4, 65531, 3, 65530, 65532, 1048579, 65530, 65533, 1048579, 65530, 65534, 1048579, 65530, 65535, 1048579, 65530, 0, 1048579, 65530, 1, 1048579, 65530, 2, 1048579, 3, 65531, 3, 196603, 65531, 3, 196604, 65531, 3, 196605, 65531, 3, 196606, 65531, 3, 196607, 65531, 3, 131072, 65531, 3, 131073, 65531, 3, 131074, 65531, 3, 131075, 65531, 3, 131076, 65531, 3, 458747, 65531, 131075, 458748, 65531, 131075, 458749, 65531, 131075, 458750, 65531, 131075, 458751, 65531, 131075, 393216, 65531, 131075, 393217, 65531, 131075, 393218, 65531, 131075, 393219, 65531, 131075, 393220, 65531, 131075, 458746, 65532, 1310723, 458746, 65533, 1310723, 458746, 65534, 1310723, 458746, 65535, 1310723, 458746, 0, 1310723, 458746, 1, 1310723, 458746, 2, 1310723, 196602, 65535, 1048579, 196602, 65534, 1048579, 196602, 65533, 1048579, 196602, 65532, 1048579, 196602, 0, 1048579, 196602, 1, 1048579, 196602, 2, 1048579, 196602, 65531, 1048577, 458746, 65531, 131073, 393221, 65531, 131075, 393222, 65531, 131075, 393223, 65531, 131075, 393224, 65531, 131075, 393225, 65531, 131075, 393226, 65531, 131075, 131077, 65531, 3, 131078, 65531, 3, 131079, 65531, 3, 131080, 65531, 3, 131081, 65531, 3, 131082, 65531, 3, 5, 65531, 3, 6, 65531, 3, 7, 65531, 3, 8, 65531, 3, 9, 65531, 3, 10, 65531, 3, 10, 65530, 3, 11, 65531, 1, 131083, 65531, 1, 393227, 65531, 1179649, 2, 65531, 3, 65532, 65531, 2, 65530, 3, 1048579, 65530, 4, 1048579, 65530, 5, 1048579, 65530, 6, 1048579, 65530, 7, 1048579, 11, 65532, 1441795, 11, 65533, 1441795, 11, 65534, 1441795, 11, 65535, 1441795, 11, 0, 1441795, 11, 1, 1441795, 11, 2, 1441795, 11, 3, 1441795, 11, 4, 1441795, 11, 5, 1441795, 11, 6, 1441795, 11, 7, 1441795, 11, 8, 1441795, 65530, 8, 1048579, 65530, 9, 1048579, 65531, 10, 655363, 65532, 10, 655363, 65533, 10, 655363, 65534, 10, 655363, 65535, 10, 655363, 0, 10, 655363, 1, 10, 655363, 2, 10, 655363, 3, 10, 655363, 4, 10, 655363, 5, 10, 655363, 6, 10, 655363, 7, 10, 655363, 8, 10, 655363, 11, 9, 1441795, 11, 10, 1441793, 10, 10, 655363, 9, 10, 655363, 65530, 10, 655361, 196602, 10, 655361, 131083, 10, 1441793, 131083, 3, 1441795, 131083, 4, 1441795, 131083, 5, 1441795, 131083, 6, 1441795, 131083, 7, 1441795, 131083, 8, 1441795, 131083, 9, 1441795, 131083, 2, 1441795, 131083, 1, 1441795, 131083, 0, 1441795, 131083, 65535, 1441795, 131083, 65534, 1441795, 131083, 65533, 1441795, 131083, 65532, 1441795, 196602, 3, 1048579, 196602, 4, 1048579, 196602, 5, 1048579, 196602, 6, 1048579, 196602, 7, 1048579, 196602, 8, 1048579, 196602, 9, 1048579, 458746, 3, 1310723, 458746, 4, 1310723, 458746, 5, 1310723, 458746, 6, 1310723, 458746, 7, 1310723, 458746, 8, 1310723, 458746, 9, 1310723, 458746, 10, 1310721, 393227, 10, 524289, 393227, 9, 1179651, 393227, 8, 1179651, 393227, 7, 1179651, 393227, 6, 1179651, 393227, 5, 1179651, 393227, 4, 1179651, 393227, 3, 1179651, 393227, 2, 1179651, 393227, 1, 1179651, 393227, 0, 1179651, 393227, 65535, 1179651, 393227, 65534, 1179651, 393227, 65533, 1179651, 393227, 65532, 1179651, 131082, 10, 655363, 131081, 10, 655363, 131080, 10, 655363, 131079, 10, 655363, 131078, 10, 655363, 131077, 10, 655363, 131076, 10, 655363, 131075, 10, 655363, 131074, 10, 655363, 131073, 10, 655363, 131072, 10, 655363, 196607, 10, 655363, 196606, 10, 655363, 196605, 10, 655363, 196604, 10, 655363, 196603, 10, 655363, 2, 1, 1048576, -65534, 2, 1048576)
 }
 
 [node name="FloorGridMap" parent="." index="9"]
@@ -46,8 +93,39 @@ data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.5)
 
 [node name="Scale" parent="." index="11" instance=ExtResource("3_pyg4q")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.80432, 0, 1.99705)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.07861, 0, 1.99705)
 
 [node name="Crate" parent="." index="12" instance=ExtResource("4_js50p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57721, 0, 8.08344)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57721, 0, 7.14512)
 items = Array[ExtResource("5_ycqe8")]([ExtResource("6_bvgbs")])
+
+[node name="PlayerDetectionAreaScaleFound" parent="." index="13" instance=ExtResource("10_kogo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.36034, 0.368877, 3.14919)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionAreaScaleFound" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0334575)
+shape = SubResource("BoxShape3D_dkiqw")
+
+[node name="PlayerDetectionAreaCrateFound" parent="." index="14" instance=ExtResource("10_kogo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.65203, 0.368877, 7.11845)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionAreaCrateFound" index="0"]
+shape = SubResource("BoxShape3D_dyls6")
+
+[node name="exitarea" parent="." index="15" instance=ExtResource("10_kogo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45328, 0.402764, -4.04536)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="exitarea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0723877, 0, 0.114197)
+shape = SubResource("BoxShape3D_mcpsl")
+
+[node name="Lamp" parent="." index="16" instance=ExtResource("15_jkntb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.635, -4.188)
+
+[connection signal="scale_invalid" from="Scale" to="ToggleableDoor" method="close"]
+[connection signal="scale_valid" from="Scale" to="ToggleableDoor" method="open"]
+[connection signal="scale_valid" from="Scale" to="Lamp" method="turn_on"]
+[connection signal="smashed" from="Crate" to="." method="_on_crate_smashed"]
+[connection signal="player_entered" from="PlayerDetectionAreaScaleFound" to="." method="_on_player_detection_area_player_entered"]
+[connection signal="player_entered" from="PlayerDetectionAreaCrateFound" to="." method="_on_player_detection_area_scale_crate_found_player_entered"]
+[connection signal="player_entered" from="exitarea" to="." method="_on_exitarea_player_entered"]

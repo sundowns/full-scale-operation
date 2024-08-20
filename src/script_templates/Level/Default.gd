@@ -4,8 +4,9 @@
 # meta-space-indent: 4
 extends Level
 
-func initialise() -> void:
+func initialise() -> bool:
 	## code goes here
-	super()
+	return super()
 
+@warning_ignore("unused_parameter")
 func _on_dialogic_signal_event(argument) -> void: pass

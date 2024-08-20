@@ -6,6 +6,7 @@ signal unpause
 
 @onready var spawn_point: Marker3D = $PlayerSpawnPoint
 @onready var camera_rig: CameraRig = $CameraRig
+@onready var level_dialogue_manager: LevelDialogueManager = $LevelDialogueManager
 
 @export var player_scene: PackedScene = preload("res://components/player.tscn")
 

@@ -28,10 +28,16 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "antaggy": "res://dialogue/characters/antaggy.dch",
+"antaggy-minions": "res://dialogue/characters/antaggy-minions.dch",
 "scaleb": "res://dialogue/characters/scaleb.dch"
 }
 directories/dtl_directory={
 "blank": "res://dialogue/timelines/blank.dtl",
+"intro_1": "res://dialogue/timelines/intro_1.dtl",
+"intro_2": "res://dialogue/timelines/intro_2.dtl",
+"intro_3": "res://dialogue/timelines/intro_3.dtl",
+"intro_4": "res://dialogue/timelines/intro_4.dtl",
+"intro_5": "res://dialogue/timelines/intro_5.dtl",
 "test": "res://dialogue/timelines/test.dtl",
 "test2": "res://dialogue/timelines/test2.dtl"
 }

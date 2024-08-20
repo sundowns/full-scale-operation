@@ -1,6 +1,8 @@
 extends StaticBody3D
 class_name ItemCrate
 
+signal smashed
+
 const health: int = 1
 @export var items: Array[ItemData] = [] 
 
@@ -34,6 +36,7 @@ func smash() -> void:
 	smashma.queue_free()
 	smash_particles.emitting = true
 	await smash_particles.finished
+	smashed.emit()
 	queue_free()
 
 func spawn_items() -> void:
