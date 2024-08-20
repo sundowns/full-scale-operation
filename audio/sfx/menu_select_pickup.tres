@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("1_vfpgw")
 sfx = ExtResource("2_i0oap")
-decibels = -25.0
+decibels = -17.5
+pitch_scale = 1.0
