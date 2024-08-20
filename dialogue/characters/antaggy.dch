@@ -13,7 +13,7 @@
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
 "sound_path": "res://audio/voices/administrator",
-"volume_base": -2.5,
+"volume_base": -3.0,
 "volume_variance": 0.0
 }
 },
