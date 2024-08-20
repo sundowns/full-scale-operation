@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_gq313"]
 [ext_resource type="FontFile" uid="uid://d4gjw32wu0txq" path="res://assets/fonts/Kenney Rocket.ttf" id="2_1npy6"]
-[ext_resource type="PackedScene" path="res://ui/scaleb_menu_man.tscn" id="2_11dc8"]
+[ext_resource type="PackedScene" uid="uid://sk5wnhk31bgo" path="res://ui/scaleb_menu_man.tscn" id="2_11dc8"]
 [ext_resource type="Texture2D" uid="uid://ce2iwq503dflt" path="res://assets/ui/keyboard_shift_outline.png" id="3_li8dp"]
 [ext_resource type="Texture2D" uid="uid://1xcvdoqruboq" path="res://assets/ui/keyboard_space_outline.png" id="4_13he1"]
 [ext_resource type="Texture2D" uid="uid://b5ncim5tcnpjs" path="res://assets/ui/keyboard_e_outline.png" id="4_eagnr"]
