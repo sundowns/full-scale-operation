@@ -1,11 +1,20 @@
-## Disable staging changes to resource file
+# Full-Scale Operation - GMTK Jam 2024
 
-`git update-index --assume-unchanged assets/mesh_library/resources/*`
+![Cover](./media/cover.png)
 
+## Controls
 
-## Re-enable above
+* [WASD/Arrows] Move
+* [SPACE] Jump
+* [SHIFT] Punch
+* [E] Grab/Drop item
 
-`git update-index --no-assume-unchanged assets/mesh_library/resources/*`
+## Credits
+
+* [sundowns](https://sundowns.itch.io/) - Programming / Narrative
+* [Chappos](https://chappos.itch.io/) - Programming
+* [ArtOfSavannah](https://savannahhoskins.itch.io/) - Artwork
+* [mrshinra](https://mrshinra.itch.io/) - Artwork
 
 ## Attributions
 
@@ -14,6 +23,8 @@
     * Input Prompts
     * Particles Pack
     * Food Pack
+    * Smoke Pack
+    * Generic Items Pack
 * [Crate](https://poly.pizza/m/NlXe0ZJGUd) by [Quaternius](https://poly.pizza/u/Quaternius)
 * Beach by Poly by Google [CC-BY] via Poly Pizza
 * Boogie Party by Kevin MacLeod | https://incompetech.com/
