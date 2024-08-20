@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci5t2iq0okvpv"]
+
+[ext_resource type="Material" uid="uid://beidad8xjbv35" path="res://vfx/floor_colour_one.tres" id="1_0oom5"]
+[ext_resource type="Material" uid="uid://cmrv14gm3cgb0" path="res://vfx/floor_colour_two.tres" id="2_1mnoa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yeqk3"]
+size = Vector3(0.6, 0.4, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cad2t"]
+size = Vector3(0.6, 0.4, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iq8an"]
+size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kgxx4"]
+size = Vector3(0.75, 0.75, 0.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7kjkm"]
+size = Vector3(1, 1.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_513ac"]
+size = Vector3(1, 1.1, 1)
+
+[node name="ScalesSteps" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.575199)
+shape = SubResource("BoxShape3D_yeqk3")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_cad2t")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_0oom5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, -0.021)
+shape = SubResource("BoxShape3D_iq8an")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CollisionShape3D2"]
+mesh = SubResource("BoxMesh_kgxx4")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_1mnoa")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -0.669)
+shape = SubResource("BoxShape3D_7kjkm")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CollisionShape3D3"]
+mesh = SubResource("BoxMesh_513ac")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_1mnoa")

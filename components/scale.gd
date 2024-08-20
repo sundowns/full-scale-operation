@@ -5,7 +5,7 @@ signal scale_valid
 signal scale_invalid
 
 @export var test_item: ItemData
-@export_range(0, 1, 10000) var error_margin: float = 100
+@export_range(0, 10000, 1) var error_margin: float = 200
 @export_range(0.1, 100, 0.1) var dish_move_speed: float = 1.0
 @export var cable_colour: Color = Color.BISQUE
 
@@ -36,7 +36,7 @@ var is_active: bool = false
 
 var is_waiting_to_emit_success: bool = false
 
-const difference_between_scales_for_great_success_borat_voice: float = 0.12
+const difference_between_scales_for_great_success_borat_voice: float = 0.05
 
 func _ready() -> void:
 	if test_item:
@@ -47,7 +47,7 @@ func set_item(new_item: ItemData) -> void:
 	initialise()
 
 func initialise() -> void:
-	scale_test_area.set_goal_weight(test_item.weight - error_margin, test_item.weight + error_margin)
+	scale_test_area.set_goal_weight(test_item.weight - error_margin/2, test_item.weight + error_margin/2)
 	test_item_sprite.texture = test_item.sprite
 	test_item_sprite.pixel_size = test_item.get_pixel_size()
 	DependencyHelper.retrieve("World").connect_node_to_pause_signals(self)
@@ -57,8 +57,12 @@ func update_scales() -> void:
 	if _is_paused: return
 	var current_vs_goal_ratio: float = clampf(scale_test_area.current_weight / test_item.weight, 0.0, 2.0)
 	update_dish_positions(current_vs_goal_ratio)
-	var left_to_right_ratio: float = remap(current_vs_goal_ratio, 0.0, 2.0, -1.0, 1.0)
-	balance_scales.move_to_new_rotation_ratio(left_to_right_ratio)
+	
+	if not scale_test_area.is_within_goal_range:
+		var left_to_right_ratio: float = remap(current_vs_goal_ratio, 0.0, 2.0, -1.0, 1.0)
+		balance_scales.move_to_new_rotation_ratio(left_to_right_ratio)
+	else:
+		balance_scales.move_to_new_rotation_ratio(0.0)
 
 func update_dish_positions(current_vs_goal_ratio: float) -> void:
 	var left_height_ratio: = current_vs_goal_ratio / 2.0
@@ -72,10 +76,17 @@ func _on_scale_area_weight_updated() -> void:
 
 func _process(delta: float) -> void:
 	if is_active:
-		var left_height: float = lerp(left_dish.position.y, left_target_height, delta * dish_move_speed)
-		left_dish.position.y = clampf(left_height, left_bottom.position.y, left_top.position.y)
-		var right_height: float = lerp(right_dish.position.y, right_target_height, delta * dish_move_speed)
-		right_dish.position.y = clampf(right_height, right_bottom.position.y, right_top.position.y)
+		if scale_test_area.is_within_goal_range:
+			# Just move them to even...
+			var left_height: float = lerp(left_dish.position.y, (left_top.position.y + left_bottom.position.y)/2, delta * dish_move_speed)
+			left_dish.position.y = clampf(left_height, left_bottom.position.y, left_top.position.y)
+			var right_height: float = lerp(right_dish.position.y, (right_top.position.y + right_bottom.position.y)/2, delta * dish_move_speed)
+			right_dish.position.y = clampf(right_height, right_bottom.position.y, right_top.position.y)
+		else:
+			var left_height: float = lerp(left_dish.position.y, left_target_height, delta * dish_move_speed)
+			left_dish.position.y = clampf(left_height, left_bottom.position.y, left_top.position.y)
+			var right_height: float = lerp(right_dish.position.y, right_target_height, delta * dish_move_speed)
+			right_dish.position.y = clampf(right_height, right_bottom.position.y, right_top.position.y)
 		#update_cables()
 	if is_waiting_to_emit_success:
 		wait_for_scales_to_balance()

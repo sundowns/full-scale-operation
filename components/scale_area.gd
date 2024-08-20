@@ -20,6 +20,7 @@ const assess_weight_after: float = 0.25
 func set_goal_weight(minimum: float, maximum: float) -> void:
 	goal_weight_min = minimum
 	goal_weight_max = maximum
+	prints("goal between:", goal_weight_min, goal_weight_max)
 
 func _ready() -> void:
 	current_weight = 0
@@ -42,7 +43,7 @@ func update_current_weight(new_weight: float) -> void:
 	var was_within_range := test_weight(current_weight)
 	current_weight = new_weight
 	var is_within_range := test_weight(current_weight)
-	
+	prints("weight",current_weight)
 	if was_within_range and not is_within_range:
 		weight_goal_deactivated.emit()
 		is_within_goal_range = false

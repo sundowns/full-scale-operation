@@ -9,7 +9,7 @@
 script = ExtResource("1_junvh")
 sprite = ExtResource("3_q5gnw")
 weight = 1200.0
-width = 0.45
+width = 0.5
 grab_sfx = ExtResource("1_63a03")
 drop_sfx = ExtResource("1_2p88h")
 minimum_speed_for_landing_effects = 2.5

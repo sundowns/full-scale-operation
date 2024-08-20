@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Full-Scale Operation"
-run/main_scene="res://ui/main_menu.tscn"
+run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
@@ -33,6 +33,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "blank": "res://dialogue/timelines/blank.dtl",
+"chamber_1_start": "res://dialogue/timelines/chamber_1_start.dtl",
 "intro_1": "res://dialogue/timelines/intro_1.dtl",
 "intro_2": "res://dialogue/timelines/intro_2.dtl",
 "intro_3": "res://dialogue/timelines/intro_3.dtl",
