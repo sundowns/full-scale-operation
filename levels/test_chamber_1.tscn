@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7sopnq2s5yph"]
+[gd_scene load_steps=30 format=3 uid="uid://c7sopnq2s5yph"]
 
 [ext_resource type="PackedScene" uid="uid://dogbp26pm05oa" path="res://levels/base_level.tscn" id="1_swpca"]
 [ext_resource type="PackedScene" uid="uid://cuy5bn2r2h4ac" path="res://components/toggleable_door.tscn" id="2_2tqom"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" path="res://dialogue/timelines/chamber_1_start.dtl" id="4_cr5vh"]
 [ext_resource type="Resource" uid="uid://cuowr476ogxlr" path="res://items/data/pot_plant.tres" id="5_46wqj"]
 [ext_resource type="Resource" uid="uid://c1ttsyqgmqs2e" path="res://items/data/lead_pipe.tres" id="5_fq01v"]
+[ext_resource type="Resource" path="res://dialogue/timelines/chamber_2_start.dtl" id="5_okpen"]
 [ext_resource type="PackedScene" uid="uid://cvb8jv251urkd" path="res://components/crate.tscn" id="6_ttktn"]
 [ext_resource type="PackedScene" uid="uid://523c22o0f8cc" path="res://components/lamp.tscn" id="7_b8rvg"]
 [ext_resource type="Script" path="res://src/resources/item_data.gd" id="10_kfuky"]
@@ -20,11 +21,19 @@
 [ext_resource type="Resource" uid="uid://doofx112qejp1" path="res://items/data/rock_small.tres" id="16_7ivqf"]
 [ext_resource type="Resource" uid="uid://c2dpy3dwl8bof" path="res://items/data/coffee_pot.tres" id="16_66qaq"]
 [ext_resource type="Resource" uid="uid://dp1d3dtjjjb8m" path="res://items/data/baseball_bat.tres" id="16_awbbv"]
+[ext_resource type="PackedScene" uid="uid://dgqyioiw36j8c" path="res://components/player_detection_area.tscn" id="22_dbbh6"]
 
 [sub_resource type="Resource" id="Resource_b6web"]
 script = ExtResource("3_1dgp8")
 label = "start"
 timeline = ExtResource("4_cr5vh")
+one_shot = true
+pause_game = true
+
+[sub_resource type="Resource" id="Resource_t5g6n"]
+script = ExtResource("3_1dgp8")
+label = "end"
+timeline = ExtResource("5_okpen")
 one_shot = true
 pause_game = true
 
@@ -40,6 +49,9 @@ size = Vector3(0.566559, 3.856, 9.88649)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qe6b7"]
 size = Vector3(0.637573, 3.85596, 19.9425)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpcyd"]
+size = Vector3(1.42358, 1.38586, 1.2334)
+
 [node name="World" instance=ExtResource("1_swpca")]
 script = ExtResource("2_8grdp")
 
@@ -47,7 +59,7 @@ script = ExtResource("2_8grdp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01293, 0.37234, -2.50539)
 
 [node name="LevelDialogueManager" parent="." index="4"]
-dialogue = Array[ExtResource("3_1dgp8")]([SubResource("Resource_b6web")])
+dialogue = Array[ExtResource("3_1dgp8")]([SubResource("Resource_b6web"), SubResource("Resource_t5g6n")])
 
 [node name="LoadNextLevelZone" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51168, 0, -5.42004)
@@ -73,6 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.5)
 [node name="Scale" parent="." index="11" instance=ExtResource("3_prgah")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.40334, 0, -6.91989)
 test_item = ExtResource("5_46wqj")
+error_margin = 600.0
 
 [node name="InvisibleWalls" type="StaticBody3D" parent="." index="12"]
 metadata/_edit_lock_ = true
@@ -93,15 +106,15 @@ shape = SubResource("BoxShape3D_qe6b7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8002, 0, -6.12848)
 
 [node name="Crate" parent="." index="14" instance=ExtResource("6_ttktn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.22572, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.68462, 0, -1.3985)
 items = Array[ExtResource("10_kfuky")]([ExtResource("5_fq01v"), ExtResource("12_kokw6"), ExtResource("13_01xp2")])
 
 [node name="Crate2" parent="." index="15" instance=ExtResource("6_ttktn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.48348, 0, 5.08063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.05579, 0, 3.26466)
 items = Array[ExtResource("10_kfuky")]([ExtResource("13_rl0rh")])
 
 [node name="Crate3" parent="." index="16" instance=ExtResource("6_ttktn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32677, 0, 7.98132)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32677, 0, 5.30063)
 items = Array[ExtResource("10_kfuky")]([ExtResource("15_x4dds"), ExtResource("16_66qaq"), ExtResource("16_awbbv")])
 
 [node name="Crate4" parent="." index="17" instance=ExtResource("6_ttktn")]
@@ -111,7 +124,15 @@ items = Array[ExtResource("10_kfuky")]([ExtResource("16_7ivqf"), ExtResource("15
 [node name="Lamp" parent="." index="18" instance=ExtResource("7_b8rvg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.559, -4.193)
 
+[node name="PlayerDetectionArea" parent="." index="19" instance=ExtResource("22_dbbh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48411, 0.337336, -3.89986)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0150146, 0.192932, 0.116699)
+shape = SubResource("BoxShape3D_tpcyd")
+
 [connection signal="scale_invalid" from="Scale" to="ToggleableDoor" method="close"]
 [connection signal="scale_invalid" from="Scale" to="Lamp" method="turn_off"]
 [connection signal="scale_valid" from="Scale" to="ToggleableDoor" method="open"]
 [connection signal="scale_valid" from="Scale" to="Lamp" method="turn_on"]
+[connection signal="player_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_player_entered"]

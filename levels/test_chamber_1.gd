@@ -1,5 +1,7 @@
 extends Level
 
+@onready var toggleable_door: ToggleableDoor = $ToggleableDoor
+
 func initialise() -> bool:
 	## code goes here
 	Callable(play_starting_dialogue).call_deferred()
@@ -11,3 +13,8 @@ func play_starting_dialogue() -> void:
 
 @warning_ignore("unused_parameter")
 func _on_dialogic_signal_event(argument) -> void: pass
+
+
+func _on_player_detection_area_player_entered() -> void:
+	if toggleable_door.is_open:
+		level_dialogue_manager.play("end")
