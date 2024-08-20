@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://cwcuyfspp55us"]
+
+[ext_resource type="Script" path="res://src/resources/sound_effect.gd" id="1_2ksr3"]
+[ext_resource type="AudioStream" uid="uid://dq6w3fuxav7jl" path="res://audio/Boogie-Party(chosic.com).mp3" id="2_0ggj1"]
+
+[resource]
+script = ExtResource("1_2ksr3")
+sfx = ExtResource("2_0ggj1")
+decibels = -20.0
+pitch_scale = 1.0

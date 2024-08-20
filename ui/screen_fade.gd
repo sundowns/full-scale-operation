@@ -33,7 +33,7 @@ func initialise() -> void:
 	
 	resize()
 
-func fade_in() -> void:
+func fade_in(duration: float = fade_time) -> void:
 	color_rect.color = black_colour
 	color_rect.visible = true
 	
@@ -41,13 +41,13 @@ func fade_in() -> void:
 		tween.kill()
 	
 	tween = create_tween().set_ease(Tween.EASE_IN)
-	tween.tween_property(color_rect, "color", transparent, fade_time)
+	tween.tween_property(color_rect, "color", transparent, duration)
 	await tween.finished
 	loading_label.visible = false
 	finished.emit()
 	color_rect.visible = false
 
-func fade_out() -> void:
+func fade_out(duration: float = fade_time) -> void:
 	color_rect.visible = true
 	color_rect.color = transparent
 	
@@ -55,7 +55,7 @@ func fade_out() -> void:
 		tween.kill()
 	
 	tween = create_tween().set_ease(Tween.EASE_OUT)
-	tween.tween_property(color_rect, "color", black_colour, fade_time)
+	tween.tween_property(color_rect, "color", black_colour, duration)
 	await tween.finished
 	loading_label.visible = true
 	finished.emit()

@@ -1,0 +1,131 @@
+[gd_scene load_steps=17 format=3 uid="uid://b0cmfxrjgi04m"]
+
+[ext_resource type="PackedScene" uid="uid://dogbp26pm05oa" path="res://levels/base_level.tscn" id="1_axwtj"]
+[ext_resource type="Texture2D" uid="uid://c0gmux736h0yx" path="res://assets/The Administrator.png" id="2_fs81q"]
+[ext_resource type="Script" path="res://levels/margaritaville.gd" id="2_uwtda"]
+[ext_resource type="PackedScene" uid="uid://d20sk04d4gm74" path="res://assets/party_time/Beach.glb" id="3_1bqn7"]
+[ext_resource type="Script" path="res://src/resources/level_dialogue.gd" id="3_itxqh"]
+[ext_resource type="PackedScene" uid="uid://drgh6oo3x7giu" path="res://assets/party_time/cocktail.glb" id="4_iovxv"]
+[ext_resource type="Resource" path="res://dialogue/timelines/party_time.dtl" id="4_wrmyr"]
+[ext_resource type="PackedScene" uid="uid://csrbhetanagdj" path="res://assets/party_time/pizza-box.glb" id="5_dcpfh"]
+[ext_resource type="Texture2D" uid="uid://di08rggly8ynw" path="res://assets/Scaleb.png" id="5_ftgh4"]
+[ext_resource type="PackedScene" uid="uid://dr4u5u006rikk" path="res://assets/party_time/pizza.glb" id="6_jy8u5"]
+[ext_resource type="PackedScene" uid="uid://e4dy5xpkswib" path="res://assets/party_time/cutting-board.glb" id="9_gvc3h"]
+[ext_resource type="PackedScene" uid="uid://xslhg1gp8wpd" path="res://assets/party_time/cake.glb" id="10_okwjy"]
+
+[sub_resource type="Resource" id="Resource_fftix"]
+script = ExtResource("3_itxqh")
+label = "start"
+timeline = ExtResource("4_wrmyr")
+one_shot = true
+pause_game = true
+
+[sub_resource type="Animation" id="Animation_4usye"]
+resource_name = "party_time"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Admin:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(15, 18.485), Vector2(30, 0), Vector2(15, 18.485), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x8eay"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Admin:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xc31j"]
+_data = {
+"RESET": SubResource("Animation_x8eay"),
+"party_time": SubResource("Animation_4usye")
+}
+
+[node name="World" instance=ExtResource("1_axwtj")]
+script = ExtResource("2_uwtda")
+
+[node name="PlayerSpawnPoint" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98707, 2.37234, -3.50539)
+
+[node name="LevelDialogueManager" parent="." index="4"]
+dialogue = Array[ExtResource("3_itxqh")]([SubResource("Resource_fftix")])
+
+[node name="Floor" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
+
+[node name="LoadNextLevelZone" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51168, 0, -5.42004)
+
+[node name="WallsGridMap" parent="." index="8"]
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="FloorGridMap" parent="." index="9"]
+data = {
+"cells": PackedInt32Array(-1638404, 0, 1441792, -1572867, 0, 1441792, -1507330, 0, 1441792, -1507329, 0, 1441792, -1441793, 0, 1441792, -1507328, 0, 1441792, -1441792, 0, 1441792, -1441791, 0, 1441792, -1376255, 0, 1441792, -1310718, 0, 1441792, -1245181, 0, 1441792, -1179645, 0, 1441792, -1179644, 0, 1441792, -1114108, 0, 1441792, -1048572, 0, 1441792, -1048571, 0, 1441792, -983035, 0, 1441792, 42, 65520, 131072, 41, 65520, 131072)
+}
+
+[node name="Admin" type="Sprite3D" parent="." index="10"]
+transform = Transform3D(0.940839, 0, 0.338853, 0, 1, 0, -0.338853, 0, 0.940839, -2, 2.67143, -4)
+pixel_size = 0.0025
+texture = ExtResource("2_fs81q")
+region_enabled = true
+region_rect = Rect2(0, 5, 591, 596)
+
+[node name="cocktail2" parent="Admin" index="0" instance=ExtResource("4_iovxv")]
+transform = Transform3D(0.94084, 0, -0.338853, 0, 1, 0, 0.338853, 0, 0.94084, 0.219769, -0.750756, 0.243712)
+
+[node name="Scaleb" type="Sprite3D" parent="." index="11"]
+transform = Transform3D(0.940881, 0, -0.338738, 0, 1, 0, 0.338738, 0, 0.940881, 1.41117, 2.67143, -4)
+pixel_size = 0.003
+texture = ExtResource("5_ftgh4")
+
+[node name="cocktail3" parent="Scaleb" index="0" instance=ExtResource("4_iovxv")]
+transform = Transform3D(0.940881, 0, 0.338738, 0, 1, 0, -0.338738, 0, 0.940881, -0.222987, -0.567068, 0.283934)
+
+[node name="Beach" parent="." index="12" instance=ExtResource("3_1bqn7")]
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 0, 0)
+
+[node name="pizza-box2" parent="." index="13" instance=ExtResource("5_dcpfh")]
+transform = Transform3D(0.397052, 0, -0.917796, 0, 1, 0, 0.917796, 0, 0.397052, -0.926652, 2.09515, -4.64371)
+
+[node name="pizza" parent="pizza-box2" index="1" instance=ExtResource("6_jy8u5")]
+
+[node name="Camera3D" type="Camera3D" parent="." index="14"]
+transform = Transform3D(0.986996, -0.0469965, 0.153718, 0, 0.956305, 0.292372, -0.160742, -0.28857, 0.943869, 0.918124, 4.74379, 2.46306)
+current = true
+
+[node name="cutting-board2" parent="." index="15" instance=ExtResource("9_gvc3h")]
+transform = Transform3D(-5.46392e-08, 0, -1.25, 0, 1.25, 0, 1.25, 0, -5.46392e-08, 0, 1.98335, -3.39513)
+
+[node name="cake" parent="cutting-board2" index="1" instance=ExtResource("10_okwjy")]
+transform = Transform3D(-3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 0, 0.0806527, 0)
+
+[node name="cocktail3" parent="." index="16" instance=ExtResource("4_iovxv")]
+transform = Transform3D(-0.699901, -0.713259, 0.0374301, 3.58871e-07, -0.0524058, -0.998626, 0.714241, -0.698939, 0.0366791, -3.1139, 1.92067, -3.45919)
+
+[node name="cocktail4" parent="." index="17" instance=ExtResource("4_iovxv")]
+transform = Transform3D(-0.0781186, -0.569006, -0.818615, -0.484927, 0.739127, -0.46748, 0.871059, 0.36045, -0.333666, -2.29924, 1.55102, -3.45919)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="18"]
+libraries = {
+"": SubResource("AnimationLibrary_xc31j")
+}
+autoplay = "party_time"

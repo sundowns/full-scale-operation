@@ -197,7 +197,7 @@ bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1][color=red]T[/color][color=orange]h[/color][color=yellow]a[/color][color=green]n[/color][color=blue]k[/color][color=indigo]s[/color] [color=violet]f[/color][color=red]o[/color][color=orange]r[/color] [color=yellow]p[/color][color=green]l[/color][color=blue]a[/color][color=indigo]y[/color][color=violet]i[/color][color=red]n[/color][color=orange]g[/color][color=yellow]![/color][/wave]"
 
 [node name="Credits" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(800, 0)
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -214,7 +214,7 @@ theme_override_constants/separation = 50
 alignment = 1
 
 [node name="Names" type="VBoxContainer" parent="Credits"]
-custom_minimum_size = Vector2(350, 0)
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 
@@ -259,7 +259,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Roles" type="VBoxContainer" parent="Credits"]
-custom_minimum_size = Vector2(350, 0)
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 
@@ -268,11 +268,11 @@ modulate = Color(0.76, 1, 0.784, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ptwp0")
 theme_override_font_sizes/font_size = 24
-text = "PROGRAMMING"
+text = "PROGRAMMING / NARRATIVE"
 vertical_alignment = 1
 
 [node name="Role2" type="Label" parent="Credits/Roles"]
-modulate = Color(0.76, 1, 0.784, 1)
+modulate = Color(0.968, 1, 0.76, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ptwp0")
 theme_override_font_sizes/font_size = 24

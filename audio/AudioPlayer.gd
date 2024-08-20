@@ -1,6 +1,7 @@
 extends AudioStreamPlayer
 
 const bgm = preload("res://audio/sfx/background_music_epic.tres")
+const partybgm = preload("res://audio/sfx/background_music_party.tres")
 
 var muted: bool = false
 
@@ -45,3 +46,6 @@ func play_sfx_at(effect: SoundEffect, location: Vector3) -> void:
 
 func play_background_music():
 	_play_music(bgm)
+
+func play_party_music():
+	_play_music(partybgm)
