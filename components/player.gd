@@ -3,10 +3,12 @@ class_name Player
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var hand: Hand = $Hand
+@onready var punchy: Punchy = $Punchy
 
 @onready var left_thruster_remote_transform: RemoteTransform3D = $LeftThrusterLocation
 @onready var right_thruster_remote_transform: RemoteTransform3D = $RightThrusterLocation
 @onready var thruster_particles: GPUParticles3D = $ThrusterParticles
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -42,6 +44,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	time_since_physics_frame = 0
 	thruster_particles.emitting = Vector3(velocity.x, 0, velocity.z).length() > 0 
+	
+	if Input.is_action_just_pressed("punch"):
+		if not punchy.is_punching:
+			if not sprite_3d.flip_h:
+				animation_player.play("punch_left")
+				punchy.swing(true)
+			else:
+				animation_player.play("punch_right")
+				punchy.swing(false)
 
 func _process(delta: float) -> void:
 	time_since_physics_frame += delta

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b42pgqd77k37g"]
+[gd_scene load_steps=23 format=3 uid="uid://b42pgqd77k37g"]
 
 [ext_resource type="PackedScene" uid="uid://dogbp26pm05oa" path="res://levels/base_level.tscn" id="1_c35gt"]
 [ext_resource type="Script" path="res://src/resources/level_dialogue.gd" id="2_5hmwf"]
@@ -10,6 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://dokux4ebtr2rk" path="res://components/all_item_spawner.tscn" id="5_wihjg"]
 [ext_resource type="PackedScene" uid="uid://cuy5bn2r2h4ac" path="res://components/toggleable_door.tscn" id="6_uuwdu"]
 [ext_resource type="PackedScene" uid="uid://523c22o0f8cc" path="res://components/lamp.tscn" id="7_j2a64"]
+[ext_resource type="PackedScene" uid="uid://cvb8jv251urkd" path="res://components/crate.tscn" id="11_jt8n3"]
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="12_chtil"]
+[ext_resource type="Resource" uid="uid://dgyx6ylai7kaa" path="res://items/data/car_tyre.tres" id="13_00qq3"]
+[ext_resource type="Resource" uid="uid://desbf6hvx41b1" path="res://items/data/book.tres" id="14_pniyc"]
+[ext_resource type="Resource" uid="uid://doofx112qejp1" path="res://items/data/rock_small.tres" id="15_ke44y"]
+[ext_resource type="Resource" uid="uid://c0iq473qmvdnm" path="res://items/data/hammer.tres" id="16_v2on6"]
+[ext_resource type="Resource" uid="uid://cur4j25g15gky" path="res://items/data/nail.tres" id="17_ljtab"]
+[ext_resource type="Resource" uid="uid://wkosd3xfip3l" path="res://items/data/battery.tres" id="18_dr3n6"]
 
 [sub_resource type="Resource" id="Resource_s27oq"]
 script = ExtResource("2_5hmwf")
@@ -72,6 +80,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46364, 1.21679, -10.1341)
 
 [node name="Lamp2" parent="." index="15" instance=ExtResource("7_j2a64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.57096, 1.21679, -10.1341)
+
+[node name="Crate" parent="." index="17" instance=ExtResource("11_jt8n3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.20277, 0, 1.89805)
+items = Array[ExtResource("12_chtil")]([ExtResource("3_1nvu8")])
+
+[node name="Crate2" parent="." index="18" instance=ExtResource("11_jt8n3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2706, 0, 1.89805)
+items = Array[ExtResource("12_chtil")]([ExtResource("13_00qq3"), ExtResource("14_pniyc")])
+
+[node name="Crate3" parent="." index="19" instance=ExtResource("11_jt8n3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2706, 0, 4.60938)
+items = Array[ExtResource("12_chtil")]([ExtResource("15_ke44y"), ExtResource("16_v2on6"), ExtResource("17_ljtab"), ExtResource("17_ljtab"), ExtResource("17_ljtab"), ExtResource("18_dr3n6")])
 
 [connection signal="scale_invalid" from="Scale" to="ToggleableDoor" method="close"]
 [connection signal="scale_invalid" from="Scale" to="Lamp" method="turn_off"]

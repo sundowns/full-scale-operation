@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvb8jv251urkd"]
+
+[ext_resource type="Script" path="res://components/crate.gd" id="1_3g0w5"]
+[ext_resource type="PackedScene" uid="uid://c22uaib8i7eea" path="res://assets/Crate.glb" id="1_3kvie"]
+[ext_resource type="PackedScene" uid="uid://2bkcwmqufawx" path="res://vfx/crate_smash_particles.tscn" id="3_eekk1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_in5gp"]
+size = Vector3(0.775, 0.775, 0.775)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bsmnp"]
+size = Vector3(1, 0.8, 1)
+
+[node name="Crate" type="StaticBody3D"]
+script = ExtResource("1_3g0w5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.388, 0)
+shape = SubResource("BoxShape3D_in5gp")
+
+[node name="Mesh" parent="." instance=ExtResource("1_3kvie")]
+
+[node name="Smashma" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Smashma"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_bsmnp")
+
+[node name="CrateSmashParticles" parent="." instance=ExtResource("3_eekk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.442294, 0)
+amount = 16
+
+[node name="ItemSpawnLocation" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.734376, 0)
+
+[connection signal="area_entered" from="Smashma" to="." method="_on_smashma_area_entered"]

@@ -4,11 +4,13 @@ extends Level
 @onready var item_spawner: AllItemSpawner = $AllItemSpawner
 @onready var lamp: Lamp = $Lamp
 @onready var item_anchor: Node = $Items
+@onready var crate: ItemCrate = $Crate
 
 var movement_complete: bool = false
 var dialogue_complete: bool = false
 var lamp_effect_complete: bool = false
 var items_complete: bool = false
+var crate_effect_complete: bool = false
 
 func initialise() -> bool:
 	## code goes here
@@ -23,6 +25,7 @@ func commence_loadathon() -> void:
 	Callable(play_dialogue).call_deferred()
 	Callable(spawn_items).call_deferred()
 	Callable(lampma).call_deferred()
+	Callable(cratema).call_deferred()
 
 func fade_to_black() -> void:
 	ScreenFade.fade_out()
@@ -70,6 +73,11 @@ func lampma() -> void:
 	await get_tree().process_frame
 	lamp_effect_complete = true
 
+func cratema () -> void:
+	crate.smash()
+	await get_tree().create_timer(0.8).timeout
+	crate_effect_complete = true
+
 func _process(_delta: float) -> void:
 	if is_finished_all():
 		set_process(false)
@@ -77,7 +85,7 @@ func _process(_delta: float) -> void:
 		LevelManager.level_complete(false)
 
 func is_finished_all() -> bool:
-	return movement_complete and dialogue_complete and lamp_effect_complete and items_complete
+	return movement_complete and dialogue_complete and lamp_effect_complete and items_complete and crate_effect_complete
 
 func create_input(action_name: String, pressed: bool = true) -> InputEventAction:
 	var action := InputEventAction.new()

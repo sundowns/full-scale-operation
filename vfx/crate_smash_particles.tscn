@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://2bkcwmqufawx"]
+
+[ext_resource type="Texture2D" uid="uid://dmpvw7xc6fwxn" path="res://assets/star_05.png" id="1_d3bhd"]
+
+[sub_resource type="Gradient" id="Gradient_nt47b"]
+offsets = PackedFloat32Array(0, 0.872629)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.0460705)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b8nli"]
+gradient = SubResource("Gradient_nt47b")
+
+[sub_resource type="Curve" id="Curve_ei16v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.743073, 0), -2.48843, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1174q"]
+curve = SubResource("Curve_ei16v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dtt5c"]
+radial_velocity_min = 3.99998
+radial_velocity_max = 9.99998
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_1174q")
+color_ramp = SubResource("GradientTexture1D_b8nli")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_subjt"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.863833, 0.57, 1)
+albedo_texture = ExtResource("1_d3bhd")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_pg855"]
+material = SubResource("StandardMaterial3D_subjt")
+size = Vector2(0.25, 0.25)
+
+[node name="CrateSmashParticles" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.109152, 0)
+emitting = false
+amount = 30
+one_shot = true
+preprocess = 0.1
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_dtt5c")
+draw_pass_1 = SubResource("QuadMesh_pg855")
