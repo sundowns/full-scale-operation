@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/FoamRubber-320bit(chosic.com).mp3-14fb3e343ff
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
