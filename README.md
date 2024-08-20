@@ -2,6 +2,8 @@
 
 ![Cover](./media/cover.png)
 
+Play the game [here](https://sundowns.itch.io/full-scale-operation)
+
 ## Controls
 
 * [WASD/Arrows] Move
