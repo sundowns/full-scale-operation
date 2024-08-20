@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cd1uc5gf5jbj3"]
+[gd_scene load_steps=12 format=3 uid="uid://cd1uc5gf5jbj3"]
 
 [ext_resource type="Script" path="res://components/player.gd" id="1_60foy"]
 [ext_resource type="Texture2D" uid="uid://5lfcbc2goqkr" path="res://assets/Scaleb Fireless.png" id="2_jeqlh"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dbhvm1t8b6qyc" path="res://components/weight_component.tscn" id="4_ii7f8"]
 [ext_resource type="PackedScene" uid="uid://cgop28hpcbm50" path="res://vfx/fire_particles.tscn" id="5_4q00f"]
 [ext_resource type="PackedScene" uid="uid://bns07e6xidda0" path="res://components/punchy.tscn" id="6_fg7ah"]
-[ext_resource type="Texture2D" uid="uid://d1ro1xxvph341" path="res://assets/whitePuff02.png" id="7_1txvo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5p7xc"]
 radius = 0.25
@@ -26,30 +25,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PunchSprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.5, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PunchSprite:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_frg3p"]
 resource_name = "punch_left"
@@ -67,30 +42,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-200, 0), Vector2(0, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PunchSprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.5, 0, 0), Vector3(-1, 0, 0), Vector3(-0.5, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PunchSprite:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_jy3a1"]
 resource_name = "punch_right"
@@ -107,30 +58,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(200, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PunchSprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.5, 0, 0), Vector3(1, 0, 0), Vector3(0.5, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PunchSprite:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5jlb2"]
@@ -178,11 +105,6 @@ transform = Transform3D(0.679031, -0.734109, 0, 0.734109, 0.679031, 0, 0, 0, 1, 
 libraries = {
 "": SubResource("AnimationLibrary_5jlb2")
 }
-
-[node name="PunchSprite" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
-pixel_size = 0.001
-texture = ExtResource("7_1txvo")
 
 [connection signal="dropped_thing" from="Hand" to="." method="_on_hand_dropped_thing"]
 [connection signal="grabbed_thing" from="Hand" to="." method="_on_hand_grabbed_thing"]

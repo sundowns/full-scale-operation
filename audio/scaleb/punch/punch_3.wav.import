@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dey5agmmerp4n"
-path="res://.godot/imported/voice1.wav-7b077c9146dbe6744cc69ba21e60fec4.sample"
+uid="uid://bmrvo7s115pra"
+path="res://.godot/imported/punch_3.wav-2097c5d3b4a0b599ec40e0365bd5c47c.sample"
 
 [deps]
 
-source_file="res://audio/voices/scaleb/voice1.wav"
-dest_files=["res://.godot/imported/voice1.wav-7b077c9146dbe6744cc69ba21e60fec4.sample"]
+source_file="res://audio/scaleb/punch/punch_3.wav"
+dest_files=["res://.godot/imported/punch_3.wav-2097c5d3b4a0b599ec40e0365bd5c47c.sample"]
 
 [params]
 

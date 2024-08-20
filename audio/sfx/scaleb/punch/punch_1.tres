@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://5sk7sb4fxxkm"]
+
+[ext_resource type="Script" path="res://src/resources/sound_effect.gd" id="1_a0eyj"]
+[ext_resource type="AudioStream" uid="uid://ci7o36kdk32ao" path="res://audio/scaleb/punch/punch_1.wav" id="2_bbta2"]
+
+[resource]
+script = ExtResource("1_a0eyj")
+sfx = ExtResource("2_bbta2")
+decibels = 0.0
+pitch_scale = 1.0
