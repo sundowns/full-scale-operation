@@ -56,4 +56,4 @@ func populate_all_items() -> void:
 	assert(directory, "Oh no we can't load our items :c")
 	for file in directory.get_files():
 		all_items.push_back(load(item_data_directory + file))
-	print("Loaded %d items" % all_items.size())
+	#print("Loaded %d items" % all_items.size())

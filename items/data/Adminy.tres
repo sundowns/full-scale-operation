@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cp3elkn41qhdn"]
+
+[ext_resource type="Resource" uid="uid://2ggcatowdrhi" path="res://audio/sfx/menu_select_pickup.tres" id="1_ad4i0"]
+[ext_resource type="Script" path="res://src/resources/item_data.gd" id="2_0law4"]
+[ext_resource type="Texture2D" uid="uid://c0gmux736h0yx" path="res://assets/The Administrator.png" id="3_odc8j"]
+
+[resource]
+script = ExtResource("2_0law4")
+sprite = ExtResource("3_odc8j")
+weight = 80000.0
+width = 1.0
+grab_sfx = ExtResource("1_ad4i0")
+minimum_speed_for_landing_effects = 2.5

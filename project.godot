@@ -44,6 +44,10 @@ directories/dtl_directory={
 "intro_4": "res://dialogue/timelines/intro_4.dtl",
 "intro_5": "res://dialogue/timelines/intro_5.dtl",
 "party_time": "res://dialogue/timelines/party_time.dtl",
+"prison_1": "res://dialogue/timelines/prison_1.dtl",
+"prison_2": "res://dialogue/timelines/prison_2.dtl",
+"prison_3": "res://dialogue/timelines/prison_3.dtl",
+"prison_4": "res://dialogue/timelines/prison_4.dtl",
 "test": "res://dialogue/timelines/test.dtl",
 "test2": "res://dialogue/timelines/test2.dtl"
 }

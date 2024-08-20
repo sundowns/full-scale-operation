@@ -8,11 +8,19 @@ class_name ItemGenerator
 
 @export var spawn_item_sfx: SoundEffect
 
+## There's no time to explain
+@export var anvil_mode: bool = false
+
 func _ready() -> void:
 	player_detection_area.player_entered.connect(self._on_player_detected, CONNECT_DEFERRED)
 
 func _on_player_detected() -> void:
-	spawn_item_at(spawn_location.global_position, Items.get_random_item())
+	var item: ItemData
+	if anvil_mode:
+		item = preload("res://items/data/anvil.tres")
+	else:
+		item = Items.get_random_item()
+	spawn_item_at(spawn_location.global_position, item)
 
 func spawn_item_at(at: Vector3, data: ItemData) -> void:
 	var new_item = item_scene.instantiate() as Item

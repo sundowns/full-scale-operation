@@ -50,6 +50,7 @@ func initialise() -> void:
 	scale_test_area.set_goal_weight(test_item.weight - error_margin/2, test_item.weight + error_margin/2)
 	test_item_sprite.texture = test_item.sprite
 	test_item_sprite.pixel_size = test_item.get_pixel_size()
+	print(test_item.get_pixel_size())
 	DependencyHelper.retrieve("World").connect_node_to_pause_signals(self)
 	update_scales()
 
