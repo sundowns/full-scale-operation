@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_ka6yp")
 sfx = ExtResource("2_r16e4")
-decibels = -10.0
+decibels = -15.0
 pitch_scale = 1.0
