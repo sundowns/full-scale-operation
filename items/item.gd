@@ -36,8 +36,11 @@ func initialise() -> void:
 	highlight_material.set_shader_parameter("sprite_texture", data.sprite)
 	highlight_material.set_shader_parameter("glowSize", base_glow_size * 1.0/data.width)
 	
-	DependencyHelper.retrieve("World").connect_node_to_pause_signals(self)
+	Callable(connect_to_pause).call_deferred()
 	_is_initialised = true
+
+func connect_to_pause() -> void:
+	DependencyHelper.retrieve("World").connect_node_to_pause_signals(self)
 
 func _process(delta: float) -> void:
 	if is_being_held:

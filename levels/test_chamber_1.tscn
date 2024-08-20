@@ -85,7 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -4.5)
 [node name="Scale" parent="." index="11" instance=ExtResource("3_prgah")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.40334, 0, -6.91989)
 test_item = ExtResource("5_46wqj")
-error_margin = 600.0
+error_margin = 700.0
 
 [node name="InvisibleWalls" type="StaticBody3D" parent="." index="12"]
 metadata/_edit_lock_ = true
