@@ -36,7 +36,7 @@ var is_active: bool = false
 
 var is_waiting_to_emit_success: bool = false
 
-const difference_between_scales_for_great_success_borat_voice: float = 0.11
+const difference_between_scales_for_great_success_borat_voice: float = 0.12
 
 func _ready() -> void:
 	if test_item:
