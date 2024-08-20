@@ -135,15 +135,8 @@ theme_override_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BottomMiddle"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 200
 alignment = 1
-
-[node name="Play" type="Button" parent="BottomMiddle/VBoxContainer"]
-custom_minimum_size = Vector2(350, 80)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_1npy6")
-theme_override_font_sizes/font_size = 30
-text = "PLAY"
 
 [node name="FullscreenToggle" type="CheckButton" parent="BottomMiddle/VBoxContainer"]
 layout_mode = 2
@@ -152,6 +145,13 @@ theme_override_fonts/font = ExtResource("2_1npy6")
 theme_override_font_sizes/font_size = 20
 text = "Fullscreen (recommended)"
 alignment = 1
+
+[node name="Play" type="Button" parent="BottomMiddle/VBoxContainer"]
+custom_minimum_size = Vector2(350, 80)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1npy6")
+theme_override_font_sizes/font_size = 30
+text = "PLAY"
 
 [node name="BottomLeft" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -255,5 +255,5 @@ theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1][color=red]F[/color][color=orange]u[/color][color=yellow]l[/color][color=green]l[/color]-[color=blue]S[/color][color=indigo]c[/color][color=violet]a[/color][color=red]l[/color][color=orange]e[/color] [color=yellow]O[/color][color=green]p[/color][color=blue]e[/color][color=indigo]r[/color][color=violet]a[/color][color=red]t[/color][color=orange]i[/color][color=yellow]o[/color][color=green]n[/color][/wave]"
 
-[connection signal="pressed" from="BottomMiddle/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="BottomMiddle/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_pressed"]
+[connection signal="pressed" from="BottomMiddle/VBoxContainer/Play" to="." method="_on_play_pressed"]
