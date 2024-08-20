@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://c7efblsmil8n5"]
+
+[ext_resource type="Script" path="res://src/resources/sound_effect.gd" id="1_jqk6k"]
+[ext_resource type="AudioStream" uid="uid://b0dufkbflo3rc" path="res://audio/scaleb/jump/jump_6.wav" id="2_qj8my"]
+
+[resource]
+script = ExtResource("1_jqk6k")
+sfx = ExtResource("2_qj8my")
+decibels = 0.0
+pitch_scale = 1.0

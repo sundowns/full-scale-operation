@@ -10,6 +10,13 @@ class_name Punchy
 @onready var left_end: Marker3D = $LeftEnd
 @onready var right_end: Marker3D = $RightEnd
 
+@onready var punch_sfx = {
+		"1": preload("res://audio/sfx/scaleb/punch/punch_1.tres"),
+		"2": preload("res://audio/sfx/scaleb/punch/punch_2.tres"),
+		"3": preload("res://audio/sfx/scaleb/punch/punch_3.tres"),
+		"4": preload("res://audio/sfx/scaleb/punch/punch_4.tres"),
+	}
+
 var is_punching: bool = false
 var punch_tween: Tween
 
@@ -25,6 +32,9 @@ func swing(left: bool) -> void:
 		target_location = left_end.position
 	is_punching = true
 	enable_hitbox()
+	var sfx = punch_sfx[punch_sfx.keys().pick_random()]
+	AudioPlayer.play_sfx_at(sfx, global_position)
+	
 	punch_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	punch_tween.tween_property(glove, "position", target_location, punch_extend_duration)
 	punch_tween.chain().tween_property(glove, "position", Vector3.ZERO, punch_retract_duration)

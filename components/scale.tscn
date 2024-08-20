@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://components/scale.gd" id="1_cbncb"]
 [ext_resource type="PackedScene" uid="uid://m4pfyqtcocd" path="res://components/scale_area.tscn" id="2_0ch5c"]
 [ext_resource type="Resource" uid="uid://dt3tmmp4qj5s2" path="res://items/data/bowling_ball.tres" id="2_ivkym"]
-[ext_resource type="PackedScene" uid="uid://racmmrfkassp" path="res://components/balance_scales.tscn" id="4_bmddv"]
-[ext_resource type="PackedScene" uid="uid://cgm1pv3idq7wv" path="res://components/dish.tscn" id="4_s4l5g"]
+[ext_resource type="PackedScene" path="res://components/balance_scales.tscn" id="4_bmddv"]
+[ext_resource type="PackedScene" path="res://components/dish.tscn" id="4_s4l5g"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r4hvo"]
 height = 0.139584

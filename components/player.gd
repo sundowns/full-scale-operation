@@ -4,11 +4,20 @@ class_name Player
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var hand: Hand = $Hand
 @onready var punchy: Punchy = $Punchy
+@onready var punch_sprite: Sprite3D = $PunchSprite
 
 @onready var left_thruster_remote_transform: RemoteTransform3D = $LeftThrusterLocation
 @onready var right_thruster_remote_transform: RemoteTransform3D = $RightThrusterLocation
 @onready var thruster_particles: GPUParticles3D = $ThrusterParticles
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var jump_sfx = {
+		"1": preload("res://audio/sfx/scaleb/jump/jump_1.tres"),
+		"2": preload("res://audio/sfx/scaleb/jump/jump_2.tres"),
+		"3": preload("res://audio/sfx/scaleb/jump/jump_3.tres"),
+		"4": preload("res://audio/sfx/scaleb/jump/jump_4.tres"),
+		"5": preload("res://audio/sfx/scaleb/jump/jump_5.tres"),
+		"6": preload("res://audio/sfx/scaleb/jump/jump_6.tres"),
+	}
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -20,6 +29,7 @@ var additional_speed: float = 0.0
 func _ready() -> void:
 	sprite_3d.top_level = true
 	hand_offset = hand.position
+	punch_sprite.visible = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -28,7 +38,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY + ( 0.35 * additional_speed )
+		jump()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -63,6 +73,11 @@ func _process(delta: float) -> void:
 
 func get_extrapolated_position(additional_time: float = 0) -> Vector3:
 	return global_position + velocity * (time_since_physics_frame + additional_time)
+
+func jump():
+	velocity.y = JUMP_VELOCITY + ( 0.35 * additional_speed )
+	var sfx = jump_sfx[jump_sfx.keys().pick_random()]
+	AudioPlayer.play_sfx_at(sfx, global_position)
 
 func handle_sprite_rotation() -> void:
 	var direction := velocity.normalized()
