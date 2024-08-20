@@ -7,6 +7,7 @@ class_name Punchy
 @onready var glove: Node3D = $Glove
 @onready var hitbox: Area3D = $Glove/Hitbox
 @onready var collision_shape_3d: CollisionShape3D = $Glove/Hitbox/CollisionShape3D
+@onready var punch_sprite: Sprite3D = $Glove/Hitbox/Sprite3D
 @onready var left_end: Marker3D = $LeftEnd
 @onready var right_end: Marker3D = $RightEnd
 
@@ -38,4 +39,5 @@ func disable_hitbox() -> void:
 
 func enable_hitbox() -> void:
 	collision_shape_3d.disabled = false
+	punch_sprite.modulate.a = 0
 	hitbox.set_deferred("monitorable", true)

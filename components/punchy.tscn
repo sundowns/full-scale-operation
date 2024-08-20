@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bns07e6xidda0"]
+[gd_scene load_steps=4 format=3 uid="uid://bns07e6xidda0"]
 
 [ext_resource type="Script" path="res://components/punchy.gd" id="1_fdv26"]
+[ext_resource type="Texture2D" uid="uid://d1ro1xxvph341" path="res://assets/whitePuff02.png" id="2_63jv7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7nfmk"]
 size = Vector3(0.5, 0.5, 1)
@@ -17,6 +18,10 @@ monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Glove/Hitbox"]
 shape = SubResource("BoxShape3D_7nfmk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Glove/Hitbox"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.3, 0, 0)
+texture = ExtResource("2_63jv7")
 
 [node name="LeftEnd" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.666085, 0, 0)
