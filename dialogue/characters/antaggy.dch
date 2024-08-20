@@ -19,12 +19,22 @@
 },
 "style": ""
 },
-"default_portrait": "",
+"default_portrait": "Default",
 "description": "",
 "display_name": "The Administrator",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
-"portraits": {},
+"portraits": {
+"Default": {
+"export_overrides": {
+"image": "\"res://assets/The Administrator.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -20),
+"scale": 1,
+"scene": ""
+}
+},
 "scale": 1.0
 }
