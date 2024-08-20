@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://dbsxa5ccgooo4"]
 
 [ext_resource type="Script" path="res://src/resources/sound_effect.gd" id="1_dkpyx"]
-[ext_resource type="AudioStream" uid="uid://civah7s83kanb" path="res://audio/Battle-TheOath_loop.ogg" id="2_5nphr"]
+[ext_resource type="AudioStream" uid="uid://brnjf68aa0d2r" path="res://audio/FoamRubber-320bit(chosic.com).mp3" id="2_uqwi2"]
 
 [resource]
 script = ExtResource("1_dkpyx")
-sfx = ExtResource("2_5nphr")
-decibels = -35.0
+sfx = ExtResource("2_uqwi2")
+decibels = 0.0
 pitch_scale = 1.0

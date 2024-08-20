@@ -1,7 +1,7 @@
 extends Node
 class_name Game
 
-@export var play_bg_music: bool = false
+@export var play_bg_music: bool = true
 
 @onready var world_anchor: Node3D = $SubViewportContainer/SubViewport/WorldAnchor
 @onready var ui_overlay: UiOverlay = $ui_overlay
