@@ -12,6 +12,12 @@ const health: int = 1
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var item_spawn_location: Marker3D = $ItemSpawnLocation
 
+@export var smash_sounds: Array[SoundEffect] = [
+	preload("res://audio/sfx/crate_smash_1.tres"),
+	preload("res://audio/sfx/crate_smash_2.tres"),
+	preload("res://audio/sfx/crate_smash_3.tres"),
+]
+
 var item_scene: PackedScene = preload("res://items/item.tscn")
 var current_health: int = 1
 var is_freeing: bool = false
@@ -34,6 +40,7 @@ func smash() -> void:
 	mesh.visible = false
 	spawn_items()
 	smashma.queue_free()
+	AudioPlayer.play_sfx_at(smash_sounds.pick_random(), global_position)
 	smash_particles.emitting = true
 	await smash_particles.finished
 	smashed.emit()

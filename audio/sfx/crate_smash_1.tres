@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://bv0lnff3hr4i8"]
+
+[ext_resource type="Script" path="res://src/resources/sound_effect.gd" id="1_ka6yp"]
+[ext_resource type="AudioStream" uid="uid://b5dp1nk4ua5si" path="res://audio/impactwood10.ogg" id="2_r16e4"]
+
+[resource]
+script = ExtResource("1_ka6yp")
+sfx = ExtResource("2_r16e4")
+decibels = -10.0
+pitch_scale = 1.0
